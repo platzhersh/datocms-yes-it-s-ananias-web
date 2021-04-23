@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 
 export default () => (
   <header className="Header-header">
-    <h1 className="Header-h1">I know my kitChen - blog</h1>
+    <h1 className="Header-h1">Yes it's Ananias</h1>
+    <h2 className="Header-h2">Contemporary Psycho-Automatic Piano</h2>
+
     <nav className="Header-nav">
       <NavLink
         exact
