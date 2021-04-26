@@ -7,7 +7,7 @@ import styled from 'styled-components/macro'
 const releasesQuery = gql`
 
 query allReleases {
-    allReleases {
+    allReleases(orderBy: releaseyear_DESC) {
         id
         cover {
           responsiveImage {
@@ -33,46 +33,46 @@ query allReleases {
 const StyledAlbumListItem = styled.div`
   display: flex;
 
-`
+`;
 
 const CoverImageContainer = styled.div`
     flex: 0 0 300px;
     width: 300px; height: 300px;
-`
+    background: #777;
+`;
 
-const StyledAlbumDescription = styled(Image)`
+const StyledAlbumDescription = styled.div`
     flex: 1 1 auto;
 `
 
 const Releases = props => {
-  return (
-    <Query query={releasesQuery}>
-      {({ data, loading, error }) => {
-        if (loading) return 'Loading...'
-        if (error) return `ERROR: ${error}`
+    return (
+        <Query query={releasesQuery}>
+            {({ data, loading, error }) => {
+                if (loading) return 'Loading...'
+                if (error) return `ERROR: ${error}`
 
-        console.log('data', data)
-
-        return (
-          <section>
-            <div>
-              {data.allReleases.map(release => (
-                <StyledAlbumListItem key={release.id}>
-                  <CoverImageContainer>
-                    {release.cover && release.cover.responsiveImage && <Image data={release.cover.responsiveImage} />}
-                  </CoverImageContainer>
-                  <StyledAlbumDescription>
-                    <p>{release.title}</p>
-                    <p>{release.releaseyear}</p>
-                  </StyledAlbumDescription>
-                </StyledAlbumListItem>
-              ))}
-            </div>
-          </section>
-        )
-      }}
-    </Query>
-  )
+                return (
+                    <section>
+                        <div>
+                            {data.allReleases.map(release => (
+                                <StyledAlbumListItem key={release.id}>
+                                    <CoverImageContainer>
+                                        {release.cover && <Image data={release.cover.responsiveImage} />}
+                                    </CoverImageContainer>
+                                    <StyledAlbumDescription>
+                                        <p>{release.title}</p>
+                                        <p>{release.releaseyear}</p>
+                                    </StyledAlbumDescription>
+                                </StyledAlbumListItem>
+                            ))}
+                        </div>
+                    </section>
+                )
+            }}
+        </Query>
+    )
 }
 
 export default Releases
+
