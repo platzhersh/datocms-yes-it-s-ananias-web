@@ -1,5 +1,4 @@
 import React from "react";
-import SocialMediaLink from "../atoms/SocialMediaLink";
 
 
 export default () => (<p>Contact enquiries / bookings via Instagram, Facebook or <a
