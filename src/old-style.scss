@@ -33,7 +33,9 @@
 
 .social-icons {
     padding: 0;
-    font-size: 2rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .social-icons li {
@@ -45,9 +47,10 @@
     text-transform: uppercase;
 }
 
-// a, a:link, a:active, a:focus, a:hover, a:visited {
-//     color: #edd990;
-// }
+a, a:link, a:active, a:focus, a:hover, a:visited {
+    color: #de6d2c;
+    text-decoration: none;
+}
 
 .youtube-fluid {
     max-width: 100%;
