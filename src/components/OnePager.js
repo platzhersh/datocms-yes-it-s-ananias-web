@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import Contact from './molecules/Contact';
 
 const StyledIframge = styled.iframe`
     width: 100%;
@@ -10,13 +11,16 @@ const StyledIframge = styled.iframe`
 
 const OnePager = props => {
 
-    return <StyledIframge
+    return <>
+    <Contact />
+    <StyledIframge
         allow="autoplay *; encrypted-media *; fullscreen *"
         frameborder="0"
         height="150"
         sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
         src="https://embed.music.apple.com/us/album/to-venus-and-back-live/1539928223?i=1539928224">
-    </StyledIframge>;
+    </StyledIframge>
+    </>;
 
 }
 
