@@ -44,7 +44,7 @@ const StyledImage = styled(Image)`
 width: auto;
 `
 
-const Authors = props => {
+const About = props => {
   return (
     <Query query={aboutQuery}>
       {({ data, loading, error }) => {
@@ -72,4 +72,4 @@ const Authors = props => {
   )
 }
 
-export default Authors
+export default About

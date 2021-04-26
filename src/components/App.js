@@ -5,6 +5,7 @@ import Header from './Header'
 import About from './About'
 import Home from './Home'
 import Footer from './Footer'
+import Releases from './features/Releases'
 
 const App = () => (
   <Router>
@@ -12,6 +13,7 @@ const App = () => (
     <main>
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
+      <Route path='/releases' component={Releases} />
     </main>
     <Footer />
   </Router>
