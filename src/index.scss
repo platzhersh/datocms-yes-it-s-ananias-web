@@ -4,6 +4,8 @@ $color-theme-highlight: #ffb073;
 $color-tangerine: #de6d2c;
 $color-light-grey: #c2c2c2;
 
+$link-text-shadow: #777;
+
 /* Global styles*/
 
 
@@ -14,7 +16,7 @@ body {
   line-height: 1.5;
 
   background:#000;
-  color: #c2c2c2;
+  color: $color-light-grey;
   text-align: center;
 }
 a {
@@ -38,7 +40,7 @@ a {
   color: $color-tangerine;
 }
 .Header-h1:hover {
-  text-shadow: 6px 6px $color-light-grey;
+  text-shadow: 6px 6px $link-text-shadow;
   transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
@@ -56,14 +58,14 @@ a {
   margin-right: 10px;
   font-weight: bold;
   transition: all 0.3s ease-out;
-  text-shadow: 6px 6px #ffb073;
+  text-shadow: 6px 6px $link-text-shadow;
 }
 .Header-navLink:hover {
-  text-shadow: 1px 1px #ffb073;
+  text-shadow: 1px 1px $link-text-shadow;
 }
 .Header-isActive {
   transition: all 0.3s ease-out;
-  text-shadow: 1px 1px #ffb073;
+  text-shadow: 1px 1px $link-text-shadow;
 }
 /* Home*/
 
@@ -116,74 +118,14 @@ a {
   cursor: not-allowed;
 }
 .Home-button:hover {
-  box-shadow: 4px 4px 0px 0px #ffb073;
+  box-shadow: 4px 4px 0px 0px $link-text-shadow;
   margin-top: -4px;
   margin-left: -4px;
   transition: all 0.1s ease-out;
 }
 /* About*/
 
-.About-infoHeader {
-  text-align: center;
-}
-.About-img {
-  margin: 0 auto;
-}
-.About-author {
-  margin-bottom: 72px;
-}
-/* Recipe*/
-// .Recipe-flag {
-//   display: flex;
-//   align-items: center;
-//   margin-bottom: 48px;
-// }
-// .Recipe-title {
-//   text-align: center;
-//   font-size: 48px;
-//   text-transform: uppercase;
-// }
-// .Recipe-abstract {
-//   font-size: 16px;
-//   margin-bottom: 48px;
-// }
-// .Recipe-cover {
-//   height: 500px;
-//   width: 100%;
-//   margin-bottom: 48px;
-// }
-// .Recipe-flag-image {
-//   width: 50%;
-// }
-// .Recipe-cover,
-// .Recipe-flag-image {
-//   border-top: 4px solid #000;
-//   border-bottom: 4px solid #000;
-//   text-align: center;
-//   object-fit: cover;
-//   margin-right: 20px;
-// }
-// .Recipe-box {
-//   padding: 10px;
-//   box-shadow: 4px 4px 0px 0px #000;
-//   background-color: #ffb073;
-//   max-width: 500px;
-//   margin: 0 auto;
-//   margin-bottom: 48px;
-// }
-// .Recipe-box-title {
-//   margin: 0;
-//   text-transform: uppercase;
-// }
-// .Recipe-flag-text {
-//   padding: 10px;
-//   max-width: 50%;
-// }
-// .Recipe-flag-number {
-//   font-weight: bold;
-//   font-size: 40px;
-//   margin-right: 20px;
-// }
+/* Footer */
 
 .Footer-footer {
   padding: 20px 0;

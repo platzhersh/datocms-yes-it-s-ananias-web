@@ -30,6 +30,13 @@ export default () => (
       >
         About
       </NavLink>
+      <NavLink
+        to='/releases'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
+      >
+        Releases
+      </NavLink>
     </nav>
   </header>
 )
