@@ -53,6 +53,11 @@ a, a:link, a:active, a:focus, a:hover, a:visited {
     text-decoration: none;
 }
 
+a:active, a:focus, a:hover {
+    color: #edd990;
+    text-decoration: none;
+}
+
 .youtube-fluid {
     max-width: 100%;
 }
