@@ -1,7 +1,7 @@
-import React from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import { Image } from "react-datocms"
+import React from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import { Image } from 'react-datocms'
 
 const authorsQuery = gql`
   query authors {
@@ -24,22 +24,22 @@ const authorsQuery = gql`
       }
     }
   }
-`;
+`
 
 const Authors = props => {
   return (
     <Query query={authorsQuery}>
       {({ data, loading, error }) => {
-        if (loading) return "Loading...";
-        if (error) return `ERROR: ${error}`;
+        if (loading) return 'Loading...'
+        if (error) return `ERROR: ${error}`
         return (
           <section>
             <div>
               {data.authors.map(author => (
-                <div className="About-author" key={author.id}>
-                  <div className="About-infoHeader">
+                <div className='About-author' key={author.id}>
+                  <div className='About-infoHeader'>
                     <Image
-                      className="About-img"
+                      className='About-img'
                       data={author.avatar.responsiveImage}
                     />
                     <h2>{author.name}</h2>
@@ -49,10 +49,10 @@ const Authors = props => {
               ))}
             </div>
           </section>
-        );
+        )
       }}
     </Query>
-  );
-};
+  )
+}
 
-export default Authors;
+export default Authors

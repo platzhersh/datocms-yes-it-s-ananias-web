@@ -1,9 +1,8 @@
-import React from "react";
-import SocialMediaLinks from "./molecules/SocialMediaLinks";
-
+import React from 'react'
+import SocialMediaLinks from './molecules/SocialMediaLinks'
 
 export default () => (
-  <footer className="Footer-footer">
+  <footer className='Footer-footer'>
     <SocialMediaLinks />
   </footer>
-);
+)
