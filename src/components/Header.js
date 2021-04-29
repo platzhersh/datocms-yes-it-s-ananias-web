@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Contact from './molecules/Contact'
+import SocialMediaLinks from './molecules/SocialMediaLinks'
 
 const StyledHeader = styled.h1`
   font-family: 'Nineteen Ten Vienna', sans-serif;
@@ -22,6 +23,9 @@ export default () => (
       </StyledNavLink>
     
     <h2 className='Header-h2'>Contemporary Psycho-Automatic Piano</h2>
+
+    <SocialMediaLinks />
+
 
     <Contact />
 

@@ -32,7 +32,7 @@ query allReleases {
 
 const StyledAlbumListItem = styled.div`
   display: flex;
-
+  flex-wrap: wrap;
 `;
 
 const CoverImageContainer = styled.div`
@@ -61,8 +61,8 @@ const Releases = props => {
                                         {release.cover && <Image data={release.cover.responsiveImage} />}
                                     </CoverImageContainer>
                                     <StyledAlbumDescription>
-                                        <p>{release.title}</p>
-                                        <p>{release.releaseyear}</p>
+                                        <h2>{release.title}</h2>
+                                        <p>Release: {release.releaseyear}</p>
                                     </StyledAlbumDescription>
                                 </StyledAlbumListItem>
                             ))}
