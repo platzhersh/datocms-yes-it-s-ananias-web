@@ -57,11 +57,11 @@ const About = props => {
               {data.about.content.map(contentBlock => (
                 <div key={contentBlock.id}>
 
-                  <p>{contentBlock.text}</p>
+                  <div dangerouslySetInnerHTML={{ __html: contentBlock.text }} />
 
                   {contentBlock.image && <StyledImage
                     data={contentBlock.image.responsiveImage}
-                                         />}
+                  />}
                 </div>
               ))}
             </div>
