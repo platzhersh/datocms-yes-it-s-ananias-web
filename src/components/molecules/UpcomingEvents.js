@@ -22,20 +22,29 @@ query EventsQuery {
 }
 
 `
-const Events = props => {
+const UpcomingEvents = props => {
     return (
         <Query query={eventsQuery}>
             {({ data, loading, error }) => {
                 if (loading) return 'Loading...'
                 if (error) return `ERROR: ${error}`
 
-                console.log(data);
+                const upcomingEvents = data.allEvents.filter((event) => {
+                    if (!event.date) return false;
+                    const date = new Date(event.date);
+                    const today = new Date();
+                    if (date.getFullYear() < today.getFullYear()) return false;
+                    if (date.getMonth() < today.getMonth()) return false;
+                    if (date.getDate() < today.getDate()) return false;
+
+                    return true;
+                })
 
                 return (
                     <section>
-                        <h1>Events</h1>
+                        <h1>Upcoming Shows</h1>
                         <div>
-                            {data.allEvents.map(event => (
+                            {upcomingEvents.map(event => (
                                 <EventListItem event={event} />
                             ))}
                         </div>
@@ -46,5 +55,5 @@ const Events = props => {
     )
 }
 
-export default Events
+export default UpcomingEvents
 
