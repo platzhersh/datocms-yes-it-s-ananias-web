@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import Contact from './molecules/Contact'
-import SocialMediaLinks from './molecules/SocialMediaLinks'
+import Contact from './Contact'
+import SocialMediaLinks from './SocialMediaLinks'
 
 const StyledHeader = styled.h1`
   font-family: 'Nineteen Ten Vienna', sans-serif;

@@ -8,7 +8,7 @@ const StyledIframe = styled.iframe`
     border: none;
 `
 
-const OnePager = props => {
+const Home = props => {
   return (
     <>
       {/* <StyledIframe
@@ -24,4 +24,4 @@ const OnePager = props => {
   )
 }
 
-export default OnePager
+export default Home
