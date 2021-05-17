@@ -8,9 +8,10 @@ import ItemContainer from '../atoms/ItemContainer'
 const videosQuery = gql `
 
 query VideosQuery {
-    allVideos {
+    allVideos(orderBy: listposition_ASC) {
         title
         id
+        listposition
         videourl {
           width
           url

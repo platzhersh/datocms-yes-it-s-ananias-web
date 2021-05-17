@@ -6,7 +6,7 @@ import EventListItem from './EventListItem'
 const eventsQuery = gql`
 
 query EventsQuery {
-  allEvents(orderBy: listposition_ASC) {
+  allEvents {
     date
     description {
       value
