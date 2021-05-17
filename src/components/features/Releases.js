@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
+import ItemContainer from '../atoms/ItemContainer'
 
 const releasesQuery = gql`
 
@@ -30,7 +31,7 @@ query allReleases {
   }
 `
 
-const StyledAlbumListItem = styled.div`
+const StyledAlbumListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -46,17 +47,17 @@ const StyledAlbumDescription = styled.div`
 `
 
 const Releases = props => {
-    return (
-        <Query query={releasesQuery}>
-            {({ data, loading, error }) => {
-                if (loading) return 'Loading...'
-                if (error) return `ERROR: ${error}`
+  return (
+    <Query query={releasesQuery}>
+            {({data, loading, error}) => {
+      if (loading) return 'Loading...'
+      if (error) return `ERROR: ${error}`
 
-                return (
-                    <section>
+      return (
+        <section>
                         <div>
                             {data.allReleases.map(release => (
-                                <StyledAlbumListItem key={release.id}>
+          <StyledAlbumListItem key={release.id}>
                                     <CoverImageContainer>
                                         {release.cover && <Image data={release.cover.responsiveImage} />}
                                     </CoverImageContainer>
@@ -65,13 +66,13 @@ const Releases = props => {
                                         <p>Release: {release.releaseyear}</p>
                                     </StyledAlbumDescription>
                                 </StyledAlbumListItem>
-                            ))}
+        ))}
                         </div>
                     </section>
-                )
-            }}
+      )
+    }}
         </Query>
-    )
+  )
 }
 
 export default Releases

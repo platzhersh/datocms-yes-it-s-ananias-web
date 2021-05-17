@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import ItemContainer from '../atoms/ItemContainer';
 
-const StyledEventListItem = styled.div`
+const StyledEventListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
 

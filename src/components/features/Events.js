@@ -1,7 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import EventListItem from '../atoms/EventListItem'
+import EventListItem from '../molecules/EventListItem'
 
 const eventsQuery = gql`
 
@@ -23,27 +23,25 @@ query EventsQuery {
 
 `
 const Events = props => {
-    return (
-        <Query query={eventsQuery}>
-            {({ data, loading, error }) => {
-                if (loading) return 'Loading...'
-                if (error) return `ERROR: ${error}`
+  return (
+    <Query query={eventsQuery}>
+            {({data, loading, error}) => {
+      if (loading) return 'Loading...'
+      if (error) return `ERROR: ${error}`
 
-                console.log(data);
-
-                return (
-                    <section>
+      return (
+        <section>
                         <h1>Events</h1>
                         <div>
                             {data.allEvents.map(event => (
-                                <EventListItem event={event} />
-                            ))}
+          <EventListItem event={event} />
+        ))}
                         </div>
                     </section>
-                )
-            }}
+      )
+    }}
         </Query>
-    )
+  )
 }
 
 export default Events

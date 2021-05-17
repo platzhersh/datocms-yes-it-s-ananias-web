@@ -16,9 +16,9 @@ const StyledNavLink = styled(NavLink)`
 export default () => (
   <header className='Header-header'>
     <StyledNavLink
-        exact
-        to='/'
-      >
+  exact
+  to='/'
+  >
         <StyledHeader className='Header-h1'>Yes it's Ananias</StyledHeader>
       </StyledNavLink>
     
@@ -31,26 +31,33 @@ export default () => (
 
     <nav className='Header-nav'>
       <NavLink
-        exact
-        to='/'
-        className='Header-navLink'
-        activeClassName='Header-isActive'
-      >
+  exact
+  to='/'
+  className='Header-navLink'
+  activeClassName='Header-isActive'
+  >
         Home
       </NavLink>
       <NavLink
-        to='/about'
-        className='Header-navLink'
-        activeClassName='Header-isActive'
-      >
+  to='/about'
+  className='Header-navLink'
+  activeClassName='Header-isActive'
+  >
         About
       </NavLink>
       <NavLink
-        to='/releases'
-        className='Header-navLink'
-        activeClassName='Header-isActive'
-      >
+  to='/releases'
+  className='Header-navLink'
+  activeClassName='Header-isActive'
+  >
         Releases
+      </NavLink>
+      <NavLink
+  to='/videos'
+  className='Header-navLink'
+  activeClassName='Header-isActive'
+  >
+       Videos
       </NavLink>
     </nav>
   </header>
