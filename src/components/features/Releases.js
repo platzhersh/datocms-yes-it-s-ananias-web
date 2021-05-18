@@ -38,7 +38,9 @@ const StyledAlbumListItem = styled(ItemContainer)`
 
 const CoverImageContainer = styled.div`
     flex: 0 0 300px;
-    width: 300px; height: 300px;
+    width: 300px; 
+    height: auto;
+    max-width: 100%;
     background: #777;
 `;
 

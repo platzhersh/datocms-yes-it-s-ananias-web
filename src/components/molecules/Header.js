@@ -13,12 +13,26 @@ const StyledNavLink = styled(NavLink)`
   margin: 0;
 `;
 
+const ResponsiveNavigation = styled.nav`
+@media (max-width: 400px) {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+`;
+
+const ResponsiveNavLink = styled(NavLink)`
+   @media (max-width: 400px) {
+    margin: 0;
+    flex: 1 1 auto;
+  }
+`;
+
 export default () => (
   <header className='Header-header'>
-    <StyledNavLink
-  exact
-  to='/'
-  >
+    <StyledNavLink exact to='/'>
         <StyledHeader className='Header-h1'>Yes it's Ananias</StyledHeader>
       </StyledNavLink>
     
@@ -29,36 +43,19 @@ export default () => (
 
     <Contact />
 
-    <nav className='Header-nav'>
-      <NavLink
-  exact
-  to='/'
-  className='Header-navLink'
-  activeClassName='Header-isActive'
-  >
+    <ResponsiveNavigation className='Header-nav'>
+      <ResponsiveNavLink exact to='/' className='Header-navLink' activeClassName='Header-isActive'>
         Home
-      </NavLink>
-      <NavLink
-  to='/about'
-  className='Header-navLink'
-  activeClassName='Header-isActive'
-  >
+      </ResponsiveNavLink>
+      <ResponsiveNavLink  to='/about'  className='Header-navLink'  activeClassName='Header-isActive'>
         About
-      </NavLink>
-      <NavLink
-  to='/releases'
-  className='Header-navLink'
-  activeClassName='Header-isActive'
-  >
+      </ResponsiveNavLink>
+      <ResponsiveNavLink  to='/releases'  className='Header-navLink'  activeClassName='Header-isActive'>
         Releases
-      </NavLink>
-      <NavLink
-  to='/videos'
-  className='Header-navLink'
-  activeClassName='Header-isActive'
-  >
+      </ResponsiveNavLink>
+      <ResponsiveNavLink  to='/videos'  className='Header-navLink'  activeClassName='Header-isActive'>
        Videos
-      </NavLink>
-    </nav>
+      </ResponsiveNavLink>
+    </ResponsiveNavigation>
   </header>
 )
