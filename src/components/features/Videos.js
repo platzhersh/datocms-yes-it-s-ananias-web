@@ -36,7 +36,6 @@ const Videos = props => {
 
       return (
         <section>
-                <h1>Videos</h1>
                 <div>
                     {data.allVideos.map(video => (
           <VideoWrapper>
