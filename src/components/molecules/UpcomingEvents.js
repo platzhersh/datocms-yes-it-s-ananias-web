@@ -41,7 +41,7 @@ const UpcomingEvents = props => {
       })
 
       return (
-        upcomingEvents && <section>
+        upcomingEvents && upcomingEvents.length > 0 && <section>
                         <h1>Upcoming Shows</h1>
                         <div>
                             {upcomingEvents.map(event => (
