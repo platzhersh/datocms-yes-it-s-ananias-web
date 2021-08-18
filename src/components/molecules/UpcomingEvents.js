@@ -6,7 +6,7 @@ import EventListItem from './EventListItem'
 const eventsQuery = gql`
 
 query EventsQuery {
-  allEvents {
+  allEvents(orderBy: date_ASC) {
     date
     description {
       value
@@ -33,9 +33,16 @@ const UpcomingEvents = props => {
         if (!event.date) return false;
         const date = new Date(event.date);
         const today = new Date();
-        if (date.getFullYear() < today.getFullYear()) return false;
-        if (date.getMonth() < today.getMonth()) return false;
-        if (date.getDate() < today.getDate()) return false;
+
+        if (date.getFullYear() < today.getFullYear()) {
+          return false;
+        }
+        if (date.getFullYear() === today.getFullYear()) {
+          if (date.getMonth() < today.getMonth()) return false;
+          if (date.getMonth() === today.getMonth()) {
+            if (date.getDate() < today.getDate()) return false;
+          }
+        }
 
         return true;
       })
@@ -45,7 +52,7 @@ const UpcomingEvents = props => {
                         <h1>Upcoming Shows</h1>
                         <div>
                             {upcomingEvents.map(event => (
-          <EventListItem event={event} />
+          <EventListItem key={event.id} event={event} />
         ))}
                         </div>
                     </section>

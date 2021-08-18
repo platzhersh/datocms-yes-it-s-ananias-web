@@ -6,7 +6,7 @@ import EventListItem from '../molecules/EventListItem'
 const eventsQuery = gql`
 
 query EventsQuery {
-  allEvents {
+  allEvents(orderBy: date_ASC) {
     date
     description {
       value

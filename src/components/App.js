@@ -9,6 +9,7 @@ import Home from "./features/Home";
 import Releases from "./features/Releases";
 import Events from "./features/Events";
 import Videos from "./features/Videos";
+import Discography from "./features/FullDiscography";
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/releases" component={Releases} />
       <Route path="/videos" component={Videos} />
       <Route path="/events" component={Events} />
+      <Route path="/discography" component={Discography} />
     </main>
     <Footer />
   </Router>
