@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import NavigationLink from '../atoms/NavigationLink'
 import Contact from './Contact'
 import SocialMediaLinks from './SocialMediaLinks'
 
@@ -56,6 +57,10 @@ export default () => (
       <ResponsiveNavLink  to='/videos'  className='Header-navLink'  activeClassName='Header-isActive'>
        Videos
       </ResponsiveNavLink>
+
+      <NavigationLink external={true} to="https://yesitsananias.bandcamp.com/" className='Header-navLink'  activeClassName='Header-isActive' text="Shop"/>
+       
+      
     </ResponsiveNavigation>
   </header>
 )

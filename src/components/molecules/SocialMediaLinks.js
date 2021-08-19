@@ -3,17 +3,18 @@ import SocialMediaLink from '../atoms/SocialMediaLink'
 import styled from 'styled-components/macro'
 
 const StyledSocialContainer = styled.ul`
-@media (max-width: 400px) {
-    padding-left: 0;
-    padding-right: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }`;
+// @media (max-width: 400px) {
+//     padding-left: 0;
+//     padding-right: 0;
+//     display: flex;
+//     justify-content: space-between;
+//     flex-wrap: wrap;
+//   }
+`;
 const ResponsiveSocialMediaLinkWrapper = styled.li`
-@media (max-width: 400px) {
-    flex: 1 0 50%;
-  }
+// @media (max-width: 400px) {
+//     flex: 1 0 50%;
+//   }
 `;
 
 export default () => (

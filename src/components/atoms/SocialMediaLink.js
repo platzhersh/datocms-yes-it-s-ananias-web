@@ -1,6 +1,21 @@
 import React from 'react'
+import styled from 'styled-components/macro'
+
+const SocialMediaLinkA = styled.a`
+
+`;
+
+const SocialMediaLinkIcon = styled.span`
+  
+`
+
+const SocialMediaLinkText = styled.span`
+  @media (max-width: 400px) {
+    display: none;
+  }
+`
 
 export default props => {
   const { url, linkText, icon } = props
-  return <a href={url} rel='noopener noreferrer' target='_blank'>{icon} {linkText}</a>
+  return <SocialMediaLinkA href={url} rel='noopener noreferrer' target='_blank'><SocialMediaLinkIcon>{icon}</SocialMediaLinkIcon> <SocialMediaLinkText>{linkText}</SocialMediaLinkText></SocialMediaLinkA>
 }
