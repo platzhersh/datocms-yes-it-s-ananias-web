@@ -38,7 +38,7 @@ const Videos = props => {
         <section>
                 <div>
                     {data.allVideos.map(video => (
-          <VideoWrapper>
+          <VideoWrapper key={video.id}>
               <h3>{video.title}</h3>
           <div><YouTubeVideo key={video.id} video={video.videourl} /></div>
           </VideoWrapper>

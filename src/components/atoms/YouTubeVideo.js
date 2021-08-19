@@ -15,9 +15,7 @@ const getEmbedUrl = (video) => {
 }
 
 export default props => {
-  const {video} = props
-
-  console.log('video', video)
+  const {video} = props;
 
   const youTubeEmbedUrl = getEmbedUrl(video);
 

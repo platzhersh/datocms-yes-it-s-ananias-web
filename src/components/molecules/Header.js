@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import NavigationLink from '../atoms/NavigationLink'
+import MobileMenuButton from '../organisms/mobile-menu/MobileMenuButton'
+import Navigation from '../organisms/Navigation'
 import Contact from './Contact'
 import SocialMediaLinks from './SocialMediaLinks'
 
@@ -14,53 +15,30 @@ const StyledNavLink = styled(NavLink)`
   margin: 0;
 `;
 
-const ResponsiveNavigation = styled.nav`
-@media (max-width: 400px) {
-    padding-left: 0;
-    padding-right: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+const NavigationWrapper = styled.div`
+  @media (max-width: 500px) {
+    &, * {
+      display: none;
+    }
   }
 `;
 
-const ResponsiveNavLink = styled(NavLink)`
-   @media (max-width: 400px) {
-    margin: 0;
-    flex: 1 1 auto;
-  }
-`;
 
 export default () => (
   <header className='Header-header'>
+    <MobileMenuButton />
     <StyledNavLink exact to='/'>
-        <StyledHeader className='Header-h1'>Yes it's Ananias</StyledHeader>
-      </StyledNavLink>
-    
+      <StyledHeader className='Header-h1'>Yes it's Ananias</StyledHeader>
+    </StyledNavLink>
+
     <h2 className='Header-h2'>Contemporary Psycho-Automatic Piano</h2>
 
     <SocialMediaLinks />
 
 
     <Contact />
-
-    <ResponsiveNavigation className='Header-nav'>
-      <ResponsiveNavLink exact to='/' className='Header-navLink' activeClassName='Header-isActive'>
-        Home
-      </ResponsiveNavLink>
-      <ResponsiveNavLink  to='/about'  className='Header-navLink'  activeClassName='Header-isActive'>
-        About
-      </ResponsiveNavLink>
-      <ResponsiveNavLink  to='/releases'  className='Header-navLink'  activeClassName='Header-isActive'>
-        Releases
-      </ResponsiveNavLink>
-      <ResponsiveNavLink  to='/videos'  className='Header-navLink'  activeClassName='Header-isActive'>
-       Videos
-      </ResponsiveNavLink>
-
-      <NavigationLink external={true} to="https://yesitsananias.bandcamp.com/" className='Header-navLink'  activeClassName='Header-isActive' text="Shop"/>
-       
-      
-    </ResponsiveNavigation>
+    <NavigationWrapper>
+        <Navigation className='Header-nav' />
+    </NavigationWrapper>
   </header>
 )

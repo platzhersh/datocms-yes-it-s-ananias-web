@@ -13,10 +13,7 @@ const ResponsiveNavLink = styled(NavLink)`
 export default props => {
   const { to, external, text, exact, className, activeClassName } = props;
 
-console.log(props);
-
   if (external) {
-      console.log('external')
     return <a href={to} rel='noopener noreferrer' target='_blank' className={className}>{text}</a>
   } else {
    return <ResponsiveNavLink exact={exact} to={to} className={className} activeClassName={activeClassName}>

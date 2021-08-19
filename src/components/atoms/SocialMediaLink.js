@@ -10,7 +10,7 @@ const SocialMediaLinkIcon = styled.span`
 `
 
 const SocialMediaLinkText = styled.span`
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `
