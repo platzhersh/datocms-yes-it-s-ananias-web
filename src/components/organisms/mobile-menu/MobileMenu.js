@@ -11,6 +11,7 @@ const MenuOverlay = styled.div`
 
   @media (max-width: 500px) {
     position: fixed;
+    z-index: 900;
     top: 0;
     left: 0;
     display: block;
