@@ -5,9 +5,9 @@ import TagManager from 'react-gtm-module'
 import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 import client from './client'
 import App from './components/App'
-import './fonts.scss'
-import './index.scss'
-import './old-style.scss'
+import './styles/fonts.scss'
+import './styles/index.scss'
+import './styles/old-style.scss'
 
 const tagManagerArgs = {
   gtmId: process.env.GTM_ID ?? undefined,
