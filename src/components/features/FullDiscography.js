@@ -1,19 +1,20 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import { StructuredText } from 'react-datocms'
+import TextBlockContainer from '../atoms/TextBlockContainer'
 
 const discography = gql`
-
-query fullDiscography {
-  fulldiscography {
-    content {
+  query fullDiscography {
+    fulldiscography {
+      content {
         value
+      }
     }
   }
-}
 `
 
-const Discography = props => {
+const Discography = (props) => {
   return (
     <Query query={discography}>
       {({ data, loading, error }) => {
@@ -22,10 +23,9 @@ const Discography = props => {
 
         return (
           <section>
-            <div>
-              work in progress
-              {/* {data && data.fulldiscography.content.value} */}
-            </div>
+            <TextBlockContainer>
+              <StructuredText data={data.fulldiscography.content.value} />
+            </TextBlockContainer>
           </section>
         )
       }}
