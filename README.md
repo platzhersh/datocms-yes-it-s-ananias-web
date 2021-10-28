@@ -1,50 +1,34 @@
-# DatoCMS example blog using React & Apollo
+# Yes it's Ananias Web
 
-## Set up your own
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2d4a5a92-c5f0-47c5-93d0-616610d2d176/deploy-status)](https://app.netlify.com/sites/yesitsananias/deploys)
 
-By clicking the following button you'll set up a project on DatoCMS with the schema and data that you need to run this example.
+## Changelog
 
-[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms/react-apollo-demo)
+### 2021-10-27 v2.0.3
 
-### How to start
+- [documentation] Add Changelog to Readme
+- [feature] Full discography
+- [feature] Spotify Links on Releases
+- [feature] Mediatyp on Releases
+- [feature] Listposition on Releases
+- [feature] Google Tag Manager ready
+- [fix] node-sass issue, only compatible with node 14
 
-Clone this repo
+### 2021-08-18 v2.0.2
 
-Create a .env file with your project's read-only api token.
+- [feature] Mobile Menu V1
+- [feature] Bandcamp Shop Link
 
-`echo 'REACT_APP_DATO_API_TOKEN=abc123' >> .env`
+### 2021-08-18 v2.0.1
 
-Then run
+- [fix] Upcoming Events
 
-`npm i && npm start`
+### 2021-08-01 v2.0.0
 
-### Setting up Apollo Client
+- Go Live
+- [feature] Upcoming Events
 
-Apollo does not support modular blocks out of the box because, by default, Apollo Client's cache is not able to deduce the schema when provided GraphQl union types. So if you use modular content in any of your models it is up to you to provide the projects's schema to Apollo's cache.
-
-To do that open the [DatoCMS cda explorer](https://cda-explorer.datocms.com/) and type in this query
-
-```
-query Schema {
-  __schema {
-	    types {
-        name
-        kind
-        possibleTypes {
-          name
-        }
-      }
-  }
-}
-```
-
-Now paste the result in the schema.json file.
-
-Be aware that if you make any changes to the schema you will have to do that again as Apollo Client now relies on the schema you provided to build the cache.
-
-Read more about union types in Apollo [here](https://www.apollographql.com/docs/react/advanced/fragments/?origin_team=T7S1KJ4MS#fragments-on-unions-and-interfaces).
-
-### Read more
+## Lookup
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
