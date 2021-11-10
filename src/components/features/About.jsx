@@ -1,8 +1,6 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import { Image } from 'react-datocms'
-import styled from 'styled-components/macro'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
 
