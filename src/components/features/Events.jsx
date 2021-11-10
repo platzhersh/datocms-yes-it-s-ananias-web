@@ -7,14 +7,29 @@ const eventsQuery = gql`
 
 query EventsQuery {
   allEvents(orderBy: date_ASC) {
+    id
+    title
     date
+    flyer {
+      responsiveImage {
+          alt
+          aspectRatio
+          base64
+          bgColor
+          height
+          sizes
+          src
+          srcSet
+          webpSrcSet
+          width
+          title
+        }
+    }
     description {
       value
     }
     eventUrl
     eventUrlText
-    id
-    title
     time
     venueName
     venueUrl

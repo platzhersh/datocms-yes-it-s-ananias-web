@@ -4,6 +4,10 @@
 
 ## Changelog
 
+### 2021-10-27 v2.0.4
+
+- [feature] Event Image & Description
+
 ### 2021-10-27 v2.0.3
 
 - [documentation] Add Changelog to Readme
