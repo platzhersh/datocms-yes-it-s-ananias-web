@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
 import TextBlockContainer from '../atoms/TextBlockContainer'
+import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
 
 const aboutQuery = gql`
   query about {
@@ -51,6 +52,18 @@ const About = (props) => {
         if (loading) return 'Loading...'
         if (error) return `ERROR: ${error}`
 
+        const images = data.about.content
+          .filter((c) => c.image)
+          .map((i) => i.image)
+
+        const galleryConfig = images.map((i) => ({
+          src: i.url,
+          width: 3,
+          height: 4,
+        }))
+
+        console.log('images, galleryConfig', images, galleryConfig)
+
         return (
           <section>
             <div>
@@ -59,13 +72,10 @@ const About = (props) => {
                   <TextBlockContainer
                     dangerouslySetInnerHTML={{ __html: contentBlock.text }}
                   />
-
-                  {contentBlock.image && (
-                    <StyledImage data={contentBlock.image.responsiveImage} />
-                  )}
                 </div>
               ))}
             </div>
+            <PhotoGallery photos={galleryConfig} />
           </section>
         )
       }}

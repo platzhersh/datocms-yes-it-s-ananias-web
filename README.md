@@ -7,6 +7,7 @@
 ### 2021-10-27 v2.0.4
 
 - [feature] Event Image & Description
+- [feature] Photo Gallery
 
 ### 2021-10-27 v2.0.3
 
