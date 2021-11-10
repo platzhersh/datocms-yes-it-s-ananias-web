@@ -8,6 +8,7 @@
 
 - [feature] Event Image & Description
 - [feature] Photo Gallery
+- [feature] GTM init
 
 ### 2021-10-27 v2.0.3
 
