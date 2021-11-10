@@ -41,10 +41,6 @@ const aboutQuery = gql`
   }
 `
 
-const StyledImage = styled(Image)`
-  width: auto;
-`
-
 const About = (props) => {
   return (
     <Query query={aboutQuery}>
