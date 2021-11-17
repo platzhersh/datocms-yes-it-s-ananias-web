@@ -1,4 +1,5 @@
 import { colorPalette } from './colorPalette'
+import { fonts } from './fonts'
 
 export const theme = {
   colors: {
@@ -7,6 +8,9 @@ export const theme = {
     highlightSecondary: colorPalette.orange.light,
     spotifyGreenRegular: colorPalette.green.light,
   },
-  fonts: [],
+  fonts: {
+    // default: fonts.facets,
+    headers: fonts.nineteenTenVienna,
+  },
   fontSizes: {},
 }
