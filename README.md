@@ -4,6 +4,12 @@
 
 ## Changelog
 
+### 2021-11-17 v2.0.5
+
+- [feature] Theme
+- [feature] ActionButton für Spotify Link
+- [feature] ActionButton für Shop Link
+
 ### 2021-10-27 v2.0.4
 
 - [feature] Event Image & Description
