@@ -7,13 +7,33 @@ const StyledButton = styled.button`
   display: inline-block;
   margin: auto;
   padding: 1em 2em;
-  background: green;
   border: none;
-  color: white;
+  color: black;
   font-size: 1.2em;
+  background: ${({ theme }) => theme.colors.highlightPrimary};
+  cursor: pointer;
+  &:hover {
+    background: ${({ theme }) => theme.colors.highlightSecondary};
+  }
+`
+
+const SpotifyButton = styled(StyledButton)`
+  background: ${({ theme }) => theme.colors.spotifyGreenRegular};
+`
+
+const BandcampButton = styled(StyledButton)`
+  background: orange;
 `
 
 export default (props) => {
-  const { text } = props
-  return <StyledButton>{text}</StyledButton>
+  const { text, variant } = props
+  console.log('Variant', variant)
+  switch (variant) {
+    case 'spotify':
+      return <SpotifyButton>{text}</SpotifyButton>
+    case 'bandcamp':
+      return <BandcampButton>{text}</BandcampButton>
+    default:
+      return <StyledButton>{text}</StyledButton>
+  }
 }

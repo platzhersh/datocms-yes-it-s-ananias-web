@@ -1,15 +1,32 @@
-import React from 'react';
+import React from 'react'
 
-import ActionButton from './ActionButton';
+import ActionButton from './ActionButton'
+import { Theme } from '../organisms/Theme'
 
 export default {
   component: ActionButton,
   title: 'atoms/ActionButton',
-};
+}
 
-const Template = args => <ActionButton {...args} />;
+const Template = (args) => (
+  <Theme>
+    <ActionButton {...args} />
+  </Theme>
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  text: 'Button Text'
-};
+  text: 'Button Text',
+}
+
+export const Spotify = Template.bind({})
+Spotify.args = {
+  variant: 'spotify',
+  text: 'Button Text',
+}
+
+export const Bandcamp = Template.bind({})
+Bandcamp.args = {
+  variant: 'bandcamp',
+  text: 'Button Text',
+}
