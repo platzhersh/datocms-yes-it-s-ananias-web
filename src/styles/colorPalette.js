@@ -1,0 +1,13 @@
+export const colorPalette = {
+  orange: {
+    light: '#ffb073',
+    regular: '#de6d2c',
+  },
+  grey: {
+    light: '#c2c2c2',
+    regular: '#777',
+  },
+  green: {
+    light: 'rgb(30, 215, 96)',
+  },
+}
