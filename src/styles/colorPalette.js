@@ -10,4 +10,7 @@ export const colorPalette = {
   green: {
     light: 'rgb(30, 215, 96)',
   },
+  red: {
+    regular: '#ff0000',
+  },
 }

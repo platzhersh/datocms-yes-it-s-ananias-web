@@ -30,3 +30,9 @@ Bandcamp.args = {
   variant: 'bandcamp',
   text: 'Button Text',
 }
+
+export const Youtube = Template.bind({})
+Youtube.args = {
+  variant: 'youtube',
+  text: 'Button Text',
+}

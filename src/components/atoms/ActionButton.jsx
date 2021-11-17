@@ -9,11 +9,11 @@ const StyledButton = styled.button`
   padding: 1em 2em;
   border: none;
   color: black;
-  font-size: 1.2em;
+  font-size: ${({ size }) => (size && size === 'big' ? '1.2em' : '1em')};
   background: ${({ theme }) => theme.colors.highlightPrimary};
   cursor: pointer;
   &:hover {
-    background: ${({ theme }) => theme.colors.highlightSecondary};
+    opacity: 0.7;
   }
 `
 
@@ -25,6 +25,10 @@ const BandcampButton = styled(StyledButton)`
   background: orange;
 `
 
+const YoutubeButton = styled(StyledButton)`
+  background: ${({ theme }) => theme.colors.red.regular};
+`
+
 export default (props) => {
   const { text, variant } = props
   console.log('Variant', variant)
@@ -33,6 +37,8 @@ export default (props) => {
       return <SpotifyButton>{text}</SpotifyButton>
     case 'bandcamp':
       return <BandcampButton>{text}</BandcampButton>
+    case 'youtube':
+      return <YoutubeButton>{text}</YoutubeButton>
     default:
       return <StyledButton>{text}</StyledButton>
   }

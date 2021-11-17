@@ -5,6 +5,8 @@ import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
 import ItemContainer from '../atoms/ItemContainer'
 import SpotifyLink from '../atoms/SpotifyLink'
+import ActionButton from '../atoms/ActionButton'
+import { ExternalLink } from '../atoms/ExternalLink'
 
 const releasesQuery = gql`
   query allReleases {
@@ -29,6 +31,10 @@ const releasesQuery = gql`
       title
       mediatyp
       spotifyurl
+
+      shopAnalyticsTrackingId
+      shopButtonText
+      shopProductUrl
     }
   }
 `
@@ -51,7 +57,15 @@ const StyledAlbumDescription = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 `
+
+const ReleaseInfos = styled.div`
+  padding: 0 1em 1em 1em;
+  max-width: 400px;
+`
+
+const ActionItems = styled.div``
 
 const Releases = (props) => {
   return (
@@ -71,12 +85,21 @@ const Releases = (props) => {
                     )}
                   </CoverImageContainer>
                   <StyledAlbumDescription>
-                    <h2>{release.title}</h2>
-                    {release.mediatyp && <p>{release.mediatyp}</p>}
-                    <p>Release: {release.releaseyear}</p>
-                    {release.spotifyurl && (
-                      <SpotifyLink url={release.spotifyurl} />
-                    )}
+                    <ReleaseInfos>
+                      <h2>{release.title}</h2>
+                      {release.mediatyp && <p>{release.mediatyp}</p>}
+                      <p>Release: {release.releaseyear}</p>
+                    </ReleaseInfos>
+                    <ActionItems>
+                      {release.shopProductUrl && (
+                        <ExternalLink url={release.shopProductUrl}>
+                          <ActionButton text={release.shopButtonText} />
+                        </ExternalLink>
+                      )}
+                      {release.spotifyurl && (
+                        <SpotifyLink url={release.spotifyurl} />
+                      )}
+                    </ActionItems>
                   </StyledAlbumDescription>
                 </StyledAlbumListItem>
               ))}
