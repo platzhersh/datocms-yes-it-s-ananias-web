@@ -4,50 +4,52 @@ import { Query } from 'react-apollo'
 import YouTubeVideo from '../atoms/YouTubeVideo'
 import styled from 'styled-components/macro'
 import ItemContainer from '../atoms/ItemContainer'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
-const videosQuery = gql `
-
-query VideosQuery {
+const videosQuery = gql`
+  query VideosQuery {
     allVideos(orderBy: listposition_ASC) {
+      title
+      id
+      listposition
+      videourl {
+        width
+        url
         title
-        id
-        listposition
-        videourl {
-          width
-          url
-          title
-          thumbnailUrl
-          providerUid
-          provider
-          height
-        }
+        thumbnailUrl
+        providerUid
+        provider
+        height
       }
-}`
+    }
+  }
+`
 
-const VideoWrapper = styled(ItemContainer)`
+const VideoWrapper = styled(ItemContainer)``
 
-`;
+const Videos = (props) => {
+  return (
+    <Query query={videosQuery}>
+      {({ data, loading, error }) => {
+        if (loading) return <LoadingPlaceholder />
+        if (error) return `ERROR: ${error}`
 
-const Videos = props => {
-  return ( <Query query={videosQuery}>
-    {({data, loading, error}) => {
-      if (loading) return 'Loading...'
-      if (error) return `ERROR: ${error}`
-
-      return (
-        <section>
-                <div>
-                    {data.allVideos.map(video => (
-          <VideoWrapper key={video.id}>
-              <h3>{video.title}</h3>
-          <div><YouTubeVideo key={video.id} video={video.videourl} /></div>
-          </VideoWrapper>
-        ))}
-                </div>
-            </section>
-      )
-    }}
-</Query>
+        return (
+          <section>
+            <div>
+              {data.allVideos.map((video) => (
+                <VideoWrapper key={video.id}>
+                  <h3>{video.title}</h3>
+                  <div>
+                    <YouTubeVideo key={video.id} video={video.videourl} />
+                  </div>
+                </VideoWrapper>
+              ))}
+            </div>
+          </section>
+        )
+      }}
+    </Query>
   )
 }
 

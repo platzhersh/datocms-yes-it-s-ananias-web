@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const aboutQuery = gql`
   query about {
@@ -43,7 +44,7 @@ const About = (props) => {
   return (
     <Query query={aboutQuery}>
       {({ data, loading, error }) => {
-        if (loading) return 'Loading...'
+        if (loading) return <LoadingPlaceholder />
         if (error) return `ERROR: ${error}`
 
         const images = data.about.content

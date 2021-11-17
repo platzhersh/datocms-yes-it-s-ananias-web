@@ -8,6 +8,7 @@ import { SpotifyLink } from '../molecules/ActionButtonMediaLink/SpotifyLink'
 import { YoutubeLink } from '../molecules/ActionButtonMediaLink/YoutubeLink'
 import { ActionButton } from '../atoms/ActionButton'
 import { ExternalLink } from '../atoms/ExternalLink'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const releasesQuery = gql`
   query allReleases {
@@ -80,7 +81,7 @@ const Releases = (props) => {
   return (
     <Query query={releasesQuery}>
       {({ data, loading, error }) => {
-        if (loading) return 'Loading...'
+        if (loading) return <LoadingPlaceholder />
         if (error) return `ERROR: ${error}`
 
         return (

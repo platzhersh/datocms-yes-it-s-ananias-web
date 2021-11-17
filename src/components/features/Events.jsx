@@ -2,6 +2,7 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import EventListItem from '../molecules/EventListItem'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const eventsQuery = gql`
   query EventsQuery {
@@ -39,7 +40,7 @@ const Events = (props) => {
   return (
     <Query query={eventsQuery}>
       {({ data, loading, error }) => {
-        if (loading) return 'Loading...'
+        if (loading) return <LoadingPlaceholder />
         if (error) return `ERROR: ${error}`
 
         return (

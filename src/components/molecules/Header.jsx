@@ -6,7 +6,12 @@ import Navigation from '../organisms/Navigation'
 import Contact from './Contact'
 import SocialMediaLinks from './SocialMediaLinks'
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.header`
+  text-align: center;
+  margin-bottom: 10px;
+`
+
+const StyledHeading1 = styled.h1`
   font-family: ${({ theme }) => theme.fonts.headers};
   margin-bottom: 0;
 `
@@ -25,10 +30,10 @@ const NavigationWrapper = styled.div`
 `
 
 export default () => (
-  <header className="Header-header">
+  <StyledHeader>
     <MobileMenuButton />
     <StyledNavLink exact to="/">
-      <StyledHeader className="Header-h1">Yes it's Ananias</StyledHeader>
+      <StyledHeading1 className="Header-h1">Yes it's Ananias</StyledHeading1>
     </StyledNavLink>
 
     <h2 className="Header-h2">Contemporary Psycho-Automatic Piano</h2>
@@ -39,5 +44,5 @@ export default () => (
     <NavigationWrapper>
       <Navigation className="Header-nav" />
     </NavigationWrapper>
-  </header>
+  </StyledHeader>
 )

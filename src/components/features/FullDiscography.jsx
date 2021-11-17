@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import { StructuredText } from 'react-datocms'
 import TextBlockContainer from '../atoms/TextBlockContainer'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const discography = gql`
   query fullDiscography {
@@ -18,7 +19,7 @@ const Discography = (props) => {
   return (
     <Query query={discography}>
       {({ data, loading, error }) => {
-        if (loading) return 'Loading...'
+        if (loading) return <LoadingPlaceholder />
         if (error) return `ERROR: ${error}`
 
         return (

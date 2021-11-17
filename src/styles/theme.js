@@ -12,5 +12,12 @@ export const theme = {
     // default: fonts.facets,
     headers: fonts.nineteenTenVienna,
   },
-  fontSizes: {},
+  typography: {
+    h1: {
+      fontWeight: 'normal',
+      fontSize: '56px',
+      textTransform: 'uppercase',
+      color: colorPalette.orange.regular,
+    },
+  },
 }
