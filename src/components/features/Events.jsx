@@ -4,14 +4,13 @@ import { Query } from 'react-apollo'
 import EventListItem from '../molecules/EventListItem'
 
 const eventsQuery = gql`
-
-query EventsQuery {
-  allEvents(orderBy: date_ASC) {
-    id
-    title
-    date
-    flyer {
-      responsiveImage {
+  query EventsQuery {
+    allEvents(orderBy: date_DESC) {
+      id
+      title
+      date
+      flyer {
+        responsiveImage {
           alt
           aspectRatio
           base64
@@ -24,40 +23,38 @@ query EventsQuery {
           width
           title
         }
+      }
+      description {
+        value
+      }
+      eventUrl
+      eventUrlText
+      time
+      venueName
+      venueUrl
     }
-    description {
-      value
-    }
-    eventUrl
-    eventUrlText
-    time
-    venueName
-    venueUrl
   }
-}
-
 `
-const Events = props => {
+const Events = (props) => {
   return (
     <Query query={eventsQuery}>
-            {({data, loading, error}) => {
-      if (loading) return 'Loading...'
-      if (error) return `ERROR: ${error}`
+      {({ data, loading, error }) => {
+        if (loading) return 'Loading...'
+        if (error) return `ERROR: ${error}`
 
-      return (
-        <section>
-                        <h1>Events</h1>
-                        <div>
-                            {data.allEvents.map(event => (
-          <EventListItem event={event} />
-        ))}
-                        </div>
-                    </section>
-      )
-    }}
-        </Query>
+        return (
+          <section>
+            <h1>Events</h1>
+            <div>
+              {data.allEvents.map((event) => (
+                <EventListItem event={event} />
+              ))}
+            </div>
+          </section>
+        )
+      }}
+    </Query>
   )
 }
 
 export default Events
-

@@ -4,6 +4,8 @@ import styled from 'styled-components/macro'
 import ItemContainer from '../atoms/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
+import { ExternalLink } from '../atoms/ExternalLink'
+import { ActionButton } from '../atoms/ActionButton'
 
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;
@@ -72,12 +74,9 @@ export default (props) => {
           </span>
         </EventTimeAndLocation>
         {event.eventUrl && (
-          <p title="More information">
-            <i className="fas fa-external-link-alt"></i>{' '}
-            <a href={event.eventUrl} rel="noopener noreferrer" target="_blank">
-              {event.eventUrlText ?? 'Event Details'}
-            </a>
-          </p>
+          <ExternalLink url={event.eventUrl}>
+            <ActionButton text={event.eventUrlText} />
+          </ExternalLink>
         )}
 
         {event.description && (

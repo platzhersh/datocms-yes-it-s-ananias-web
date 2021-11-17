@@ -4,8 +4,9 @@ import { Query } from 'react-apollo'
 import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
 import ItemContainer from '../atoms/ItemContainer'
-import SpotifyLink from '../atoms/SpotifyLink'
-import ActionButton from '../atoms/ActionButton'
+import { SpotifyLink } from '../molecules/ActionButtonMediaLink/SpotifyLink'
+import { YoutubeLink } from '../molecules/ActionButtonMediaLink/YoutubeLink'
+import { ActionButton } from '../atoms/ActionButton'
 import { ExternalLink } from '../atoms/ExternalLink'
 
 const releasesQuery = gql`
@@ -30,7 +31,8 @@ const releasesQuery = gql`
       releaseyear
       title
       mediatyp
-      spotifyurl
+      spotifyUrl
+      youtubeUrl
 
       shopAnalyticsTrackingId
       shopButtonText
@@ -65,7 +67,14 @@ const ReleaseInfos = styled.div`
   max-width: 400px;
 `
 
-const ActionItems = styled.div``
+const ActionItems = styled.div`
+  display: flex;
+  flex-direction: row;
+  & > * {
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+  }
+`
 
 const Releases = (props) => {
   return (
@@ -96,8 +105,11 @@ const Releases = (props) => {
                           <ActionButton text={release.shopButtonText} />
                         </ExternalLink>
                       )}
-                      {release.spotifyurl && (
-                        <SpotifyLink url={release.spotifyurl} />
+                      {release.spotifyUrl && (
+                        <SpotifyLink url={release.spotifyUrl} />
+                      )}
+                      {release.youtubeUrl && (
+                        <YoutubeLink url={release.youtubeUrl} />
                       )}
                     </ActionItems>
                   </StyledAlbumDescription>

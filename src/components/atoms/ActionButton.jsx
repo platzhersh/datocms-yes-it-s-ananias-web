@@ -29,7 +29,7 @@ const YoutubeButton = styled(StyledButton)`
   background: ${({ theme }) => theme.colors.red.regular};
 `
 
-export default (props) => {
+export const ActionButton = (props) => {
   const { text, variant } = props
   console.log('Variant', variant)
   switch (variant) {
