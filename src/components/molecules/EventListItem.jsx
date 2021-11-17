@@ -10,8 +10,6 @@ import { ActionButton } from '../atoms/ActionButton'
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
-
-  border: 3px solid #de6d2c;
 `
 
 const StyledAlbumDescription = styled.div`
