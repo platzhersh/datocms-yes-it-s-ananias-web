@@ -5,7 +5,7 @@ import ItemContainer from '../atoms/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
 import { ExternalLink } from '../atoms/ExternalLink'
-import { ActionButton } from '../atoms/ActionButton'
+import { ActionButton } from '../atoms/ActionButton/ActionButton'
 
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;

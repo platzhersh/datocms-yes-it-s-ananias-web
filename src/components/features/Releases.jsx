@@ -6,7 +6,7 @@ import styled from 'styled-components/macro'
 import ItemContainer from '../atoms/ItemContainer'
 import { SpotifyLink } from '../molecules/ActionButtonMediaLink/SpotifyLink'
 import { YoutubeLink } from '../molecules/ActionButtonMediaLink/YoutubeLink'
-import { ActionButton } from '../atoms/ActionButton'
+import { ActionButton } from '../atoms/ActionButton/ActionButton'
 import { ExternalLink } from '../atoms/ExternalLink'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 

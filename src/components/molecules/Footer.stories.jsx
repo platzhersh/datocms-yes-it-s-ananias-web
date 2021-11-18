@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+import { Theme } from '../organisms/Theme'
 import Footer from './Footer'
 
 export default {
@@ -7,7 +8,11 @@ export default {
   title: 'molecules/Footer',
 }
 
-const Template = (args) => <Footer {...args} />
+const Template = (args) => (
+  <Theme>
+    <Footer {...args} />
+  </Theme>
+)
 
 export const Default = Template.bind({})
 Default.args = {}

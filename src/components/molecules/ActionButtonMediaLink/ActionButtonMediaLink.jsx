@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { ActionButton } from '../../atoms/ActionButton'
+import { ActionButton } from '../../atoms/ActionButton/ActionButton'
 import { ExternalLink } from '../../atoms/ExternalLink'
 
 const SocialMediaLinkIcon = styled.span``

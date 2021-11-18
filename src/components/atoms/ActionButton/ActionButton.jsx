@@ -40,6 +40,6 @@ export const ActionButton = (props) => {
     case 'youtube':
       return <YoutubeButton>{text}</YoutubeButton>
     default:
-      return <StyledButton>{text}</StyledButton>
+      return <StyledButton {...props}>{text}</StyledButton>
   }
 }
