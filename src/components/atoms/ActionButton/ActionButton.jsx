@@ -31,7 +31,6 @@ const YoutubeButton = styled(StyledButton)`
 
 export const ActionButton = (props) => {
   const { text, variant } = props
-  console.log('Variant', variant)
   switch (variant) {
     case 'spotify':
       return <SpotifyButton>{text}</SpotifyButton>

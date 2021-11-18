@@ -57,8 +57,6 @@ const About = (props) => {
           height: 4,
         }))
 
-        console.log('images, galleryConfig', images, galleryConfig)
-
         return (
           <section>
             <div>

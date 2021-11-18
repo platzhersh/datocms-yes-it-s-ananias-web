@@ -11,7 +11,7 @@ const StyledInput = styled.input`
   font-size: 100%;
   border: 1px solid rgba(0, 0, 0, 0.25);
   color: #4d4d4d;
-  margin: 0 !important;
+  margin: 0.5em 0 !important;
   box-sizing: border-box;
 
   &:focus {
@@ -20,13 +20,14 @@ const StyledInput = styled.input`
 `
 const StyledActionButton = styled(ActionButton)`
   flex: 0 0 auto;
-  margin: 0 0 0 1em;
+  margin: 0.5em 0 0.5em 1em;
 `
 
 const StyledForm = styled.form``
 
 const FormRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-items: center;
   justify-content: center;
   align-items: center;
@@ -41,7 +42,6 @@ export const CustomForm = ({ status, message, onValidated }) => {
   }
 
   const handleSubmit = (e) => {
-    console.log('handleSubmit')
     e.preventDefault()
     email && email.indexOf('@') > -1 && onValidated({ EMAIL: email })
   }

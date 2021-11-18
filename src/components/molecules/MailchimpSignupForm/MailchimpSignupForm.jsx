@@ -21,11 +21,7 @@ export const MailchimpSignupForm = (props) => {
             status={status}
             message={message}
             onValidated={(formData) => {
-              try {
-                subscribe(formData)
-              } catch (e) {
-                console.log('catch', e)
-              }
+              return subscribe(formData)
             }}
           />
         )}
