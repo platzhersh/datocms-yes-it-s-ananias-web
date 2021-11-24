@@ -7,7 +7,8 @@ export const theme = {
     highlightPrimary: colorPalette.orange.regular,
     highlightSecondary: colorPalette.orange.light,
     spotifyGreenRegular: colorPalette.green.light,
-    purchaseActionColor: 'forestgreen',
+    purchaseAction: 'forestgreen',
+    error: 'firebrick',
   },
   fonts: {
     // default: fonts.facets,

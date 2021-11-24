@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import EventListItem from './EventListItem'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const eventsQuery = gql`
   query EventsQuery {
@@ -41,7 +42,7 @@ const UpcomingEvents = (props) => {
     <Query query={eventsQuery}>
       {({ data, loading, error }) => {
         if (loading) return <LoadingPlaceholder />
-        if (error) return `ERROR: ${error}`
+        if (error) return <ErrorMessage error={error} />
 
         const upcomingEvents = data.allEvents.filter((event) => {
           if (!event.date) return false

@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import { StructuredText } from 'react-datocms'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const discography = gql`
   query fullDiscography {
@@ -20,7 +21,7 @@ const Discography = (props) => {
     <Query query={discography}>
       {({ data, loading, error }) => {
         if (loading) return <LoadingPlaceholder />
-        if (error) return `ERROR: ${error}`
+        if (error) return <ErrorMessage error={error} />
 
         return (
           <section>

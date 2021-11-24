@@ -5,6 +5,7 @@ import YouTubeVideo from '../atoms/YouTubeVideo'
 import styled from 'styled-components/macro'
 import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const videosQuery = gql`
   query VideosQuery {
@@ -32,7 +33,7 @@ const Videos = (props) => {
     <Query query={videosQuery}>
       {({ data, loading, error }) => {
         if (loading) return <LoadingPlaceholder />
-        if (error) return `ERROR: ${error}`
+        if (error) return <ErrorMessage error={error} />
 
         return (
           <section>

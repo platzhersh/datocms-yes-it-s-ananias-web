@@ -1,13 +1,12 @@
-import React from 'react'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import React from 'react'
 import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
 import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
+import { PurchaseLink } from '../molecules/ActionButtonMediaLink/PurchaseLink'
 import { SpotifyLink } from '../molecules/ActionButtonMediaLink/SpotifyLink'
 import { YoutubeLink } from '../molecules/ActionButtonMediaLink/YoutubeLink'
-import { PurchaseLink } from '../molecules/ActionButtonMediaLink/PurchaseLink'
-import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 
 const releasesQuery = gql`
   query allReleases {
@@ -79,59 +78,52 @@ const ActionItems = styled.div`
 
 const Releases = (props) => {
   return (
-    <Query query={releasesQuery}>
-      {({ data, loading, error }) => {
-        if (loading) return <LoadingPlaceholder />
-        if (error) return `ERROR: ${error}`
-
-        return (
-          <section>
-            <div>
-              {data.allReleases.map((release) => (
-                <StyledAlbumListItem
-                  inverse={release.highlight}
-                  key={release.id}
-                >
-                  <CoverImageContainer>
-                    {release.cover && (
-                      <Image data={release.cover.responsiveImage} />
+    <QueryLoader
+      query={releasesQuery}
+      successCallback={(data) => (
+        <section>
+          <div>
+            {data.allReleases.map((release) => (
+              <StyledAlbumListItem inverse={release.highlight} key={release.id}>
+                <CoverImageContainer>
+                  {release.cover && (
+                    <Image data={release.cover.responsiveImage} />
+                  )}
+                </CoverImageContainer>
+                <StyledAlbumDescription>
+                  <ReleaseInfos>
+                    <h2>{release.title}</h2>
+                    {release.mediatyp && <p>{release.mediatyp}</p>}
+                    <p>Release: {release.releaseyear}</p>
+                  </ReleaseInfos>
+                  <ActionItems>
+                    {release.shopProductUrl && (
+                      <PurchaseLink
+                        inverse={release.highlight}
+                        url={release.shopProductUrl}
+                        text={release.shopButtonText}
+                      />
                     )}
-                  </CoverImageContainer>
-                  <StyledAlbumDescription>
-                    <ReleaseInfos>
-                      <h2>{release.title}</h2>
-                      {release.mediatyp && <p>{release.mediatyp}</p>}
-                      <p>Release: {release.releaseyear}</p>
-                    </ReleaseInfos>
-                    <ActionItems>
-                      {release.shopProductUrl && (
-                        <PurchaseLink
-                          inverse={release.highlight}
-                          url={release.shopProductUrl}
-                          text={release.shopButtonText}
-                        />
-                      )}
-                      {release.spotifyUrl && (
-                        <SpotifyLink
-                          inverse={release.highlight}
-                          url={release.spotifyUrl}
-                        />
-                      )}
-                      {release.youtubeUrl && (
-                        <YoutubeLink
-                          inverse={release.highlight}
-                          url={release.youtubeUrl}
-                        />
-                      )}
-                    </ActionItems>
-                  </StyledAlbumDescription>
-                </StyledAlbumListItem>
-              ))}
-            </div>
-          </section>
-        )
-      }}
-    </Query>
+                    {release.spotifyUrl && (
+                      <SpotifyLink
+                        inverse={release.highlight}
+                        url={release.spotifyUrl}
+                      />
+                    )}
+                    {release.youtubeUrl && (
+                      <YoutubeLink
+                        inverse={release.highlight}
+                        url={release.youtubeUrl}
+                      />
+                    )}
+                  </ActionItems>
+                </StyledAlbumDescription>
+              </StyledAlbumListItem>
+            ))}
+          </div>
+        </section>
+      )}
+    />
   )
 }
 

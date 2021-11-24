@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const aboutQuery = gql`
   query about {
@@ -45,7 +46,7 @@ const About = (props) => {
     <Query query={aboutQuery}>
       {({ data, loading, error }) => {
         if (loading) return <LoadingPlaceholder />
-        if (error) return `ERROR: ${error}`
+        if (error) return <ErrorMessage error={error} />
 
         const images = data.about.content
           .filter((c) => c.image)
