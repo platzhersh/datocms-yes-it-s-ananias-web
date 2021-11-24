@@ -8,6 +8,7 @@ const StyledItemContainer = styled(ItemContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ theme }) => theme.colors.error};
 `
 const StyledHeader = styled.h1`
   font-family: ${({ theme }) => theme.fonts.headers};
@@ -18,7 +19,7 @@ const StyledHeader = styled.h1`
 
 export const ErrorMessage = (props) => {
   const { error } = props
-  const errorMessage = error.message
+  const errorMessage = error?.message ?? ''
   console.error(errorMessage)
   const noInternetConnection = errorMessage.includes('Network error')
   return (
@@ -26,7 +27,7 @@ export const ErrorMessage = (props) => {
       <div>
         <StyledHeader>OOPS-YIA</StyledHeader>
         {!noInternetConnection && (
-          <p>Something went wrong loading this part of the website...</p>
+          <p>Something went wrong loading this content...</p>
         )}
         {noInternetConnection && (
           <p>Looks like you are not connected to the internet...</p>
