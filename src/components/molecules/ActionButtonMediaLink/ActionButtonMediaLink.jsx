@@ -5,11 +5,7 @@ import { ExternalLink } from '../../atoms/ExternalLink'
 
 const SocialMediaLinkIcon = styled.span``
 
-const SocialMediaLinkText = styled.span`
-  @media (max-width: 500px) {
-    display: none;
-  }
-`
+const SocialMediaLinkText = styled.span``
 
 export const ActionButtonMediaLink = (props) => {
   const { url, iconClassName, variant, linkText, inverse } = props
