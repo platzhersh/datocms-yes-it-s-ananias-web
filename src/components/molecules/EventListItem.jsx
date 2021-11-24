@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import React from 'react'
 import styled from 'styled-components/macro'
-import ItemContainer from '../atoms/ItemContainer'
+import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
 import { ExternalLink } from '../atoms/ExternalLink'

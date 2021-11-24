@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import ItemContainer from '../ItemContainer'
+import { ItemContainer } from '../ItemContainer/ItemContainer'
 
 const StyledItemContainer = styled(ItemContainer)`
   border: none;

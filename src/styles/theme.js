@@ -7,6 +7,7 @@ export const theme = {
     highlightPrimary: colorPalette.orange.regular,
     highlightSecondary: colorPalette.orange.light,
     spotifyGreenRegular: colorPalette.green.light,
+    purchaseActionColor: 'forestgreen',
   },
   fonts: {
     // default: fonts.facets,

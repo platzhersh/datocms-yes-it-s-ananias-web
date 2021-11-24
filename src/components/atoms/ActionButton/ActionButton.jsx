@@ -8,9 +8,11 @@ const StyledButton = styled.button`
   margin: auto;
   padding: 1em 2em;
   border: none;
-  color: black;
+  color: ${({ theme, inverse }) =>
+    inverse ? theme.colors.highlightPrimary : 'black'};
   font-size: ${({ size }) => (size && size === 'big' ? '1.2em' : '1em')};
-  background: ${({ theme }) => theme.colors.highlightPrimary};
+  background: ${({ theme, inverse }) =>
+    inverse ? 'black' : theme.colors.highlightPrimary};
   cursor: pointer;
   &:hover {
     opacity: 0.7;
@@ -18,26 +20,43 @@ const StyledButton = styled.button`
 `
 
 const SpotifyButton = styled(StyledButton)`
-  background: ${({ theme }) => theme.colors.spotifyGreenRegular};
+  color: ${({ theme, inverse }) =>
+    inverse ? theme.colors.spotifyGreenRegular : 'black'};
+  background: ${({ theme, inverse }) =>
+    inverse ? 'black' : theme.colors.spotifyGreenRegular};
 `
 
 const BandcampButton = styled(StyledButton)`
-  background: orange;
+  color: ${({ theme, inverse }) => (inverse ? 'orange' : 'black')};
+  background: ${({ theme, inverse }) => (inverse ? 'black' : 'orange')};
 `
 
 const YoutubeButton = styled(StyledButton)`
-  background: ${({ theme }) => theme.colors.red.regular};
+  color: ${({ theme, inverse }) =>
+    inverse ? theme.colors.red.regular : 'black'};
+  background: ${({ theme, inverse }) =>
+    inverse ? 'black' : theme.colors.red.regular};
+`
+
+const PurchaseButton = styled(StyledButton)`
+  font-weight: bold;
+  color: ${({ theme, inverse }) =>
+    inverse ? theme.colors.purchaseActionColor : 'whitesmoke'};
+  background: ${({ theme, inverse }) =>
+    inverse ? 'black' : theme.colors.purchaseActionColor};
 `
 
 export const ActionButton = (props) => {
-  const { text, variant } = props
+  const { text, variant, inverse } = props
   switch (variant) {
     case 'spotify':
-      return <SpotifyButton>{text}</SpotifyButton>
+      return <SpotifyButton inverse={inverse}>{text}</SpotifyButton>
     case 'bandcamp':
-      return <BandcampButton>{text}</BandcampButton>
+      return <BandcampButton inverse={inverse}>{text}</BandcampButton>
     case 'youtube':
-      return <YoutubeButton>{text}</YoutubeButton>
+      return <YoutubeButton inverse={inverse}>{text}</YoutubeButton>
+    case 'purchase':
+      return <PurchaseButton inverse={inverse}>{text}</PurchaseButton>
     default:
       return <StyledButton {...props}>{text}</StyledButton>
   }

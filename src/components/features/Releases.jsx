@@ -3,11 +3,10 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import { Image } from 'react-datocms'
 import styled from 'styled-components/macro'
-import ItemContainer from '../atoms/ItemContainer'
+import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { SpotifyLink } from '../molecules/ActionButtonMediaLink/SpotifyLink'
 import { YoutubeLink } from '../molecules/ActionButtonMediaLink/YoutubeLink'
-import { ActionButton } from '../atoms/ActionButton/ActionButton'
-import { ExternalLink } from '../atoms/ExternalLink'
+import { PurchaseLink } from '../molecules/ActionButtonMediaLink/PurchaseLink'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const releasesQuery = gql`
@@ -38,6 +37,7 @@ const releasesQuery = gql`
       shopAnalyticsTrackingId
       shopButtonText
       shopProductUrl
+      highlight
     }
   }
 `
@@ -88,7 +88,10 @@ const Releases = (props) => {
           <section>
             <div>
               {data.allReleases.map((release) => (
-                <StyledAlbumListItem key={release.id}>
+                <StyledAlbumListItem
+                  inverse={release.highlight}
+                  key={release.id}
+                >
                   <CoverImageContainer>
                     {release.cover && (
                       <Image data={release.cover.responsiveImage} />
@@ -102,15 +105,23 @@ const Releases = (props) => {
                     </ReleaseInfos>
                     <ActionItems>
                       {release.shopProductUrl && (
-                        <ExternalLink url={release.shopProductUrl}>
-                          <ActionButton text={release.shopButtonText} />
-                        </ExternalLink>
+                        <PurchaseLink
+                          inverse={release.highlight}
+                          url={release.shopProductUrl}
+                          text={release.shopButtonText}
+                        />
                       )}
                       {release.spotifyUrl && (
-                        <SpotifyLink url={release.spotifyUrl} />
+                        <SpotifyLink
+                          inverse={release.highlight}
+                          url={release.spotifyUrl}
+                        />
                       )}
                       {release.youtubeUrl && (
-                        <YoutubeLink url={release.youtubeUrl} />
+                        <YoutubeLink
+                          inverse={release.highlight}
+                          url={release.youtubeUrl}
+                        />
                       )}
                     </ActionItems>
                   </StyledAlbumDescription>

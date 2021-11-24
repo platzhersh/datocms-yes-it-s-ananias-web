@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import ItemContainer from '../atoms/ItemContainer'
+import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { MailchimpSignupForm } from './MailchimpSignupForm/MailchimpSignupForm'
 
 const dateToday = new Date()

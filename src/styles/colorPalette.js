@@ -13,4 +13,7 @@ export const colorPalette = {
   red: {
     regular: '#ff0000',
   },
+  turquise: {
+    regular: '#4bc7d8',
+  },
 }

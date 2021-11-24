@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { SpotifyLink } from '../ActionButtonMediaLink/SpotifyLink'
-import ItemContainer from '../../atoms/ItemContainer'
+import { ItemContainer } from '../../atoms/ItemContainer/ItemContainer'
 
 const SpotifyContainer = styled(ItemContainer)`
   border: 3px solid ${({ theme }) => theme.colors.spotifyGreenRegular};

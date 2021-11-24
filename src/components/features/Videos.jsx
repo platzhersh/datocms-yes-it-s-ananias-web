@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import YouTubeVideo from '../atoms/YouTubeVideo'
 import styled from 'styled-components/macro'
-import ItemContainer from '../atoms/ItemContainer'
+import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
 const videosQuery = gql`

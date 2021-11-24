@@ -12,11 +12,12 @@ const SocialMediaLinkText = styled.span`
 `
 
 export const ActionButtonMediaLink = (props) => {
-  const { url, iconClassName, variant, linkText } = props
+  const { url, iconClassName, variant, linkText, inverse } = props
   return (
     <ExternalLink url={url}>
       <ActionButton
         variant={variant}
+        inverse={inverse}
         text={
           <>
             <SocialMediaLinkIcon>
