@@ -41,9 +41,9 @@ const YoutubeButton = styled(StyledButton)`
 const PurchaseButton = styled(StyledButton)`
   font-weight: bold;
   color: ${({ theme, inverse }) =>
-    inverse ? theme.colors.purchaseActionColor : 'whitesmoke'};
+    inverse ? theme.colors.purchaseAction : 'whitesmoke'};
   background: ${({ theme, inverse }) =>
-    inverse ? 'black' : theme.colors.purchaseActionColor};
+    inverse ? 'black' : theme.colors.purchaseAction};
 `
 
 export const ActionButton = (props) => {
