@@ -44,6 +44,7 @@ const releasesQuery = gql`
 const StyledAlbumListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 const CoverImageContainer = styled.div`
