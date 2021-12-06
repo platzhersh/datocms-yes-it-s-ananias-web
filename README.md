@@ -4,8 +4,14 @@
 
 ## Changelog
 
+### 2021-11-18 v2.1.0
+
+- [feature] Featured Release, Featured Video on Home
+
 ### 2021-11-18 v2.0.6
+
 - [feature] Mailchimp Signup Form
+
 ### 2021-11-17 v2.0.5
 
 - [feature] Theme
