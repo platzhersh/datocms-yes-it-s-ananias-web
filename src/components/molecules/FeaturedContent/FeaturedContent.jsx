@@ -12,14 +12,10 @@ const featuredContentQuery = gql`
       featuredRelease {
       ${ReleaseFragment}
       }
-      featuredVideo {
-        ${VideoFragment}
-      }
       featuredvideos {
         ${VideoFragment}
       }
       showFeaturedRelease
-      showFeaturedVideo
       showFeaturedVideos
     }
   }
@@ -34,8 +30,6 @@ export const FeaturedContent = (_props) => {
         const {
           featuredRelease,
           showFeaturedRelease,
-          showFeaturedVideo,
-          featuredVideo,
           featuredvideos,
           showFeaturedVideos,
         } = home
