@@ -15,8 +15,12 @@ const featuredContentQuery = gql`
       featuredVideo {
         ${VideoFragment}
       }
+      featuredvideos {
+        ${VideoFragment}
+      }
       showFeaturedRelease
       showFeaturedVideo
+      showFeaturedVideos
     }
   }
 `
@@ -32,6 +36,8 @@ export const FeaturedContent = (_props) => {
           showFeaturedRelease,
           showFeaturedVideo,
           featuredVideo,
+          featuredvideos,
+          showFeaturedVideos,
         } = home
         return (
           <>
@@ -42,13 +48,15 @@ export const FeaturedContent = (_props) => {
                 </div>
               </section>
             ) : null}
-            {home && showFeaturedVideo && featuredVideo ? (
-              <section>
-                <div>
-                  <VideoCard video={featuredVideo} />
-                </div>
-              </section>
-            ) : null}
+            {home && showFeaturedVideos && featuredvideos
+              ? featuredvideos.map((video) => (
+                  <section>
+                    <div>
+                      <VideoCard video={video} />
+                    </div>
+                  </section>
+                ))
+              : null}
           </>
         )
       }}

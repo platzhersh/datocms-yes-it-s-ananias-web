@@ -4,7 +4,7 @@
 
 ## Changelog
 
-### 2021-11-18 v2.1.0
+### 2021-12-06 v2.1.0
 
 - [feature] Featured Release, Featured Video on Home
 
