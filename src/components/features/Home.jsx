@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { SpotifyEmbed } from '../molecules/SpotifyEmbed/SpotifyEmbed'
+import { FeaturedContent } from '../molecules/FeaturedContent/FeaturedContent'
+
 import UpcomingEvents from '../molecules/UpcomingEvents'
 
 const EventsContainer = styled.div`
@@ -11,6 +13,7 @@ const Home = (props) => {
   return (
     <>
       <EventsContainer>
+        <FeaturedContent />
         <UpcomingEvents />
       </EventsContainer>
       <SpotifyEmbed />

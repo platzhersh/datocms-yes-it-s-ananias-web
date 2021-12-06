@@ -1,32 +1,18 @@
-import React from 'react'
 import gql from 'graphql-tag'
+import React from 'react'
 import { Query } from 'react-apollo'
-import YouTubeVideo from '../atoms/YouTubeVideo'
-import styled from 'styled-components/macro'
-import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
-import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { VideoFragment } from '../../queries/fragments/VideoFragment'
 import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
+import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
+import { VideoCard } from '../molecules/VideoCard/VideoCard'
 
 const videosQuery = gql`
   query VideosQuery {
     allVideos(orderBy: listposition_ASC) {
-      title
-      id
-      listposition
-      videourl {
-        width
-        url
-        title
-        thumbnailUrl
-        providerUid
-        provider
-        height
-      }
+     ${VideoFragment}
     }
   }
 `
-
-const VideoWrapper = styled(ItemContainer)``
 
 const Videos = (props) => {
   return (
@@ -39,12 +25,7 @@ const Videos = (props) => {
           <section>
             <div>
               {data.allVideos.map((video) => (
-                <VideoWrapper key={video.id}>
-                  <h3>{video.title}</h3>
-                  <div>
-                    <YouTubeVideo key={video.id} video={video.videourl} />
-                  </div>
-                </VideoWrapper>
+                <VideoCard video={video} />
               ))}
             </div>
           </section>
