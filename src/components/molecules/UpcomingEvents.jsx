@@ -7,7 +7,7 @@ import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const eventsQuery = gql`
   query EventsQuery {
-    allEvents(orderBy: date_ASC) {
+    allEvents(orderBy: date_ASC, first: 100) {
       date
       flyer {
         responsiveImage {

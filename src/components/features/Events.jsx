@@ -7,7 +7,7 @@ import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
 const eventsQuery = gql`
   query EventsQuery {
-    allEvents(orderBy: date_DESC) {
+    allEvents(orderBy: date_DESC, first: 100) {
       id
       title
       date
