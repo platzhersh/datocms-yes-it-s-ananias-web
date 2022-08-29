@@ -5,6 +5,8 @@ import { ReleaseCard } from '../ReleaseCard/ReleaseCard'
 import { ReleaseFragment } from '../../../queries/fragments/ReleaseFragment'
 import { VideoFragment } from '../../../queries/fragments/VideoFragment'
 import { VideoCard } from '../VideoCard/VideoCard'
+import { Video } from '../../../models/video'
+import { Release } from '../../../models/Release'
 
 const featuredContentQuery = gql`
   query FeaturedContentQuery {
@@ -21,11 +23,20 @@ const featuredContentQuery = gql`
   }
 `
 
-export const FeaturedContent = (_props) => {
+interface FeaturedContentData {
+  home: {
+    featuredRelease: Release
+    showFeaturedRelease: boolean
+    featuredvideos: Video[]
+    showFeaturedVideos: boolean
+  }
+}
+
+export const FeaturedContent = () => {
   return (
     <QueryLoader
       query={featuredContentQuery}
-      successCallback={(data) => {
+      successCallback={(data: FeaturedContentData) => {
         const { home } = data
         const {
           featuredRelease,
@@ -38,7 +49,10 @@ export const FeaturedContent = (_props) => {
             {home && showFeaturedRelease && featuredRelease ? (
               <section>
                 <div>
-                  <ReleaseCard release={featuredRelease} />
+                  <ReleaseCard
+                    release={featuredRelease}
+                    key={featuredRelease.id}
+                  />
                 </div>
               </section>
             ) : null}
@@ -46,7 +60,7 @@ export const FeaturedContent = (_props) => {
               ? featuredvideos.map((video) => (
                   <section>
                     <div>
-                      <VideoCard video={video} />
+                      <VideoCard video={video} key={video.id} />
                     </div>
                   </section>
                 ))
