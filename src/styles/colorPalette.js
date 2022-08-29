@@ -1,7 +1,8 @@
 export const colorPalette = {
   orange: {
     light: '#ffb073',
-    regular: '#de6d2c',
+    // regular: '#de6d2c',
+    regular: '#ef7a19',
   },
   grey: {
     light: '#c2c2c2',

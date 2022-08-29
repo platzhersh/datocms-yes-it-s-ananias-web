@@ -1,4 +1,5 @@
-export const ReleaseFragment = `id
+export const ReleaseFragment = `
+id
 cover {
   responsiveImage {
     alt
