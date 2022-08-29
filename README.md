@@ -4,6 +4,11 @@
 
 ## Changelog
 
+### 2022-08-29 v2.1.1
+
+- [feature] Fetch mehr als nur 20 Events
+- [feature] Typescript Support
+
 ### 2021-12-06 v2.1.0
 
 - [feature] Featured Release, Featured Video on Home
