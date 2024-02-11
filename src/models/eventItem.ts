@@ -10,10 +10,17 @@ export interface EventItem {
   description: any;
   flyer: {
     responsiveImage: {
-      src: string;
-      alt: string;
-      width: number;
-      height: number;
+      alt: string,
+          aspectRatio: number,
+          base64: string,
+          bgColor: string,
+          height: number,
+          sizes: any,
+          src: string,
+          srcSet: any,
+          webpSrcSet: any,
+          width: number,
+          title: string
     };
   };
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import { Link as NavLink } from 'wouter'
+import styled from 'styled-components'
 import MobileMenuButton from '../organisms/mobile-menu/MobileMenuButton'
 import Navigation from '../organisms/Navigation'
 import Contact from './Contact'
@@ -32,7 +32,7 @@ const NavigationWrapper = styled.div`
 export default () => (
   <StyledHeader>
     <MobileMenuButton />
-    <StyledNavLink exact to="/">
+    <StyledNavLink to="/">
       <StyledHeading1 className="Header-h1">Yes it's Ananias</StyledHeading1>
     </StyledNavLink>
 

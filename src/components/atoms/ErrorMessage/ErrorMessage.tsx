@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { ItemContainer } from '../ItemContainer/ItemContainer'
 
 const StyledItemContainer = styled(ItemContainer)`
@@ -17,7 +17,11 @@ const StyledHeader = styled.h1`
   margin: 0;
 `
 
-export const ErrorMessage = (props) => {
+type ErrorMessageProps = {
+  error?: Error
+}
+
+export const ErrorMessage = (props: ErrorMessageProps) => {
   const { error } = props
   const errorMessage = error?.message ?? ''
   console.error(errorMessage)

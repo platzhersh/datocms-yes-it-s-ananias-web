@@ -47,7 +47,7 @@ const Events = (_props) => {
 
         return (
           <section>
-            <h1>Events</h1>
+            <h1>Upcoming Shows</h1>
             <div>
               {data.allEvents.map((event) => (
                 <EventListItem key={event.id} event={event} />

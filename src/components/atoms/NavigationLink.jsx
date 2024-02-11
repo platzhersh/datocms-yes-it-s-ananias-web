@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import { Link as NavLink } from 'wouter'
+import styled from 'styled-components'
 
 
 const ResponsiveNavLink = styled(NavLink)`
@@ -16,7 +16,7 @@ export default props => {
   if (external) {
     return <a href={to} rel='noopener noreferrer' target='_blank' className={className}>{text}</a>
   } else {
-   return <ResponsiveNavLink exact={exact} to={to} className={className} activeClassName={activeClassName}>
+   return <ResponsiveNavLink to={to} className={className} /*activeClassName={activeClassName}*/>
     {text}
   </ResponsiveNavLink>
   }

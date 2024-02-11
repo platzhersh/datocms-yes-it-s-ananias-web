@@ -1,6 +1,11 @@
-import styled from 'styled-components/macro'
+import styled from "styled-components"
 
-export const ItemContainer = styled.div<{ inverse?: boolean}>`
+type ItemContainerProps = {
+  inverse?: boolean,
+  children: React.ReactNode
+}
+
+export const ItemContainer = styled.div<ItemContainerProps>`
   border: 3px solid ${({ theme }) => theme.colors.highlightPrimary};
   background: ${({ theme, inverse }) => {
     return inverse ? theme.colors.highlightPrimary : 'none'

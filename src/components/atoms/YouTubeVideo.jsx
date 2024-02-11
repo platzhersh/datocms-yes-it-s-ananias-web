@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 
 const StyledIframe = styled.iframe`
     /* width: 100%; */
@@ -24,7 +24,7 @@ export default props => {
     // width={video.width}
     src={youTubeEmbedUrl}
     title={video.title}
-    frameborder="0"
+    frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen />
+    allowFullScreen />
 }

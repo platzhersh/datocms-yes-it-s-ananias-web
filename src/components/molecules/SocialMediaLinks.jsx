@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialMediaLink from '../atoms/SocialMediaLink'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 
 const StyledSocialContainer = styled.ul`
 // @media (max-width: 400px) {

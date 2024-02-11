@@ -35,9 +35,10 @@ type EventListItemProps = {
 
 export const EventListItem = (props: EventListItemProps) => {
   const { event } = props
-  const date = event.date ? DateTime.fromSQL(event.date, { zone: "utc"}) : undefined
-  const formattedDate = date
-    ? `${date.toLocaleString({
+  const dateTime = event.date ? DateTime.fromISO(event.date, {zone: "utc"}): undefined
+  // const dateTime = date ? DateTime.fromJSDate(date) : undefined
+  const formattedDate = dateTime
+    ? `${dateTime.toLocaleString({
         weekday: 'long',
         month: 'long',
         day: '2-digit',
