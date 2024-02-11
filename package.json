@@ -40,7 +40,8 @@
   },
   "resolutions": {
     "babel-loader": "8.1.0",
-    "webpack": "4.42.0"
+    "webpack": "4.42.0",
+    "graphql": "16.8.1"
   },
   "dependencies": {
     "@emotion/babel-plugin": "11.11.0",
@@ -77,12 +78,12 @@
     "wouter": "3.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/node-logger": "^6.3.12",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.12",
+    "@storybook/addon-actions": "7.6.14",
+    "@storybook/addon-essentials": "7.6.14",
+    "@storybook/addon-links": "7.6.14",
+    "@storybook/builder-vite": "7.6.14",
+    "@storybook/node-logger": "7.6.14",
+    "@storybook/react": "7.6.14",
     "@types/jest": "^27.0.3",
     "@types/lodash": "4.14.202",
     "@types/luxon": "3.4.2",
@@ -93,6 +94,6 @@
     "babel-plugin-macros": "3.1.0",
     "graphql.macro": "^1.4.2",
     "sass": "1.70.0",
-    "storybook": "^6.3.12"
+    "storybook": "7.6.14"
   }
 }
