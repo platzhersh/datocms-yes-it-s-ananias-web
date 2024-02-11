@@ -33,9 +33,12 @@ const MobileNavigation = styled(Navigation)`
 
 `;
 
-export default props => {
-    const {visible} = props;
+type MobileMenuProps = {
+  visible: boolean,
+  onNavLinkClick?: () => void
+}
 
+export const MobileMenu = ({visible, onNavLinkClick}: MobileMenuProps) => {
       
-      return <>{visible && <MenuOverlay><MobileNavigation className="Header-nav"/></MenuOverlay>}</>;
+      return <>{visible && <MenuOverlay><MobileNavigation onNavLinkClick={onNavLinkClick}/></MenuOverlay>}</>;
 }

@@ -22,9 +22,11 @@ export default props => {
   return <StyledIframe width="560"
     // height={video.height}
     // width={video.width}
+    loading='lazy'
     src={youTubeEmbedUrl}
     title={video.title}
+    sandbox='allow-same-origin allow-scripts'
     frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen />
 }

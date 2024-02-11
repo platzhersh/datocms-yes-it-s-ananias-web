@@ -21,9 +21,11 @@ export const SpotifyEmbed = (props) => {
         <StyledIframe
           src="https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv"
           height="380"
+          loading='lazy'
           frameBorder="0"
           allowtransparency="true"
           allow="encrypted-media"
+          sandbox='allow-same-origin allow-scripts'
         />
         <SpotifyLink
           url="https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv"

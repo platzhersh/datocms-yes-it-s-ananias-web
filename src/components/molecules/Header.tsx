@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as NavLink } from 'wouter'
 import styled from 'styled-components'
-import MobileMenuButton from '../organisms/mobile-menu/MobileMenuButton'
+import {MobileMenuButton} from '../organisms/mobile-menu/MobileMenuButton'
 import Navigation from '../organisms/Navigation'
 import Contact from './Contact'
 import SocialMediaLinks from './SocialMediaLinks'
