@@ -2,6 +2,9 @@
   "name": "react-apollo-demo",
   "version": "2.1.1",
   "private": true,
+  "engines": {
+    "node": ">=16 <17"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -74,6 +77,8 @@
     "@storybook/node-logger": "^6.3.12",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.12",
+    "@types/luxon": "3.4.2",
+    "@types/styled-components": "5.1.34",
     "babel-plugin-macros": "^3.1.0",
     "graphql.macro": "^1.4.2",
     "sass": "true1.70.0",

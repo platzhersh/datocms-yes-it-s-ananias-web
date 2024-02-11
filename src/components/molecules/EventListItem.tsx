@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
@@ -11,7 +11,7 @@ import { EventItem } from '../../models/eventItem'
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
-`
+` as any
 
 const StyledAlbumDescription = styled.div`
   flex: 1 1 auto;
@@ -35,10 +35,9 @@ type EventListItemProps = {
 
 export const EventListItem = (props: EventListItemProps) => {
   const { event } = props
-  const date = event.date ? new Date(event.date) : undefined
-  const dateTime = DateTime.fromJSDate(date)
-  const formattedDate = dateTime
-    ? `${dateTime.toLocaleString({
+  const date = event.date ? DateTime.fromSQL(event.date, { zone: "utc"}) : undefined
+  const formattedDate = date
+    ? `${date.toLocaleString({
         weekday: 'long',
         month: 'long',
         day: '2-digit',
@@ -49,7 +48,7 @@ export const EventListItem = (props: EventListItemProps) => {
   return (
     <StyledEventListItem key={event.id}>
       <CoverImageContainer>
-        {event.flyer && <Image data={event.flyer.responsiveImage} />}
+        {event.flyer && <Image data={event.flyer.responsiveImage as any} />}
       </CoverImageContainer>
       <StyledAlbumDescription>
         <p>{formattedDate}</p>

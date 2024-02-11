@@ -1,7 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import EventListItem from './EventListItem'
+import {EventListItem} from './EventListItem'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
