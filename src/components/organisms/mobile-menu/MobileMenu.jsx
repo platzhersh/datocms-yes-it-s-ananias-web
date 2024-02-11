@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
 import Navigation from '../Navigation'
 
@@ -31,11 +31,10 @@ const MobileNavigation = styled(Navigation)`
   left: 0px;
   box-sizing: border-box;
 
-`;
+`
 
 export default props => {
-    const {visible} = props;
+  const { visible } = props
 
-      
-      return <>{visible && <MenuOverlay><MobileNavigation className="Header-nav"/></MenuOverlay>}</>;
+  return <>{visible && <MenuOverlay><MobileNavigation className='Header-nav' /></MenuOverlay>}</>
 }

@@ -19,14 +19,14 @@ export const SpotifyEmbed = (props) => {
     <>
       <SpotifyContainer>
         <StyledIframe
-          src="https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv"
-          height="380"
-          frameBorder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
+          src='https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv'
+          height='380'
+          frameBorder='0'
+          allowtransparency='true'
+          allow='encrypted-media'
         />
         <SpotifyLink
-          url="https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv"
+          url='https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv'
           text="Yes It's Ananias on Spotify"
         />
       </SpotifyContainer>

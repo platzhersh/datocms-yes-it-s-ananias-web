@@ -55,7 +55,7 @@ const About = (props) => {
         const galleryConfig = images.map((i) => ({
           src: i.url,
           width: 3,
-          height: 4,
+          height: 4
         }))
 
         return (

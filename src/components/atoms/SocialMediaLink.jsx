@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const SocialMediaLinkA = styled.a`
 
-`;
+`
 
 const SocialMediaLinkIcon = styled.span`
   

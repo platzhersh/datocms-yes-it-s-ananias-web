@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 const CopyRight = styled.div``
 
 export default () => (
-  <StyledFooter className="Footer-footer">
+  <StyledFooter className='Footer-footer'>
     <h1>Newsletter</h1>
     <ItemContainer>
       <MailchimpSignupForm />

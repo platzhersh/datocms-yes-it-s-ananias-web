@@ -5,7 +5,7 @@ import { Theme } from '../../organisms/Theme'
 
 export default {
   component: MailchimpSignupForm,
-  title: 'molecules/MailchimpSignupForm',
+  title: 'molecules/MailchimpSignupForm'
 }
 
 const Template = (args) => (
@@ -16,5 +16,5 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  text: 'Button Text',
+  text: 'Button Text'
 }

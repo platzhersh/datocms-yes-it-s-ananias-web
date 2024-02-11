@@ -9,7 +9,7 @@ const EventsContainer = styled.div`
   margin-bottom: 40px;
 `
 
-const Home = (props) => {
+const Home = () => {
   return (
     <>
       <EventsContainer>

@@ -4,7 +4,7 @@ import { ErrorMessage } from './ErrorMessage'
 
 export default {
   component: ErrorMessage,
-  title: 'atoms/ErrorMessage',
+  title: 'atoms/ErrorMessage'
 }
 
 const Template = (args) => (
@@ -15,5 +15,5 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  errorMessage: '',
+  errorMessage: ''
 }

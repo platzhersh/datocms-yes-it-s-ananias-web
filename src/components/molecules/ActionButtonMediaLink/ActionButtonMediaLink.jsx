@@ -21,7 +21,7 @@ export const ActionButtonMediaLink = (props) => {
     variant,
     linkText,
     inverse,
-    showTextOnMobile,
+    showTextOnMobile
   } = props
   return (
     <ExternalLink url={url}>
@@ -38,7 +38,7 @@ export const ActionButtonMediaLink = (props) => {
             </SocialMediaLinkText>
           </>
         }
-      ></ActionButton>
+      />
     </ExternalLink>
   )
 }

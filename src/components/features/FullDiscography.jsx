@@ -16,7 +16,7 @@ const discography = gql`
   }
 `
 
-const Discography = (props) => {
+const Discography = () => {
   return (
     <Query query={discography}>
       {({ data, loading, error }) => {

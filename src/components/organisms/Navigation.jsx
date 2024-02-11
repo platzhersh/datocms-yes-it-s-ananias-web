@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link as NavLink } from "wouter";
-import NavigationLink from '../atoms/NavigationLink';
+import React from 'react'
+import styled from 'styled-components'
+import { Link as NavLink } from 'wouter'
+import NavigationLink from '../atoms/NavigationLink'
 
 // TODO: migrate ResponsiveNavLink to NavigationLink
 // TODO: trigger closing of modal
@@ -22,57 +22,57 @@ const ResponsiveNavLink = styled(NavLink)`
 
 export default (_props) => {
   return (
-    <NavigationWrapper className="Header-nav">
+    <NavigationWrapper className='Header-nav'>
       <ResponsiveNavLink
         // exact
-        to="/"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         Home
       </ResponsiveNavLink>
       <ResponsiveNavLink
-        to="/about"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/about'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         About
       </ResponsiveNavLink>
       <ResponsiveNavLink
-        to="/shows"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/shows'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         Shows
       </ResponsiveNavLink>
       <ResponsiveNavLink
-        to="/releases"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/releases'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         Releases
       </ResponsiveNavLink>
       <ResponsiveNavLink
-        to="/discography"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/discography'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         Discography
       </ResponsiveNavLink>
       <ResponsiveNavLink
-        to="/videos"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
+        to='/videos'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
       >
         Videos
       </ResponsiveNavLink>
 
       <NavigationLink
-        external={true}
-        to="https://yesitsananias.bandcamp.com/"
-        className="Header-navLink"
-        activeClassName="Header-isActive"
-        text="Shop"
+        external
+        to='https://yesitsananias.bandcamp.com/'
+        className='Header-navLink'
+        activeClassName='Header-isActive'
+        text='Shop'
       />
     </NavigationWrapper>
   )

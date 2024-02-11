@@ -10,12 +10,12 @@ const StyledSocialContainer = styled.ul`
 //     justify-content: space-between;
 //     flex-wrap: wrap;
 //   }
-`;
+`
 const ResponsiveSocialMediaLinkWrapper = styled.li`
 // @media (max-width: 400px) {
 //     flex: 1 0 50%;
 //   }
-`;
+`
 
 export default () => (
   <StyledSocialContainer className='social-icons'>

@@ -7,9 +7,9 @@ export const YoutubeLink = (props) => {
     <ActionButtonMediaLink
       url={url}
       inverse={inverse}
-      iconClassName="fab fa-youtube"
-      variant="youtube"
-      linkText="Watch Musicvideo"
+      iconClassName='fab fa-youtube'
+      variant='youtube'
+      linkText='Watch Musicvideo'
     />
   )
 }

@@ -32,17 +32,17 @@ const NavigationWrapper = styled.div`
 export default () => (
   <StyledHeader>
     <MobileMenuButton />
-    <StyledNavLink to="/">
-      <StyledHeading1 className="Header-h1">Yes it's Ananias</StyledHeading1>
+    <StyledNavLink to='/'>
+      <StyledHeading1 className='Header-h1'>Yes it's Ananias</StyledHeading1>
     </StyledNavLink>
 
-    <h2 className="Header-h2">Contemporary Psycho-Automatic Piano</h2>
+    <h2 className='Header-h2'>Contemporary Psycho-Automatic Piano</h2>
 
     <SocialMediaLinks />
 
     <Contact />
     <NavigationWrapper>
-      <Navigation className="Header-nav" />
+      <Navigation className='Header-nav' />
     </NavigationWrapper>
   </StyledHeader>
 )

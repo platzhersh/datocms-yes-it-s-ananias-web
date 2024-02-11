@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import MobileMenu from './MobileMenu';
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import MobileMenu from './MobileMenu'
 
 const BurgerButton = styled.div`
   display: none;
@@ -21,19 +21,21 @@ const BurgerButton = styled.div`
   }
 `
 
- const MobileMenuButton = (props) => {
-    const [showMenu, setShowMenu] = useState(false);
+const MobileMenuButton = (props) => {
+  const [showMenu, setShowMenu] = useState(false)
 
-    useEffect(() => {
-        setShowMenu(false);
-      }, [props.location]);
+  useEffect(() => {
+    setShowMenu(false)
+  }, [props.location])
 
-  return <>
-    <BurgerButton /*active={showMenu.toString()}*/ onClick={() => setShowMenu(!showMenu)}>
+  return (
+    <>
+      <BurgerButton onClick={() => setShowMenu(!showMenu)}>
         {showMenu ? '╳' : '☰'}
-    </BurgerButton>
-    <MobileMenu visible={showMenu} />
-  </>
+      </BurgerButton>
+      <MobileMenu visible={showMenu} />
+    </>
+  )
 }
 
 export default MobileMenuButton

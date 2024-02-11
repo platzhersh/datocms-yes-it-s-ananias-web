@@ -8,18 +8,18 @@ export const theme = {
     highlightSecondary: colorPalette.orange.light,
     spotifyGreenRegular: colorPalette.green.light,
     purchaseAction: 'forestgreen',
-    error: 'firebrick',
+    error: 'firebrick'
   },
   fonts: {
     // default: fonts.facets,
-    headers: fonts.nineteenTenVienna,
+    headers: fonts.nineteenTenVienna
   },
   typography: {
     h1: {
       fontWeight: 'normal',
       fontSize: '56px',
       textTransform: 'uppercase',
-      color: colorPalette.orange.regular,
-    },
-  },
+      color: colorPalette.orange.regular
+    }
+  }
 }

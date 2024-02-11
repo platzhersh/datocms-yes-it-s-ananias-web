@@ -68,17 +68,17 @@ export const CustomForm = ({ status, message, onValidated }) => {
 
       <FormRow>
         <StyledInput
-          label="Email"
+          label='Email'
           onChange={onEmailChange}
-          type="email"
+          type='email'
           value={email}
-          placeholder="your@email.com"
+          placeholder='your@email.com'
           isRequired
         />
         <StyledActionButton
-          type="submit"
+          type='submit'
           formValues={[email]}
-          text="Subscribe"
+          text='Subscribe'
         />
       </FormRow>
     </StyledForm>

@@ -7,8 +7,8 @@ export const SpotifyLink = (props) => {
     <ActionButtonMediaLink
       url={url}
       inverse={inverse}
-      iconClassName="fab fa-spotify"
-      variant="spotify"
+      iconClassName='fab fa-spotify'
+      variant='spotify'
       linkText={text ?? 'Listen on Spotify'}
     />
   )

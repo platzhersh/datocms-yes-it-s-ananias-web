@@ -7,9 +7,9 @@ export const PurchaseLink = (props) => {
     <ActionButtonMediaLink
       url={url}
       inverse={inverse}
-      showTextOnMobile={true}
-      variant="purchase"
-      iconClassName="fas fa-shopping-basket"
+      showTextOnMobile
+      variant='purchase'
+      iconClassName='fas fa-shopping-basket'
       linkText={text}
     />
   )
