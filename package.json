@@ -2,6 +2,9 @@
   "name": "datocms-yes-it-s-ananias-web",
   "version": "2.1.1",
   "private": true,
+  "engines": {
+    "node": ">=16 <17"
+  },
   "scripts": {
     "lint": "standard --fix",
     "storybook": "start-storybook -p 6006 -s public",

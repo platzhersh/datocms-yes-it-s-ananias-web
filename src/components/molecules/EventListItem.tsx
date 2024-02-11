@@ -11,7 +11,7 @@ import { EventItem } from '../../models/eventItem'
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;
   flex-wrap: wrap;
-`
+` as any
 
 const StyledAlbumDescription = styled.div`
   flex: 1 1 auto;
@@ -49,7 +49,7 @@ export const EventListItem = (props: EventListItemProps) => {
   return (
     <StyledEventListItem key={event.id}>
       <CoverImageContainer>
-        {event.flyer && <Image data={event.flyer.responsiveImage} />}
+        {event.flyer && <Image data={event.flyer.responsiveImage as any} />}
       </CoverImageContainer>
       <StyledAlbumDescription>
         <p>{formattedDate}</p>
