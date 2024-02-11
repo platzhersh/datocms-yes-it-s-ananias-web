@@ -1,7 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import EventListItem from '../molecules/EventListItem'
+import {EventListItem} from '../molecules/EventListItem'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
 
@@ -37,7 +37,8 @@ const eventsQuery = gql`
     }
   }
 `
-const Events = (props) => {
+
+const Events = (_props) => {
   return (
     <Query query={eventsQuery}>
       {({ data, loading, error }) => {

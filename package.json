@@ -2,40 +2,6 @@
   "name": "react-apollo-demo",
   "version": "2.1.1",
   "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.11",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "apollo-cache-inmemory": "^1.6.2",
-    "apollo-client": "^2.6.3",
-    "apollo-link-http": "^1.5.15",
-    "global": "^4.4.0",
-    "graphql": "^14.4.2",
-    "graphql-tag": "^2.10.1",
-    "luxon": "^1.27.0",
-    "node-sass": "4.14.1",
-    "qs": "^6.7.0",
-    "react": "^16.8.6",
-    "react-apollo": "^2.5.8",
-    "react-datocms": "^1.0.5",
-    "react-dom": "^16.8.6",
-    "react-gtm-module": "^2.0.11",
-    "react-images": "^1.2.0-beta.7",
-    "react-mailchimp-subscribe": "^2.1.3",
-    "react-markdown": "^4.1.0",
-    "react-photo-gallery": "^8.0.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.4.4",
-    "standard": "^16.0.3",
-    "styled-components": "^5.2.3",
-    "typescript": "^4.8.2"
-  },
-  "resolutions": {
-    "babel-loader": "8.1.0",
-    "webpack": "4.42.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -68,6 +34,39 @@
       "last 1 safari version"
     ]
   },
+  "resolutions": {
+    "babel-loader": "8.1.0",
+    "webpack": "4.42.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.11",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link-http": "^1.5.15",
+    "global": "^4.4.0",
+    "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
+    "luxon": "3.4.4",
+    "qs": "^6.7.0",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.8",
+    "react-datocms": "^1.0.5",
+    "react-dom": "^16.8.6",
+    "react-gtm-module": "^2.0.11",
+    "react-images": "^1.2.0-beta.7",
+    "react-mailchimp-subscribe": "^2.1.3",
+    "react-markdown": "^4.1.0",
+    "react-photo-gallery": "^8.0.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.4.4",
+    "standard": "^16.0.3",
+    "styled-components": "^5.2.3",
+    "typescript": "^4.8.2"
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
@@ -77,6 +76,7 @@
     "@storybook/react": "^6.3.12",
     "babel-plugin-macros": "^3.1.0",
     "graphql.macro": "^1.4.2",
+    "sass": "true1.70.0",
     "storybook": "^6.3.12"
   }
 }

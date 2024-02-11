@@ -6,6 +6,7 @@ import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
 import { ExternalLink } from '../atoms/ExternalLink'
 import { ActionButton } from '../atoms/ActionButton/ActionButton'
+import { EventItem } from '../../models/eventItem'
 
 const StyledEventListItem = styled(ItemContainer)`
   display: flex;
@@ -28,8 +29,11 @@ const CoverImageContainer = styled.div`
   height: auto;
   max-width: 100%;
 `
+type EventListItemProps = {
+  event: EventItem
+ };
 
-export default (props) => {
+export const EventListItem = (props: EventListItemProps) => {
   const { event } = props
   const date = event.date ? new Date(event.date) : undefined
   const dateTime = DateTime.fromJSDate(date)
