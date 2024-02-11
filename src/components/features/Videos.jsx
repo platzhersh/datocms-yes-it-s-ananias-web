@@ -26,7 +26,7 @@ const Videos = (props) => {
             <section>
               <div>
                 {data.allVideos.map((video) => (
-                  <VideoCard video={video} />
+                  <VideoCard key={video.id} video={video} />
                 ))}
               </div>
             </section>

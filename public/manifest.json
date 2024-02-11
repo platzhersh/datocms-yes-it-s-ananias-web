@@ -1,0 +1,9 @@
+{
+    "short_name": "Yes it's Ananias",
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#000",
+    "display": "standalone",
+    "scope": "/"
+  }
+  

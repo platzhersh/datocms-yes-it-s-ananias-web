@@ -19,6 +19,7 @@ export const SpotifyEmbed = (props) => {
     <>
       <SpotifyContainer>
         <StyledIframe
+          title="Yes It's Ananias on Spotify"
           src="https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv"
           height="380"
           loading='lazy'

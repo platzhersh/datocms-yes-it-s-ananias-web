@@ -9,6 +9,7 @@ import Footer from "./molecules/Footer";
 import Header from "./molecules/Header";
 import UpcomingEvents from "./molecules/UpcomingEvents";
 import { Theme } from "./organisms/Theme";
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 const App = () => (
   <Theme>
