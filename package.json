@@ -6,7 +6,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "bunx --bun vite",
+    "dev": "bunx --bun vite",
     "build": "tsc && bunx --bun vite build",
     "build:prod": "NODE_ENV=production && yarn build",
     "preview": "bunx --bun vite preview",
