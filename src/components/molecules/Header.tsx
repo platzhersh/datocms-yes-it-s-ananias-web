@@ -42,7 +42,7 @@ export default () => (
 
     <Contact />
     <NavigationWrapper>
-      <Navigation className="Header-nav" />
+      <Navigation />
     </NavigationWrapper>
   </StyledHeader>
 )
