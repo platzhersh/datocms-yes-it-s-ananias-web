@@ -26,6 +26,7 @@ export default defineConfig({
   },
   build: {
     // target: browserslistToEsbuild(),
-    outDir: "build"
+    outDir: "build",
+    uglify: true,
   },
 });
