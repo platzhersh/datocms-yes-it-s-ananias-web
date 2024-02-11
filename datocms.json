@@ -5,6 +5,6 @@
   "deploymentType": "static",
   "buildCommand": "npm run build",
   "buildDirectory": "build",
-  "datocmsApiTokenEnvName": "REACT_APP_DATO_API_TOKEN",
+  "datocmsApiTokenEnvName": "VITE_APP_DATO_API_TOKEN",
   "livePreviewUrl": "https://www.yesitsananias.com/"
 }

@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
@@ -35,8 +35,8 @@ type EventListItemProps = {
 
 export const EventListItem = (props: EventListItemProps) => {
   const { event } = props
-  const date = event.date ? new Date(event.date) : undefined
-  const dateTime = DateTime.fromJSDate(date)
+  const dateTime = event.date ? DateTime.fromISO(event.date, {zone: "utc"}): undefined
+  // const dateTime = date ? DateTime.fromJSDate(date) : undefined
   const formattedDate = dateTime
     ? `${dateTime.toLocaleString({
         weekday: 'long',

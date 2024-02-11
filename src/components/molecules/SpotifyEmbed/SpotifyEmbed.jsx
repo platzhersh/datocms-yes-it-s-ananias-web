@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { SpotifyLink } from '../ActionButtonMediaLink/SpotifyLink'
 import { ItemContainer } from '../../atoms/ItemContainer/ItemContainer'
 
@@ -21,7 +21,7 @@ export const SpotifyEmbed = (props) => {
         <StyledIframe
           src="https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv"
           height="380"
-          frameborder="0"
+          frameBorder="0"
           allowtransparency="true"
           allow="encrypted-media"
         />

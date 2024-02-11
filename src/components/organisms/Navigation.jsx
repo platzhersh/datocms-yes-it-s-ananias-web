@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components/macro'
-import { NavLink } from 'react-router-dom'
-import NavigationLink from '../atoms/NavigationLink'
+import React from 'react';
+import styled from 'styled-components';
+import { Link as NavLink } from "wouter";
+import NavigationLink from '../atoms/NavigationLink';
 
 // TODO: migrate ResponsiveNavLink to NavigationLink
 // TODO: trigger closing of modal
@@ -24,7 +24,7 @@ export default (_props) => {
   return (
     <NavigationWrapper className="Header-nav">
       <ResponsiveNavLink
-        exact
+        // exact
         to="/"
         className="Header-navLink"
         activeClassName="Header-isActive"
@@ -37,6 +37,13 @@ export default (_props) => {
         activeClassName="Header-isActive"
       >
         About
+      </ResponsiveNavLink>
+      <ResponsiveNavLink
+        to="/shows"
+        className="Header-navLink"
+        activeClassName="Header-isActive"
+      >
+        Shows
       </ResponsiveNavLink>
       <ResponsiveNavLink
         to="/releases"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image } from 'react-datocms'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { ItemContainer } from '../../atoms/ItemContainer/ItemContainer'
 import { PurchaseLink } from '../../molecules/ActionButtonMediaLink/PurchaseLink'
 import { SpotifyLink } from '../../molecules/ActionButtonMediaLink/SpotifyLink'

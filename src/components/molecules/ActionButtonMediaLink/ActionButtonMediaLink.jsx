@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import { ActionButton } from '../../atoms/ActionButton/ActionButton'
 import { ExternalLink } from '../../atoms/ExternalLink'
 

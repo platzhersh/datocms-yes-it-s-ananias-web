@@ -5,7 +5,7 @@ import TagManager from 'react-gtm-module'
  */
 export default function initGtm() {
   const tagManagerArgs = {
-    gtmId: process.env.REACT_APP_GTM_ID ?? undefined,
+    gtmId: import.meta.env.VITE_APP_GTM_ID ?? undefined,
   }
   window['gtmId'] = tagManagerArgs.gtmId
 

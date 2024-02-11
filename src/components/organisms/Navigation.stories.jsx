@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import { Switch } from "wouter";
 import '../../styles/fonts.scss';
 import '../../styles/index.scss';
 import '../../styles/old-style.scss';
