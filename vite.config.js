@@ -27,7 +27,9 @@ export default defineConfig({
   build: {
     // target: browserslistToEsbuild(),
     outDir: "build",
-    uglify: true,
+    minify: 'esbuild', // Use esbuild for minification (default, but explicit)
+    sourcemap: false,   // Disable source maps for production
+    cssCodeSplit: true, // Split CSS into separate files
     rollupOptions: {
       output: {
         manualChunks: {

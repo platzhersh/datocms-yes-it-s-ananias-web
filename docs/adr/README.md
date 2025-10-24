@@ -47,6 +47,7 @@ What becomes easier or more difficult to do because of this change?
 - [ADR-0001](0001-implement-route-based-code-splitting.md) - Implement Route-Based Code Splitting
 - [ADR-0002](0002-replace-fontawesome-with-inline-svg-icons.md) - Replace FontAwesome with Inline SVG Icons
 - [ADR-0003](0003-optimize-custom-font-loading.md) - Optimize Custom Font Loading Strategy
+- [ADR-0004](0004-improve-build-configuration.md) - Improve Build Configuration and Remove Redundancies
 
 ## Template
 
