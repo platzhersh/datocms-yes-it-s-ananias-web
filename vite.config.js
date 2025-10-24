@@ -8,10 +8,9 @@ export default defineConfig({
   base: "",
   plugins: [
     react({
-      include: /.(jsx|tsx)$/,
-      jsxImportSource: "@emotion/react",
+      include: /\.(jsx|tsx)$/,
       babel: {
-        plugins: ["@emotion/babel-plugin",],
+        plugins: ["babel-plugin-styled-components"],
         babelrc: false,
         configFile: false,
       },
@@ -27,6 +26,31 @@ export default defineConfig({
   build: {
     // target: browserslistToEsbuild(),
     outDir: "build",
-    uglify: true,
+    minify: 'esbuild', // Use esbuild for minification (default, but explicit)
+    sourcemap: false,   // Disable source maps for production
+    cssCodeSplit: true, // Split CSS into separate files
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React ecosystem
+          'vendor-react': ['react', 'react-dom', 'wouter'],
+          // Apollo GraphQL ecosystem
+          'vendor-apollo': [
+            'apollo-client',
+            'apollo-cache-inmemory',
+            'apollo-link-http',
+            'react-apollo',
+            'graphql',
+            'graphql-tag'
+          ],
+          // Styling libraries (runtime only)
+          'vendor-ui': [
+            'styled-components'
+          ],
+          // Other utilities
+          'vendor-utils': ['lodash', 'luxon']
+        }
+      }
+    }
   },
 });

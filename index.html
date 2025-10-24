@@ -13,8 +13,9 @@
       content="Contemporary Psycho-Automatic Piano | 'YIA IV' New Album OUT 15.09.2023"
     />
 
-    <!-- Optimierungen -->
+    <!-- Performance Optimizations -->
     <link rel="preconnect" href="//db.onlinewebfonts.com" />
+    <link rel="preconnect" href="https://graphql.datocms.com" />
     <link rel="preconnect" href="https://www.youtube.com/" />
     <link rel="preconnect" href="https://open.spotify.com" />
     <link rel="preconnect" href="https://embed-cdn.spotifycdn.com" />
@@ -27,15 +28,31 @@
      user-scalable=0"
     />
     <!-- custom font -->
+    <!-- Preload font CSS -->
     <link
       href="//db.onlinewebfonts.com/c/7cf481fc308070912ac3a8357db632c0?family=Nineteen+Ten+Vienna"
       rel="preload"
-      type="text/css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <!-- Preload primary font file (woff2 for modern browsers) -->
+    <link
+      rel="preload"
+      href="//db.onlinewebfonts.com/t/7cf481fc308070912ac3a8357db632c0.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <noscript>
+      <link
+        href="//db.onlinewebfonts.com/c/7cf481fc308070912ac3a8357db632c0?family=Nineteen+Ten+Vienna"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx" async> </script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

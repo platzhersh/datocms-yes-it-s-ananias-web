@@ -135,3 +135,55 @@ a {
   border-top: 4px solid #000;
   border-bottom: 4px solid #000;
 }
+
+/* Additional Styles (from old-style.scss) */
+
+.section-videos {
+    background: #000;
+}
+
+.color-creme {
+    color: #edd990;
+}
+
+.color-tangerine {
+    color: #de6d2c;
+}
+
+.facets {
+    font-family: 'Facets NF';
+}
+
+.site-title {
+    font-size: 6rem;
+}
+
+.social-icons {
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.social-icons li {
+    list-style: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+a, a:link, a:active, a:focus, a:hover, a:visited {
+    color: #de6d2c;
+    text-decoration: none;
+}
+
+a:active, a:focus, a:hover {
+    color: #edd990;
+    text-decoration: none;
+}
+
+.youtube-fluid {
+    max-width: 100%;
+}

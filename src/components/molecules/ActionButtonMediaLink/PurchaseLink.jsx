@@ -9,7 +9,7 @@ export const PurchaseLink = (props) => {
       inverse={inverse}
       showTextOnMobile={true}
       variant="purchase"
-      iconClassName="fas fa-shopping-basket"
+      iconName="shopping-basket"
       linkText={text}
     />
   )
