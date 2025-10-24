@@ -3,7 +3,6 @@ import { ApolloProvider } from 'react-apollo'
 import ReactDOM from 'react-dom'
 import client from './client'
 import App from './components/App'
-import './styles/fonts.scss'
 import './styles/index.scss'
 import initGtm from './gtm'
 
