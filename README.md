@@ -10,6 +10,19 @@ Deployment: Netlify
 
 ## Changelog
 
+### 2025-10-24 v2.2.0
+
+- [performance] Implement route-based code splitting, reducing initial JS bundle from 728 KB to 37 KB gzipped (94% reduction)
+- [performance] Replace FontAwesome library (1.5 MB) with custom inline SVG Icon component (5 KB)
+- [performance] Optimize font loading with font-display: swap and strategic preload/preconnect
+- [performance] Implement manual chunk splitting for vendor libraries (React, Apollo, Styled Components, Utils)
+- [performance] Remove 8 unused dependencies, reducing node_modules by ~20 MB
+- [performance] Standardize on Styled Components, remove Emotion CSS-in-JS
+- [performance] Consolidate and deduplicate SCSS files (merged old-style.scss, removed fonts.scss)
+- [performance] Add resource preconnects for DatoCMS, YouTube, and Spotify
+- [documentation] Establish Architecture Decision Records (ADR) system with 8 ADRs documenting all decisions
+- [fix] Update ActionButtonMediaLink to use new Icon component
+
 ### 2025-10-24 v2.1.2
 
 - [fix] handle Mailchimp subscribe timeouts
