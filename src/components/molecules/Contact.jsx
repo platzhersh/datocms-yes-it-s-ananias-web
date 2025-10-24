@@ -1,3 +1,4 @@
 import React from 'react'
+import { Icon } from '../atoms/Icon'
 
-export default () => (<p><a href='mailto:booking@yesitsananias.com'><i className='fas fa-envelope' /> booking@yesitsananias.com</a></p>)
+export default () => (<p><a href='mailto:booking@yesitsananias.com'><Icon name='envelope' size={16} /> booking@yesitsananias.com</a></p>)

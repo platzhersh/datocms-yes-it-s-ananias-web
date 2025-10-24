@@ -1,7 +1,6 @@
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import ReactDOM from 'react-dom'
-import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 import client from './client'
 import App from './components/App'
 import './styles/fonts.scss'

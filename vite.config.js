@@ -28,5 +28,30 @@ export default defineConfig({
     // target: browserslistToEsbuild(),
     outDir: "build",
     uglify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React ecosystem
+          'vendor-react': ['react', 'react-dom', 'wouter'],
+          // Apollo GraphQL ecosystem
+          'vendor-apollo': [
+            'apollo-client',
+            'apollo-cache-inmemory',
+            'apollo-link-http',
+            'react-apollo',
+            'graphql',
+            'graphql-tag'
+          ],
+          // Styling libraries
+          'vendor-ui': [
+            'styled-components',
+            '@emotion/react',
+            '@emotion/babel-plugin'
+          ],
+          // Other utilities
+          'vendor-utils': ['lodash', 'luxon', 'qs']
+        }
+      }
+    }
   },
 });
