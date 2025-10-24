@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { ActionButton } from '../../atoms/ActionButton/ActionButton'
 
@@ -34,8 +34,24 @@ const FormRow = styled.div`
   align-content: center;
 `
 
-export const CustomForm = ({ status, message, onValidated }) => {
+const ErrorMessage = styled.div`
+  color: ${props => props.theme.colors.error};
+  margin: 0.5em 0;
+`
+
+const FallbackLink = styled.a`
+  color: ${props => props.theme.colors.highlightPrimary};
+  text-decoration: underline;
+
+  &:hover {
+    color: ${props => props.theme.colors.highlightSecondary};
+  }
+`
+
+export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
   const [email, setEmail] = useState('')
+  const [isTimeout, setIsTimeout] = useState(false)
+  const timeoutRef = useRef(null)
 
   const onEmailChange = (e) => {
     setEmail(e.target.value)
@@ -43,23 +59,72 @@ export const CustomForm = ({ status, message, onValidated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    email && email.indexOf('@') > -1 && onValidated({ EMAIL: email })
+    setIsTimeout(false)
+
+    if (email && email.indexOf('@') > -1) {
+      // Set a timeout to detect if Mailchimp is blocked
+      timeoutRef.current = setTimeout(() => {
+        setIsTimeout(true)
+      }, 6000) // 6 second timeout
+
+      onValidated({ EMAIL: email })
+    }
   }
 
   useEffect(() => {
-    if (status === 'success') clearFields()
+    if (status === 'success') {
+      clearFields()
+      clearTimeout(timeoutRef.current)
+    }
+    if (status === 'error') {
+      clearTimeout(timeoutRef.current)
+    }
   }, [status])
+
+  useEffect(() => {
+    // Cleanup timeout on unmount
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
 
   const clearFields = () => {
     setEmail('')
   }
 
+  const getDirectSignupUrl = () => {
+    if (!mailchimpUrl) return '#'
+    // Convert POST URL to direct signup form URL (keep query params)
+    // Example: .../subscribe/post?u=xxx&id=yyy -> .../subscribe?u=xxx&id=yyy
+    return mailchimpUrl.replace('/subscribe/post?', '/subscribe?')
+  }
+
   return (
     <StyledForm onSubmit={(event) => handleSubmit(event)}>
       <div>
-        {status === 'sending' && <div>Sending...</div>}
+        {status === 'sending' && !isTimeout && <div>Sending...</div>}
+        {status === 'sending' && isTimeout && (
+          <ErrorMessage>
+            Error: Timeout - Your browser might be blocking Mailchimp.{' '}
+            <FallbackLink href={getDirectSignupUrl()} target="_blank" rel="noopener noreferrer">
+              Click here to subscribe directly
+            </FallbackLink>
+          </ErrorMessage>
+        )}
         {status === 'error' && (
-          <div dangerouslySetInnerHTML={{ __html: message }} />
+          <ErrorMessage>
+            <div dangerouslySetInnerHTML={{ __html: message }} />
+            {mailchimpUrl && (
+              <div style={{ marginTop: '0.5em' }}>
+                Or{' '}
+                <FallbackLink href={getDirectSignupUrl()} target="_blank" rel="noopener noreferrer">
+                  subscribe directly on Mailchimp
+                </FallbackLink>
+              </div>
+            )}
+          </ErrorMessage>
         )}
         {status === 'success' && (
           <div dangerouslySetInnerHTML={{ __html: message }} />

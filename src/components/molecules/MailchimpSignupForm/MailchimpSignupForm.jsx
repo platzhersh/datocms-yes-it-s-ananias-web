@@ -20,6 +20,7 @@ export const MailchimpSignupForm = (props) => {
           <CustomForm
             status={status}
             message={message}
+            mailchimpUrl={postUrl}
             onValidated={(formData) => {
               return subscribe(formData)
             }}
