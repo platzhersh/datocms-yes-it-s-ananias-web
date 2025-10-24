@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ActionButton } from '../../atoms/ActionButton/ActionButton'
 import { ExternalLink } from '../../atoms/ExternalLink'
+import { Icon } from '../../atoms/Icon'
 
 const SocialMediaLinkIcon = styled.span``
 
@@ -17,7 +18,7 @@ const SocialMediaLinkText = styled.span`
 export const ActionButtonMediaLink = (props) => {
   const {
     url,
-    iconClassName,
+    iconName,
     variant,
     linkText,
     inverse,
@@ -31,7 +32,7 @@ export const ActionButtonMediaLink = (props) => {
         text={
           <>
             <SocialMediaLinkIcon>
-              <i className={iconClassName} />
+              <Icon name={iconName} size={16} />
             </SocialMediaLinkIcon>{' '}
             <SocialMediaLinkText showTextOnMobile={showTextOnMobile}>
               {linkText}

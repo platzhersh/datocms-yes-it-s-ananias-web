@@ -48,6 +48,9 @@ What becomes easier or more difficult to do because of this change?
 - [ADR-0002](0002-replace-fontawesome-with-inline-svg-icons.md) - Replace FontAwesome with Inline SVG Icons
 - [ADR-0003](0003-optimize-custom-font-loading.md) - Optimize Custom Font Loading Strategy
 - [ADR-0004](0004-improve-build-configuration.md) - Improve Build Configuration and Remove Redundancies
+- [ADR-0005](0005-remove-unused-dependencies.md) - Remove Unused Dependencies
+- [ADR-0006](0006-standardize-on-styled-components.md) - Standardize on Styled Components and Remove Emotion
+- [ADR-0007](0007-consolidate-scss-files.md) - Consolidate SCSS Files
 
 ## Template
 

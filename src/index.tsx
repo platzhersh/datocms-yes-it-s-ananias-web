@@ -5,7 +5,6 @@ import client from './client'
 import App from './components/App'
 import './styles/fonts.scss'
 import './styles/index.scss'
-import './styles/old-style.scss'
 import initGtm from './gtm'
 
 initGtm()

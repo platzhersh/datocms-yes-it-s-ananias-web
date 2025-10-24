@@ -8,10 +8,9 @@ export default defineConfig({
   base: "",
   plugins: [
     react({
-      include: /.(jsx|tsx)$/,
-      jsxImportSource: "@emotion/react",
+      include: /\.(jsx|tsx)$/,
       babel: {
-        plugins: ["@emotion/babel-plugin",],
+        plugins: ["babel-plugin-styled-components"],
         babelrc: false,
         configFile: false,
       },
@@ -46,11 +45,10 @@ export default defineConfig({
           ],
           // Styling libraries (runtime only)
           'vendor-ui': [
-            'styled-components',
-            '@emotion/react'
+            'styled-components'
           ],
           // Other utilities
-          'vendor-utils': ['lodash', 'luxon', 'qs']
+          'vendor-utils': ['lodash', 'luxon']
         }
       }
     }
