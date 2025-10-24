@@ -2,7 +2,17 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2d4a5a92-c5f0-47c5-93d0-616610d2d176/deploy-status)](https://app.netlify.com/sites/yesitsananias/deploys)
 
+## Setup
+
+Content Management: DatoCMS
+
+Deployment: Netlify
+
 ## Changelog
+
+### 2025-10-24 v2.1.2
+
+- [fix] handle Mailchimp subscribe timeouts
 
 ### 2022-08-29 v2.1.1
 
