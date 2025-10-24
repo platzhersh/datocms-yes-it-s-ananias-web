@@ -10,6 +10,10 @@ Deployment: Netlify
 
 ## Changelog
 
+### 2025-10-24 v2.1.2
+
+- [fix] handle Mailchimp subscribe timeouts
+
 ### 2022-08-29 v2.1.1
 
 - [feature] Fetch mehr als nur 20 Events
