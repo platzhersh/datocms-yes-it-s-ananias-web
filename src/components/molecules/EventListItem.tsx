@@ -6,6 +6,7 @@ import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
 import { ExternalLink } from '../atoms/ExternalLink'
 import { ActionButton } from '../atoms/ActionButton/ActionButton'
+import { Icon } from '../atoms/Icon'
 import { EventItem } from '../../models/eventItem'
 
 const StyledEventListItem = styled(ItemContainer)`
@@ -57,7 +58,7 @@ export const EventListItem = (props: EventListItemProps) => {
         <EventTimeAndLocation>
           {event.venueUrl ? (
             <span title="Location">
-              <i className="fas fa-map-marker-alt"></i>{' '}
+              <Icon name="map-marker" size={16} />{' '}
               <a
                 href={event.venueUrl}
                 rel="noopener noreferrer"
@@ -68,11 +69,11 @@ export const EventListItem = (props: EventListItemProps) => {
             </span>
           ) : (
             <span title="Location">
-              <i className="fas fa-map-marker-alt"></i> {event.venueName}
+              <Icon name="map-marker" size={16} /> {event.venueName}
             </span>
           )}
           <span title="Show start">
-            <i className="far fa-clock"></i> {event.time}
+            <Icon name="clock" size={16} /> {event.time}
           </span>
         </EventTimeAndLocation>
         {event.eventUrl && (
