@@ -42,11 +42,10 @@ export default defineConfig({
             'graphql',
             'graphql-tag'
           ],
-          // Styling libraries
+          // Styling libraries (runtime only)
           'vendor-ui': [
             'styled-components',
-            '@emotion/react',
-            '@emotion/babel-plugin'
+            '@emotion/react'
           ],
           // Other utilities
           'vendor-utils': ['lodash', 'luxon', 'qs']
