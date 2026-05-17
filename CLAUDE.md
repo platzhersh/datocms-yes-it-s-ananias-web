@@ -92,7 +92,7 @@ GraphQL queries are written inline with `gql` imported from `@apollo/client` (no
 ### Styling Approach
 1. **Styled Components** — primary, theme-aware. Use for new components.
 2. **Emotion** — configured via `jsxImportSource: "@emotion/react"` in `vite.config.js` and `@emotion/babel-plugin`. Available but rarely used.
-3. **SCSS** — legacy globals imported in `src/index.tsx` (`fonts.scss`, `index.scss`, `old-style.scss`).
+3. **SCSS** — legacy globals imported in `src/index.tsx` (`fonts.scss`, `index.scss`).
 
 `babel-plugin-macros` is enabled via `.babelrc` (used by `graphql.macro`, `babel-plugin-styled-components`).
 
@@ -109,9 +109,8 @@ Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block 
 3. Add a nav link in `src/components/organisms/Navigation.tsx`.
 
 **Fetch DatoCMS data**:
-1. Write the query inline with `gql`, interpolating fragments from `src/queries/fragments/`.
+1. Write the query inline with `gql` (imported from `@apollo/client`), interpolating fragments from `src/queries/fragments/`.
 2. Wrap it in `<QueryLoader query={Q} successCallback={data => …} />`.
-3. If the schema changed, refresh `src/schema.json` (introspection result) — otherwise fragment matching will warn/break.
 
 **Add a Storybook story**: drop `Component.stories.jsx` next to the component; it'll be picked up by the glob in `.storybook/main.js` (`src/**/*.stories.@(js|jsx|ts|tsx)`).
 
