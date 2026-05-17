@@ -1,12 +1,12 @@
-import { gql } from "@apollo/client";
-import React from "react";
-import { QueryLoader } from "../../organisms/QueryLoader/QueryLoader";
-import { ReleaseCard } from "../ReleaseCard/ReleaseCard";
-import { ReleaseFragment } from "../../../queries/fragments/ReleaseFragment";
-import { VideoFragment } from "../../../queries/fragments/VideoFragment";
-import { VideoCard } from "../VideoCard/VideoCard";
-import { Video } from "../../../models/video";
-import { Release } from "../../../models/Release";
+import { gql } from '@apollo/client'
+import React from 'react'
+import { QueryLoader } from '../../organisms/QueryLoader/QueryLoader'
+import { ReleaseCard } from '../ReleaseCard/ReleaseCard'
+import { ReleaseFragment } from '../../../queries/fragments/ReleaseFragment'
+import { VideoFragment } from '../../../queries/fragments/VideoFragment'
+import { VideoCard } from '../VideoCard/VideoCard'
+import { Video } from '../../../models/video'
+import { Release } from '../../../models/Release'
 
 const featuredContentQuery = gql`
   query FeaturedContentQuery {
@@ -21,15 +21,15 @@ const featuredContentQuery = gql`
       showFeaturedVideos
     }
   }
-`;
+`
 
 interface FeaturedContentData {
   home: {
-    featuredRelease: Release;
-    showFeaturedRelease: boolean;
-    featuredvideos: Video[];
-    showFeaturedVideos: boolean;
-  };
+    featuredRelease: Release
+    showFeaturedRelease: boolean
+    featuredvideos: Video[]
+    showFeaturedVideos: boolean
+  }
 }
 
 export const FeaturedContent = () => {
@@ -37,29 +37,21 @@ export const FeaturedContent = () => {
     <QueryLoader
       query={featuredContentQuery}
       successCallback={(data: FeaturedContentData) => {
-        const { home } = data;
-        const {
-          featuredRelease,
-          showFeaturedRelease,
-          featuredvideos,
-          showFeaturedVideos,
-        } = home;
+        const { home } = data
+        const { featuredRelease, showFeaturedRelease, featuredvideos, showFeaturedVideos } = home
         return (
           <>
             {home && showFeaturedRelease && featuredRelease ? (
               <section>
                 <h1>Featured Release</h1>
                 <div>
-                  <ReleaseCard
-                    release={featuredRelease}
-                    key={featuredRelease.id}
-                  />
+                  <ReleaseCard release={featuredRelease} key={featuredRelease.id} />
                 </div>
               </section>
             ) : null}
             {home && showFeaturedVideos && featuredvideos ? (
               <>
-                <h1>Featured Videos</h1>{" "}
+                <h1>Featured Videos</h1>{' '}
                 {featuredvideos.map((video) => (
                   <section key={video.id}>
                     <div>
@@ -70,8 +62,8 @@ export const FeaturedContent = () => {
               </>
             ) : null}
           </>
-        );
+        )
       }}
     />
-  );
-};
+  )
+}

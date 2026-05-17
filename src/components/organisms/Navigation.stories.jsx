@@ -8,7 +8,7 @@ export default {
   title: 'organisms/Navigation'
 }
 
-const Template = args => <Navigation {...args} />
+const Template = (args) => <Navigation {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

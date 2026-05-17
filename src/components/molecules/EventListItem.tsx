@@ -34,18 +34,18 @@ const CoverImageContainer = styled.div`
 `
 type EventListItemProps = {
   event: EventItem
- };
+}
 
 export const EventListItem = (props: EventListItemProps) => {
   const { event } = props
-  const dateTime = event.date ? DateTime.fromISO(event.date, {zone: "utc"}): undefined
+  const dateTime = event.date ? DateTime.fromISO(event.date, { zone: 'utc' }) : undefined
   // const dateTime = date ? DateTime.fromJSDate(date) : undefined
   const formattedDate = dateTime
     ? `${dateTime.toLocaleString({
         weekday: 'long',
         month: 'long',
         day: '2-digit',
-        year: 'numeric',
+        year: 'numeric'
       })}`
     : ''
 
@@ -59,22 +59,18 @@ export const EventListItem = (props: EventListItemProps) => {
         <h2>{event.title}</h2>
         <EventTimeAndLocation>
           {event.venueUrl ? (
-            <span title="Location">
+            <span title='Location'>
               <FontAwesomeIcon icon={faLocationDot} />{' '}
-              <a
-                href={event.venueUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <a href={event.venueUrl} rel='noopener noreferrer' target='_blank'>
                 {event.venueName}
               </a>
             </span>
           ) : (
-            <span title="Location">
+            <span title='Location'>
               <FontAwesomeIcon icon={faLocationDot} /> {event.venueName}
             </span>
           )}
-          <span title="Show start">
+          <span title='Show start'>
             <FontAwesomeIcon icon={faClock} /> {event.time}
           </span>
         </EventTimeAndLocation>

@@ -30,14 +30,10 @@ export const ErrorMessage = (props: ErrorMessageProps) => {
   return (
     <StyledItemContainer>
       <div>
-        <StyledHeader>OOPS-YIA</StyledHeader>    
+        <StyledHeader>OOPS-YIA</StyledHeader>
         <p>Something went wrong loading this content...</p>
-        {authenticationError && (
-          <p>Could not authenticate with the server.</p>
-        )}
-        {noInternetConnection && (
-          <p>Check your internet connection and try to reload.</p>
-        )}
+        {authenticationError && <p>Could not authenticate with the server.</p>}
+        {noInternetConnection && <p>Check your internet connection and try to reload.</p>}
         {!noInternetConnection && <p>Please try to reload.</p>}
       </div>
     </StyledItemContainer>

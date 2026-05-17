@@ -27,25 +27,53 @@ const SocialIconList = styled.ul`
 export default () => (
   <SocialIconList>
     <li>
-      <SocialMediaLink url='https://www.facebook.com/YesItsAnanias/' linkText='Facebook' icon={<FontAwesomeIcon icon={faFacebook} />} />
+      <SocialMediaLink
+        url='https://www.facebook.com/YesItsAnanias/'
+        linkText='Facebook'
+        icon={<FontAwesomeIcon icon={faFacebook} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://www.instagram.com/nstreichenberg/' linkText='Instagram' icon={<FontAwesomeIcon icon={faInstagram} />} />
+      <SocialMediaLink
+        url='https://www.instagram.com/nstreichenberg/'
+        linkText='Instagram'
+        icon={<FontAwesomeIcon icon={faInstagram} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://www.youtube.com/user/YesItsAnanias' linkText='YouTube' icon={<FontAwesomeIcon icon={faYoutube} />} />
+      <SocialMediaLink
+        url='https://www.youtube.com/user/YesItsAnanias'
+        linkText='YouTube'
+        icon={<FontAwesomeIcon icon={faYoutube} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://soundcloud.com/yes-its-ananias' linkText='Soundcloud' icon={<FontAwesomeIcon icon={faSoundcloud} />} />
+      <SocialMediaLink
+        url='https://soundcloud.com/yes-its-ananias'
+        linkText='Soundcloud'
+        icon={<FontAwesomeIcon icon={faSoundcloud} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv?si=0f5xRULHSUWn0VygUURzBQ' linkText='Spotify' icon={<FontAwesomeIcon icon={faSpotify} />} />
+      <SocialMediaLink
+        url='https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv?si=0f5xRULHSUWn0VygUURzBQ'
+        linkText='Spotify'
+        icon={<FontAwesomeIcon icon={faSpotify} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://music.apple.com/ch/artist/yes-its-ananias/557224206' linkText='Apple Music' icon={<FontAwesomeIcon icon={faItunesNote} />} />
+      <SocialMediaLink
+        url='https://music.apple.com/ch/artist/yes-its-ananias/557224206'
+        linkText='Apple Music'
+        icon={<FontAwesomeIcon icon={faItunesNote} />}
+      />
     </li>
     <li>
-      <SocialMediaLink url='https://yesitsananias.bandcamp.com/releases' linkText='Bandcamp' icon={<FontAwesomeIcon icon={faBandcamp} />} />
+      <SocialMediaLink
+        url='https://yesitsananias.bandcamp.com/releases'
+        linkText='Bandcamp'
+        icon={<FontAwesomeIcon icon={faBandcamp} />}
+      />
     </li>
   </SocialIconList>
 )

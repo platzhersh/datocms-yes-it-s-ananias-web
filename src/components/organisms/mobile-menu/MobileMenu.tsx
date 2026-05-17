@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
 import Navigation from '../Navigation'
 
@@ -7,7 +7,6 @@ import Navigation from '../Navigation'
 
 const MenuOverlay = styled.div`
   display: none;
-  
 
   @media (max-width: 500px) {
     position: fixed;
@@ -30,15 +29,21 @@ const MobileNavigation = styled(Navigation)`
   top: 0px;
   left: 0px;
   box-sizing: border-box;
-
-`;
+`
 
 type MobileMenuProps = {
-  visible: boolean,
+  visible: boolean
   onNavLinkClick?: () => void
 }
 
-export const MobileMenu = ({visible, onNavLinkClick}: MobileMenuProps) => {
-      
-      return <>{visible && <MenuOverlay><MobileNavigation onNavLinkClick={onNavLinkClick}/></MenuOverlay>}</>;
+export const MobileMenu = ({ visible, onNavLinkClick }: MobileMenuProps) => {
+  return (
+    <>
+      {visible && (
+        <MenuOverlay>
+          <MobileNavigation onNavLinkClick={onNavLinkClick} />
+        </MenuOverlay>
+      )}
+    </>
+  )
 }

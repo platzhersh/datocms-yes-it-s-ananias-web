@@ -52,9 +52,7 @@ const About = () => (
           <div>
             {data.about.content.map((contentBlock) => (
               <div key={contentBlock.id}>
-                <TextBlockContainer
-                  dangerouslySetInnerHTML={{ __html: contentBlock.text }}
-                />
+                <TextBlockContainer dangerouslySetInnerHTML={{ __html: contentBlock.text }} />
               </div>
             ))}
           </div>

@@ -14,7 +14,7 @@ const StyledIframe = styled.iframe`
   border: none;
   margin-bottom: 1em;
 `
-export const SpotifyEmbed = (props) => {
+export const SpotifyEmbed = () => {
   return (
     <>
       <SpotifyContainer>

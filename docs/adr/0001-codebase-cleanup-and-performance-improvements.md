@@ -72,7 +72,7 @@ order it will be executed:
      per-icon imports.
    - Add `React.lazy` + `Suspense` for each route in `App.tsx`.
    - Move the custom font from an SCSS `@import` to a `<link
-     rel="preload">` + `<link rel="stylesheet">` in `index.html`.
+rel="preload">` + `<link rel="stylesheet">` in `index.html`.
    - Raise `tsconfig` `target` to `es2020`.
    - Replace the default lodash import with `lodash/groupBy` (or native).
 

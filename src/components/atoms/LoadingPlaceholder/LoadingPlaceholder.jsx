@@ -13,7 +13,7 @@ const StyledHeader = styled.h1`
   margin-bottom: 0;
 `
 
-export const LoadingPlaceholder = (props) => {
+export const LoadingPlaceholder = () => {
   return (
     <StyledItemContainer>
       <div>

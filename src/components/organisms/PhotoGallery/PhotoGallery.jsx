@@ -6,7 +6,7 @@ import 'yet-another-react-lightbox/styles.css'
 const PhotoGallery = ({ photos }) => {
   const [index, setIndex] = useState(-1)
 
-  const openLightbox = useCallback((_event, { index }) => setIndex(index), [])
+  const openLightbox = useCallback((_event, { index: clicked }) => setIndex(clicked), [])
 
   return (
     <div>
