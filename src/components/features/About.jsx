@@ -3,6 +3,7 @@ import { gql } from '@apollo/client'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
+import { FadeInStagger } from '../atoms/FadeIn/FadeIn'
 
 const aboutQuery = gql`
   query about {
@@ -54,13 +55,13 @@ const About = () => (
 
       return (
         <section>
-          <div>
+          <FadeInStagger>
             {data.about.content.map((contentBlock) => (
               <div key={contentBlock.id}>
                 <TextBlockContainer dangerouslySetInnerHTML={{ __html: contentBlock.text }} />
               </div>
             ))}
-          </div>
+          </FadeInStagger>
           <PhotoGallery photos={galleryConfig} />
         </section>
       )
