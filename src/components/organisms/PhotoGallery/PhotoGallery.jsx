@@ -15,7 +15,12 @@ const PhotoGallery = ({ photos }) => {
         open={index >= 0}
         close={() => setIndex(-1)}
         index={Math.max(index, 0)}
-        slides={photos.map((p) => ({ src: p.src, srcSet: p.srcSet, alt: p.title }))}
+        slides={photos.map((p) => ({
+          src: p.src,
+          alt: p.title,
+          width: p.width,
+          height: p.height
+        }))}
       />
     </div>
   )

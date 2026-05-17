@@ -74,8 +74,8 @@ Replace the `standard` dependency with `oxlint` and `oxfmt`. Concretely:
    commit so the lint commit afterwards has a stable formatting
    baseline.
 
-Acceptance criteria: `yarn lint` passes from a clean tree; `yarn build`
-and `yarn build-storybook` continue to pass unchanged; `oxfmt --check`
+Acceptance criteria: `pnpm lint` passes from a clean tree; `pnpm build`
+and `pnpm build-storybook` continue to pass unchanged; `oxfmt --check`
 returns clean.
 
 ## Consequences

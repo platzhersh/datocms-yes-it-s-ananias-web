@@ -45,7 +45,12 @@ const About = () => (
     successCallback={(data) => {
       const galleryConfig = data.about.content
         .filter((c) => c.image)
-        .map((c) => ({ src: c.image.url, width: 3, height: 4 }))
+        .map((c) => ({
+          src: c.image.url,
+          title: c.image.responsiveImage.title,
+          width: 3,
+          height: 4
+        }))
 
       return (
         <section>
