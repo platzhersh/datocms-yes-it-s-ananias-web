@@ -60,7 +60,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 
 ### Tech Stack
 
-- **Build**: Vite 5 + `@vitejs/plugin-react` (with Emotion's `jsxImportSource`) + `vite-tsconfig-paths`
+- **Build**: Vite 8 + `@vitejs/plugin-react` (with Emotion's `jsxImportSource`) + `vite-tsconfig-paths`
 - **UI**: React 18, routing via Wouter
 - **Styling**: Styled Components (primary) + Emotion + SCSS (legacy) — all three coexist
 - **Data**: `@apollo/client`@3.14.1 (v3 API — `useQuery` hook, `gql` re-exported from `@apollo/client`)
