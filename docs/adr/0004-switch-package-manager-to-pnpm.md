@@ -97,7 +97,7 @@ do not need a manual `npm install -g pnpm` step.
 
 Concrete changes:
 
-1. Add `"packageManager": "pnpm@9.x.x"` to `package.json`. Corepack
+1. Add `"packageManager": "pnpm@11.1.2"` to `package.json`. Corepack
    (built into Node ≥ 16, fully on by default in Node 24) will read
    this field and use the right pnpm version when contributors run
    `pnpm install`.
@@ -110,7 +110,7 @@ Concrete changes:
    genuinely cannot be fixed.
 4. Update `.github/workflows/ci.yml`: replace the `setup-node` +
    `yarn install` steps with `pnpm/action-setup` + `pnpm install
-   --frozen-lockfile`. Update the cache to point at pnpm's store.
+--frozen-lockfile`. Update the cache to point at pnpm's store.
 5. Update CLAUDE.md commands and the README badge if any.
 6. Leave the existing `.npmrc` `save-exact=true` in place — pnpm
    honours it for `pnpm add` the same way Yarn did.

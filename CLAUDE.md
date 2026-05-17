@@ -8,38 +8,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
+Package manager: **pnpm**, pinned via the `packageManager` field in
+`package.json` and activated by corepack (built into Node ≥ 16, on by
+default in Node 24). No global `pnpm install` needed — first invocation
+will provision it.
+
 ```bash
-# Install dependencies (Node 24.15.0 pinned in .nvmrc; package.json requires >=22)
-yarn install
+# Install dependencies (Node 24.15.0 pinned in .nvmrc; engines >=22)
+pnpm install
 
 # Start dev server (opens browser at localhost:3000)
-yarn start
+pnpm start
 
 # Production build — runs `tsc` (type-check, no emit) THEN `vite build`.
 # A TypeScript error will fail the build even though Vite would otherwise
 # transpile JS/TS the same way.
-yarn build              # outputs to /build
+pnpm build              # outputs to /build
 
 # Preview the production build locally
-yarn preview
+pnpm preview
 
 # Lint (oxlint, Rust-based; check-only)
-yarn lint
-yarn lint:fix           # auto-fix lint issues
+pnpm lint
+pnpm lint:fix           # auto-fix lint issues
 
 # Format (oxfmt, Rust-based; same style as the old StandardJS: no semis,
 # single quotes, 2-space indent, no trailing commas, printWidth 100)
-yarn format             # writes
-yarn format:check       # CI-style check
+pnpm format             # writes
+pnpm format:check       # CI-style check
 
 # Storybook (component sandbox; stories live next to components as *.stories.jsx)
-yarn storybook          # port 6006
-yarn build-storybook
+pnpm storybook          # port 6006
+pnpm build-storybook
 ```
 
-There is **no test runner configured** — no `yarn test`, no Jest/Vitest setup. `@types/jest` is in devDependencies but unused. Don't claim "tests pass"; rely on `yarn build` (type-check) and `yarn lint`.
+There is **no test runner configured** — no `pnpm test`, no Jest/Vitest setup. Don't claim "tests pass"; rely on `pnpm build` (type-check) and `pnpm lint`.
 
-`.npmrc` sets `save-exact=true`, so any added dependency is pinned without a `^` prefix — keep it that way.
+`.npmrc` sets `save-exact=true`, so any added dependency is pinned without a `^` prefix — keep it that way. Build-script approvals (e.g. for `esbuild`) live in `pnpm-workspace.yaml` under `allowBuilds`.
 
 ## Environment Configuration
 
@@ -65,6 +70,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 - **Deployment**: Netlify (`netlify.toml` redirects all paths to `/index.html` for SPA routing; includes the Lighthouse plugin)
 
 ### Apollo Setup (`src/client.js`)
+
 - `@apollo/client`@^3.11.0. `ApolloClient`, `InMemoryCache`, and `HttpLink` are all imported from the single `@apollo/client` entry point. The v3 API is used throughout (hooks, not render-prop `<Query>`).
 - Points at `https://graphql.datocms.com` with the API token as a Bearer header.
 - Cache: `addTypename: false`, `dataIdFromObject: obj => obj.id`. No `IntrospectionFragmentMatcher` / `possibleTypes` configured — the schema currently has no union/interface types whose fragments need resolving.
@@ -91,6 +97,7 @@ Wouter `<Switch>` with these routes:
 - `/discography` → `features/FullDiscography`
 
 ### Data Fetching Patterns
+
 Use the `QueryLoader` organism (`organisms/QueryLoader/QueryLoader.jsx`), which wraps `useQuery` from `@apollo/client` and renders `LoadingPlaceholder` / `ErrorMessage` / `successCallback(data)`. Direct `useQuery` calls are also fine when a component needs more control than the wrapper provides.
 
 GraphQL queries are written inline with `gql` imported from `@apollo/client` (not the separate `graphql-tag` package). Reusable field selections live in `src/queries/fragments/` (e.g., `ReleaseFragment.js`, `VideoFragment.js`) — these are exported as raw template strings and interpolated into `gql` queries, not as parsed `DocumentNode`s.
@@ -110,9 +117,10 @@ GraphQL queries are written inline with `gql` imported from `@apollo/client` (no
 `babel-plugin-macros` is enabled via `.babelrc` (used by `graphql.macro`, `babel-plugin-styled-components`).
 
 ### TypeScript Migration
+
 Mid-migration: `allowJs: true`, `strict: true`, target `es2020`, JSX `react` (classic runtime). Files are a mix of `.tsx`/`.ts`/`.jsx`/`.js`. **Prefer TypeScript for new files.** Domain models live in `src/models/` (`Release.ts`, `eventItem.ts`, `video.ts`). Path aliases declared in `tsconfig.json` are picked up by Vite via `vite-tsconfig-paths`.
 
-Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block the production build even if Vite would happily strip them.
+Because `pnpm build` runs `tsc` first, broken types anywhere under `src/` block the production build even if Vite would happily strip them.
 
 ## Common Workflows
 
@@ -123,6 +131,7 @@ Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block 
 3. Add a nav link in `src/components/organisms/Navigation.tsx`.
 
 **Fetch DatoCMS data**:
+
 1. Write the query inline with `gql` (imported from `@apollo/client`), interpolating fragments from `src/queries/fragments/`.
 2. Wrap it in `<QueryLoader query={Q} successCallback={data => …} />`.
 

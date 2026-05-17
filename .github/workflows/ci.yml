@@ -15,24 +15,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: yarn
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build (tsc + vite)
-        run: yarn build
+        run: pnpm build
 
       - name: Build Storybook
-        run: yarn build-storybook
+        run: pnpm build-storybook
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Format check (non-blocking)
-        run: yarn format:check
+        run: pnpm format:check
         continue-on-error: true
