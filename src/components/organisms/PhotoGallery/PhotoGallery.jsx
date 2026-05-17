@@ -1,39 +1,22 @@
 import React, { useCallback, useState } from 'react'
-import Carousel, { Modal, ModalGateway } from 'react-images'
 import Gallery from 'react-photo-gallery'
+import Lightbox from 'yet-another-react-lightbox'
+import 'yet-another-react-lightbox/styles.css'
 
-const PhotoGallery = (props) => {
-  const { photos } = props
-  const [currentImage, setCurrentImage] = useState(0)
-  const [viewerIsOpen, setViewerIsOpen] = useState(false)
+const PhotoGallery = ({ photos }) => {
+  const [index, setIndex] = useState(-1)
 
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index)
-    setViewerIsOpen(true)
-  }, [])
-
-  const closeLightbox = () => {
-    setCurrentImage(0)
-    setViewerIsOpen(false)
-  }
+  const openLightbox = useCallback((_event, { index }) => setIndex(index), [])
 
   return (
     <div>
       <Gallery photos={photos} onClick={openLightbox} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photos.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+      <Lightbox
+        open={index >= 0}
+        close={() => setIndex(-1)}
+        index={Math.max(index, 0)}
+        slides={photos.map((p) => ({ src: p.src, srcSet: p.srcSet, alt: p.title }))}
+      />
     </div>
   )
 }
