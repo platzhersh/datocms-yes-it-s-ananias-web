@@ -4,7 +4,7 @@ Date: 2026-05-17
 
 ## Status
 
-Proposed
+Accepted (implemented 2026-05-17 across commits e79e6b1 → d6140fb)
 
 ## Context
 
