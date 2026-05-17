@@ -45,7 +45,7 @@ export const FeaturedContent = () => {
               <section>
                 <h1>Featured Release</h1>
                 <div>
-                  <ReleaseCard release={featuredRelease} key={featuredRelease.id} />
+                  <ReleaseCard release={featuredRelease} key={featuredRelease.id} priority />
                 </div>
               </section>
             ) : null}

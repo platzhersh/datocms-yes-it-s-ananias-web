@@ -5,7 +5,7 @@ import YouTubeVideo from '../../atoms/YouTubeVideo'
 export const VideoCard = ({ video }) => {
   return (
     <ItemContainer>
-      <h3>{video.title}</h3>
+      <h2>{video.title}</h2>
       <div>
         <YouTubeVideo video={video.videourl} />
       </div>
