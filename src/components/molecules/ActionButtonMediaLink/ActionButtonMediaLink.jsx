@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { ActionButton } from '../../atoms/ActionButton/ActionButton'
 import { ExternalLink } from '../../atoms/ExternalLink'
 
-const SocialMediaLinkIcon = styled.span``
-
 const SocialMediaLinkText = styled.span`
   ${({ showTextOnMobile }) =>
     showTextOnMobile
@@ -17,11 +15,11 @@ const SocialMediaLinkText = styled.span`
 export const ActionButtonMediaLink = (props) => {
   const {
     url,
-    iconClassName,
+    icon,
     variant,
     linkText,
     inverse,
-    showTextOnMobile,
+    showTextOnMobile
   } = props
   return (
     <ExternalLink url={url}>
@@ -30,15 +28,13 @@ export const ActionButtonMediaLink = (props) => {
         inverse={inverse}
         text={
           <>
-            <SocialMediaLinkIcon>
-              <i className={iconClassName} />
-            </SocialMediaLinkIcon>{' '}
+            <span>{icon}</span>{' '}
             <SocialMediaLinkText showTextOnMobile={showTextOnMobile}>
               {linkText}
             </SocialMediaLinkText>
           </>
         }
-      ></ActionButton>
+      />
     </ExternalLink>
   )
 }

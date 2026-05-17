@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { ItemContainer } from '../atoms/ItemContainer/ItemContainer'
 import { Image } from 'react-datocms'
 import { StructuredText } from 'react-datocms'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { ExternalLink } from '../atoms/ExternalLink'
 import { ActionButton } from '../atoms/ActionButton/ActionButton'
 import { EventItem } from '../../models/eventItem'
@@ -57,7 +60,7 @@ export const EventListItem = (props: EventListItemProps) => {
         <EventTimeAndLocation>
           {event.venueUrl ? (
             <span title="Location">
-              <i className="fas fa-map-marker-alt"></i>{' '}
+              <FontAwesomeIcon icon={faLocationDot} />{' '}
               <a
                 href={event.venueUrl}
                 rel="noopener noreferrer"
@@ -68,11 +71,11 @@ export const EventListItem = (props: EventListItemProps) => {
             </span>
           ) : (
             <span title="Location">
-              <i className="fas fa-map-marker-alt"></i> {event.venueName}
+              <FontAwesomeIcon icon={faLocationDot} /> {event.venueName}
             </span>
           )}
           <span title="Show start">
-            <i className="far fa-clock"></i> {event.time}
+            <FontAwesomeIcon icon={faClock} /> {event.time}
           </span>
         </EventTimeAndLocation>
         {event.eventUrl && (
