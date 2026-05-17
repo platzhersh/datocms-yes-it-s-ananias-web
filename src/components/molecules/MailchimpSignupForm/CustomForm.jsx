@@ -23,8 +23,6 @@ const StyledActionButton = styled(ActionButton)`
   margin: 0.5em 0 0.5em 1em;
 `
 
-const StyledForm = styled.form``
-
 const FormRow = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +100,7 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
   }
 
   return (
-    <StyledForm onSubmit={(event) => handleSubmit(event)}>
+    <form onSubmit={(event) => handleSubmit(event)}>
       <div>
         {status === 'sending' && !isTimeout && <div>Sending...</div>}
         {status === 'sending' && isTimeout && (
@@ -146,6 +144,6 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
           text="Subscribe"
         />
       </FormRow>
-    </StyledForm>
+    </form>
   )
 }
