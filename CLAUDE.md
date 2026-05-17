@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-"Yes it's Ananias" - a band website for the artist Ananias. React 18 single-page app built with Vite, content from DatoCMS via GraphQL (Apollo Client v2), deployed on Netlify.
+"Yes it's Ananias" - a band website for the artist Ananias. React 18 single-page app built with Vite, content from DatoCMS via GraphQL (`@apollo/client` v3), deployed on Netlify.
 
 ## Development Commands
 
 ```bash
-# Install dependencies (Node 20.11.0 pinned in .nvmrc; package.json requires >=18)
+# Install dependencies (Node 24.15.0 pinned in .nvmrc; package.json requires >=22)
 yarn install
 
 # Start dev server (opens browser at localhost:3000)
@@ -50,17 +50,17 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 - **Build**: Vite 5 + `@vitejs/plugin-react` (with Emotion's `jsxImportSource`) + `vite-tsconfig-paths`
 - **UI**: React 18, routing via Wouter
 - **Styling**: Styled Components (primary) + Emotion + SCSS (legacy) — all three coexist
-- **Data**: Apollo Client v2.6 (`apollo-client` + `react-apollo` 3.1, NOT `@apollo/client`)
+- **Data**: `@apollo/client`@^3.11.0 (v3 API — `useQuery` hook, `gql` re-exported from `@apollo/client`)
 - **CMS**: DatoCMS GraphQL API
 - **Dates**: Luxon (`DateTime`) for event handling
 - **Analytics**: Google Tag Manager via `react-gtm-module`
 - **Deployment**: Netlify (`netlify.toml` redirects all paths to `/index.html` for SPA routing; includes the Lighthouse plugin)
 
 ### Apollo Setup (`src/client.js`)
+- `@apollo/client`@^3.11.0. `ApolloClient`, `InMemoryCache`, and `HttpLink` are all imported from the single `@apollo/client` entry point. The v3 API is used throughout (hooks, not render-prop `<Query>`).
 - Points at `https://graphql.datocms.com` with the API token as a Bearer header.
-- Uses `IntrospectionFragmentMatcher` against `src/schema.json`. **`schema.json` is checked in and must be manually re-fetched whenever the DatoCMS schema changes** — there is no codegen step.
-- Cache: `addTypename: false`, `dataIdFromObject: obj => obj.id`.
-- `ApolloProvider` wraps `<App />` in `src/index.tsx`.
+- Cache: `addTypename: false`, `dataIdFromObject: obj => obj.id`. No `IntrospectionFragmentMatcher` / `possibleTypes` configured — the schema currently has no union/interface types whose fragments need resolving.
+- `ApolloProvider` (from `@apollo/client`) wraps `<App />` in `src/index.tsx`.
 
 ### Component Architecture (Atomic Design)
 - `src/components/atoms/` — primitives (ActionButton, ErrorMessage, LoadingPlaceholder, ExternalLink, YouTubeVideo, …)
@@ -80,11 +80,9 @@ Wouter `<Switch>` with these routes:
 - `/discography` → `features/FullDiscography`
 
 ### Data Fetching Patterns
-Two patterns coexist — be aware of both:
-1. **`QueryLoader` organism** (`organisms/QueryLoader/QueryLoader.jsx`): wraps `<Query>` and renders `LoadingPlaceholder` / `ErrorMessage` / `successCallback(data)`. Preferred for new code.
-2. **Direct `<Query>` from `react-apollo`**: still used in older components like `molecules/UpcomingEvents.jsx`. If you touch one of these, you may migrate it to `QueryLoader`, but it's not required.
+Use the `QueryLoader` organism (`organisms/QueryLoader/QueryLoader.jsx`), which wraps `useQuery` from `@apollo/client` and renders `LoadingPlaceholder` / `ErrorMessage` / `successCallback(data)`. Direct `useQuery` calls are also fine when a component needs more control than the wrapper provides.
 
-GraphQL queries are written inline with `graphql-tag`'s `gql` template tag. Reusable field selections live in `src/queries/fragments/` (e.g., `ReleaseFragment.js`, `VideoFragment.js`) — these are exported as raw template strings and interpolated into `gql` queries, not as parsed `DocumentNode`s.
+GraphQL queries are written inline with `gql` imported from `@apollo/client` (not the separate `graphql-tag` package). Reusable field selections live in `src/queries/fragments/` (e.g., `ReleaseFragment.js`, `VideoFragment.js`) — these are exported as raw template strings and interpolated into `gql` queries, not as parsed `DocumentNode`s.
 
 ### Theme System
 - `Theme` organism (`organisms/Theme.jsx`) wraps the app with Styled Components' `ThemeProvider`.
@@ -99,7 +97,7 @@ GraphQL queries are written inline with `graphql-tag`'s `gql` template tag. Reus
 `babel-plugin-macros` is enabled via `.babelrc` (used by `graphql.macro`, `babel-plugin-styled-components`).
 
 ### TypeScript Migration
-Mid-migration: `allowJs: true`, `strict: true`, target `es5`, JSX `react` (classic runtime). Files are a mix of `.tsx`/`.ts`/`.jsx`/`.js`. **Prefer TypeScript for new files.** Domain models live in `src/models/` (`Release.ts`, `eventItem.ts`, `video.ts`). Path aliases declared in `tsconfig.json` are picked up by Vite via `vite-tsconfig-paths`.
+Mid-migration: `allowJs: true`, `strict: true`, target `es2020`, JSX `react` (classic runtime). Files are a mix of `.tsx`/`.ts`/`.jsx`/`.js`. **Prefer TypeScript for new files.** Domain models live in `src/models/` (`Release.ts`, `eventItem.ts`, `video.ts`). Path aliases declared in `tsconfig.json` are picked up by Vite via `vite-tsconfig-paths`.
 
 Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block the production build even if Vite would happily strip them.
 
@@ -122,6 +120,6 @@ Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block 
 - Music artist site: releases, videos, shows, about, photo gallery.
 - Embeds: Spotify (`SpotifyEmbed`), YouTube via `react-lite-youtube-embed` (lazy, for perf).
 - Newsletter: Mailchimp via `react-mailchimp-subscribe` (`MailchimpSignupForm`).
-- Photo gallery uses `react-photo-gallery` + `react-images`.
+- Photo gallery uses `react-photo-gallery` + `yet-another-react-lightbox`@3.32.0.
 - Events come from DatoCMS `allEvents`; `UpcomingEvents` filters to today+future and groups by year using Luxon.
 - StandardJS is the lint standard (no semicolons, 2-space indent, single quotes) — `yarn lint` auto-fixes.

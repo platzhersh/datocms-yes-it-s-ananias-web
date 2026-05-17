@@ -45,7 +45,7 @@
     "graphql": "16.8.1"
   },
   "dependencies": {
-    "@apollo/client": "^3.11.0",
+    "@apollo/client": "3.14.1",
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/react": "11.11.3",
     "@fortawesome/fontawesome-svg-core": "7.2.0",
@@ -80,7 +80,7 @@
     "@storybook/addon-links": "10.4.0",
     "@storybook/react-vite": "10.4.0",
     "@types/lodash": "4.14.202",
-    "@types/node": "24",
+    "@types/node": "24.12.4",
     "@types/react": "18.2.0",
     "@types/react-gtm-module": "2.0.3",
     "@types/styled-components": "5.1.34",
