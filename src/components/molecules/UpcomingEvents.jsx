@@ -4,7 +4,7 @@ import { Query } from 'react-apollo'
 import { EventListItem } from './EventListItem'
 import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
 import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
-import _ from 'lodash'
+import groupBy from 'lodash/groupBy'
 import { DateTime } from 'luxon'
 
 const eventsQuery = gql`
@@ -71,7 +71,7 @@ const UpcomingEvents = (props) => {
 
         const upcomingEvents = filterUpcomingEvents(data)
         const groupedByYear = Object.entries(
-          _.groupBy(upcomingEvents, (event) => event.date.year)
+          groupBy(upcomingEvents, (event) => event.date.year)
         )
 
         return (
