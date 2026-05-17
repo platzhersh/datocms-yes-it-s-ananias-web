@@ -63,7 +63,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 - **Build**: Vite 5 + `@vitejs/plugin-react` (with Emotion's `jsxImportSource`) + `vite-tsconfig-paths`
 - **UI**: React 18, routing via Wouter
 - **Styling**: Styled Components (primary) + Emotion + SCSS (legacy) — all three coexist
-- **Data**: `@apollo/client`@^3.11.0 (v3 API — `useQuery` hook, `gql` re-exported from `@apollo/client`)
+- **Data**: `@apollo/client`@3.14.1 (v3 API — `useQuery` hook, `gql` re-exported from `@apollo/client`)
 - **CMS**: DatoCMS GraphQL API
 - **Dates**: Luxon (`DateTime`) for event handling
 - **Analytics**: Google Tag Manager via `react-gtm-module`
@@ -71,7 +71,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 
 ### Apollo Setup (`src/client.js`)
 
-- `@apollo/client`@^3.11.0. `ApolloClient`, `InMemoryCache`, and `HttpLink` are all imported from the single `@apollo/client` entry point. The v3 API is used throughout (hooks, not render-prop `<Query>`).
+- `@apollo/client`@3.14.1. `ApolloClient`, `InMemoryCache`, and `HttpLink` are all imported from the single `@apollo/client` entry point. The v3 API is used throughout (hooks, not render-prop `<Query>`).
 - Points at `https://graphql.datocms.com` with the API token as a Bearer header.
 - Cache: `addTypename: false`, `dataIdFromObject: obj => obj.id`. No `IntrospectionFragmentMatcher` / `possibleTypes` configured — the schema currently has no union/interface types whose fragments need resolving.
 - `ApolloProvider` (from `@apollo/client`) wraps `<App />` in `src/index.tsx`.
