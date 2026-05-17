@@ -61,9 +61,9 @@ export const FeaturedContent = () => {
               <>
                 <h1>Featured Videos</h1>{" "}
                 {featuredvideos.map((video) => (
-                  <section>
+                  <section key={video.id}>
                     <div>
-                      <VideoCard video={video} key={video.id} />
+                      <VideoCard video={video} />
                     </div>
                   </section>
                 ))}

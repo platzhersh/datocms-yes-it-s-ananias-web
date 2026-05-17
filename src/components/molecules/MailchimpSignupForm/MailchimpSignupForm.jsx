@@ -4,13 +4,16 @@ import { CustomForm } from './CustomForm'
 
 export const MailchimpSignupForm = (props) => {
   const urlBase = import.meta.env.VITE_APP_MAILCHIMP_URL
-  const mailchimp_u = import.meta.env.VITE_APP_MAILCHIMP_U
-  const mailchimp_id = import.meta.env.VITE_APP_MAILCHIMP_ID
+  const mailchimpU = import.meta.env.VITE_APP_MAILCHIMP_U
+  const mailchimpId = import.meta.env.VITE_APP_MAILCHIMP_ID
 
-  if (!urlBase || !mailchimp_u || !mailchimp_id) {
-    return <>Mailchimp Settings missing or wrongly setup.</>
+  if (!urlBase || !mailchimpU || !mailchimpId) {
+    if (import.meta.env.DEV) {
+      console.warn('Mailchimp env vars missing — signup form hidden')
+    }
+    return null
   }
-  const postUrl = `${urlBase}/subscribe/post?u=${mailchimp_u}&id=${mailchimp_id}`
+  const postUrl = `${urlBase}/subscribe/post?u=${mailchimpU}&id=${mailchimpId}`
 
   return (
     <>

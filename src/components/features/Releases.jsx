@@ -20,7 +20,7 @@ const Releases = (_props) => {
         <section>
           <div>
             {data.allReleases.map((release) => (
-              <ReleaseCard release={release} />
+              <ReleaseCard key={release.id} release={release} />
             ))}
           </div>
         </section>
