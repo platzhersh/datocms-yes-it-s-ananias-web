@@ -1,6 +1,5 @@
-import React from 'react';
-import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
-import SocialMediaLinks from './SocialMediaLinks';
+import React from 'react'
+import SocialMediaLinks from './SocialMediaLinks'
 
 export default {
   component: SocialMediaLinks,
