@@ -42,11 +42,11 @@ const ActionItems = styled.div`
   }
 `
 
-export const ReleaseCard = ({ release }) => {
+export const ReleaseCard = ({ release, priority = false }) => {
   return (
     <StyledAlbumListItem inverse={release.highlight} key={release.id}>
       <CoverImageContainer>
-        {release.cover && <Image data={release.cover.responsiveImage} />}
+        {release.cover && <Image data={release.cover.responsiveImage} priority={priority} />}
       </CoverImageContainer>
       <StyledAlbumDescription>
         <ReleaseInfos>

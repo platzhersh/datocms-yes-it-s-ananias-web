@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { SpotifyLink } from '../ActionButtonMediaLink/SpotifyLink'
 import { ItemContainer } from '../../atoms/ItemContainer/ItemContainer'
@@ -14,10 +14,43 @@ const StyledIframe = styled.iframe`
   border: none;
   margin-bottom: 1em;
 `
+
+const IframeSlot = styled.div`
+  width: 100%;
+  height: 380px;
+  margin-bottom: 1em;
+`
+
 export const SpotifyEmbed = () => {
+  const slotRef = useRef(null)
+  const [shouldMount, setShouldMount] = useState(false)
+
+  useEffect(() => {
+    if (shouldMount) return
+    const node = slotRef.current
+    if (!node) return
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setShouldMount(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldMount(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '400px' }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [shouldMount])
+
   return (
-    <>
-      <SpotifyContainer>
+    <SpotifyContainer>
+      {shouldMount ? (
         <StyledIframe
           title="Yes It's Ananias on Spotify"
           src='https://open.spotify.com/embed/artist/1OakuD8h6abwYdcEVCs4Hv'
@@ -28,11 +61,13 @@ export const SpotifyEmbed = () => {
           allow='encrypted-media'
           sandbox='allow-same-origin allow-scripts'
         />
-        <SpotifyLink
-          url='https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv'
-          text="Yes It's Ananias on Spotify"
-        />
-      </SpotifyContainer>
-    </>
+      ) : (
+        <IframeSlot ref={slotRef} aria-hidden='true' />
+      )}
+      <SpotifyLink
+        url='https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv'
+        text="Yes It's Ananias on Spotify"
+      />
+    </SpotifyContainer>
   )
 }
