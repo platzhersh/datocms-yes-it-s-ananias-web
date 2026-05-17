@@ -30,6 +30,9 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook
 
-      - name: Lint (non-blocking)
-        run: yarn lint:ci
+      - name: Lint
+        run: yarn lint
+
+      - name: Format check (non-blocking)
+        run: yarn format:check
         continue-on-error: true

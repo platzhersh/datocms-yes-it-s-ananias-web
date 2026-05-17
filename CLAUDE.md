@@ -23,8 +23,14 @@ yarn build              # outputs to /build
 # Preview the production build locally
 yarn preview
 
-# Lint/format with StandardJS (no semicolons, 2-space indent, single quotes)
-yarn lint               # runs `standard --fix`
+# Lint (oxlint, Rust-based; check-only)
+yarn lint
+yarn lint:fix           # auto-fix lint issues
+
+# Format (oxfmt, Rust-based; same style as the old StandardJS: no semis,
+# single quotes, 2-space indent, no trailing commas, printWidth 100)
+yarn format             # writes
+yarn format:check       # CI-style check
 
 # Storybook (component sandbox; stories live next to components as *.stories.jsx)
 yarn storybook          # port 6006
@@ -38,6 +44,7 @@ There is **no test runner configured** — no `yarn test`, no Jest/Vitest setup.
 ## Environment Configuration
 
 Copy `.env-sample` to `.env`:
+
 - `VITE_APP_DATO_API_TOKEN` - DatoCMS API token (required for content fetching)
 - `VITE_APP_GTM_ID` - Google Tag Manager ID
 - `VITE_APP_MAILCHIMP_URL`, `VITE_APP_MAILCHIMP_U`, `VITE_APP_MAILCHIMP_ID` - Mailchimp integration
@@ -47,6 +54,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 ## Architecture
 
 ### Tech Stack
+
 - **Build**: Vite 5 + `@vitejs/plugin-react` (with Emotion's `jsxImportSource`) + `vite-tsconfig-paths`
 - **UI**: React 18, routing via Wouter
 - **Styling**: Styled Components (primary) + Emotion + SCSS (legacy) — all three coexist
@@ -63,6 +71,7 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 - `ApolloProvider` (from `@apollo/client`) wraps `<App />` in `src/index.tsx`.
 
 ### Component Architecture (Atomic Design)
+
 - `src/components/atoms/` — primitives (ActionButton, ErrorMessage, LoadingPlaceholder, ExternalLink, YouTubeVideo, …)
 - `src/components/molecules/` — composites (Header, Footer, EventListItem, ReleaseCard, MailchimpSignupForm, UpcomingEvents, …)
 - `src/components/organisms/` — Navigation, MobileMenu, PhotoGallery, QueryLoader, Theme
@@ -71,12 +80,14 @@ Vite only exposes vars prefixed with `VITE_APP_`; they're read via `import.meta.
 Newer components live in their own folder (`ComponentName/ComponentName.jsx` + `.stories.jsx`); older ones are flat files in the category directory. Both patterns are present — match the surrounding style.
 
 ### Routing (`src/components/App.tsx`)
+
 Wouter `<Switch>` with these routes:
+
 - `/` → `features/Home`
 - `/about` → `features/About`
 - `/releases` → `features/Releases`
 - `/videos` → `features/Videos`
-- `/shows` → `molecules/UpcomingEvents` *(note: this is the molecule, not the `features/Shows.jsx` file — that file appears to be a legacy/unused variant)*
+- `/shows` → `molecules/UpcomingEvents` _(note: this is the molecule, not the `features/Shows.jsx` file — that file appears to be a legacy/unused variant)_
 - `/discography` → `features/FullDiscography`
 
 ### Data Fetching Patterns
@@ -85,11 +96,13 @@ Use the `QueryLoader` organism (`organisms/QueryLoader/QueryLoader.jsx`), which 
 GraphQL queries are written inline with `gql` imported from `@apollo/client` (not the separate `graphql-tag` package). Reusable field selections live in `src/queries/fragments/` (e.g., `ReleaseFragment.js`, `VideoFragment.js`) — these are exported as raw template strings and interpolated into `gql` queries, not as parsed `DocumentNode`s.
 
 ### Theme System
+
 - `Theme` organism (`organisms/Theme.jsx`) wraps the app with Styled Components' `ThemeProvider`.
 - Theme object in `src/styles/theme.js` composes `colorPalette.js` + `fonts.js`. Orange is the brand primary (`theme.colors.highlightPrimary`).
 - Inside styled components, access via `${props => props.theme.colors.X}`.
 
 ### Styling Approach
+
 1. **Styled Components** — primary, theme-aware. Use for new components.
 2. **Emotion** — configured via `jsxImportSource: "@emotion/react"` in `vite.config.js` and `@emotion/babel-plugin`. Available but rarely used.
 3. **SCSS** — legacy globals imported in `src/index.tsx` (`fonts.scss`, `index.scss`).
@@ -104,6 +117,7 @@ Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block 
 ## Common Workflows
 
 **Add a page**:
+
 1. Create the component in `src/components/features/` (prefer `.tsx`).
 2. Add a `<Route>` in `src/components/App.tsx`.
 3. Add a nav link in `src/components/organisms/Navigation.tsx`.
@@ -121,4 +135,4 @@ Because `yarn build` runs `tsc` first, broken types anywhere under `src/` block 
 - Newsletter: Mailchimp via `react-mailchimp-subscribe` (`MailchimpSignupForm`).
 - Photo gallery uses `react-photo-gallery` + `yet-another-react-lightbox`@3.32.0.
 - Events come from DatoCMS `allEvents`; `UpcomingEvents` filters to today+future and groups by year using Luxon.
-- StandardJS is the lint standard (no semicolons, 2-space indent, single quotes) — `yarn lint` auto-fixes.
+- Lint via `oxlint` (Rust); format via `oxfmt` (Rust, pre-1.0). Style mirrors the old StandardJS conventions: no semis, single quotes, 2-space indent, no trailing commas, printWidth 100. Configs at `.oxlintrc.json` and `.oxfmtrc.json`.

@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "import/no-unassigned-import": "off",
+    "react/jsx-key": "error",
+    "react/jsx-no-undef": "error",
+    "react/no-unknown-property": "warn"
+  },
+  "ignorePatterns": ["build", "storybook-static", "node_modules", "src/schema.json"]
+}

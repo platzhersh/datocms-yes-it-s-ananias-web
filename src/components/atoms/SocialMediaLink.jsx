@@ -11,8 +11,7 @@ export default (props) => {
   const { url, linkText, icon } = props
   return (
     <a href={url} rel='noopener noreferrer' target='_blank' title={linkText}>
-      <span>{icon}</span>{' '}
-      <SocialMediaLinkText>{linkText}</SocialMediaLinkText>
+      <span>{icon}</span> <SocialMediaLinkText>{linkText}</SocialMediaLinkText>
     </a>
   )
 }
