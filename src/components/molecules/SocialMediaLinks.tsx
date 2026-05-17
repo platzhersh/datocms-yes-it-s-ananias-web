@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -11,8 +12,20 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import SocialMediaLink from '../atoms/SocialMediaLink'
 
+const SocialIconList = styled.ul`
+  padding: 0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  li {
+    list-style: none;
+  }
+`
+
 export default () => (
-  <ul className='social-icons'>
+  <SocialIconList>
     <li>
       <SocialMediaLink url='https://www.facebook.com/YesItsAnanias/' linkText='Facebook' icon={<FontAwesomeIcon icon={faFacebook} />} />
     </li>
@@ -34,5 +47,5 @@ export default () => (
     <li>
       <SocialMediaLink url='https://yesitsananias.bandcamp.com/releases' linkText='Bandcamp' icon={<FontAwesomeIcon icon={faBandcamp} />} />
     </li>
-  </ul>
+  </SocialIconList>
 )

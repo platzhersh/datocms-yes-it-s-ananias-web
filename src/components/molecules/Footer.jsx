@@ -5,11 +5,13 @@ import { MailchimpSignupForm } from './MailchimpSignupForm/MailchimpSignupForm'
 
 const StyledFooter = styled.footer`
   margin-top: 2em;
-  padding: 2em 0;
+  padding: 20px 0;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
 `
 
 export default () => (
-  <StyledFooter className='Footer-footer'>
+  <StyledFooter>
     <h1>Newsletter</h1>
     <ItemContainer>
       <MailchimpSignupForm />
