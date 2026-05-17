@@ -1,6 +1,5 @@
 import React from 'react'
-import { ApolloProvider } from 'react-apollo'
-import ReactDOM from 'react-dom'
+import { ApolloProvider } from '@apollo/client'
 import client from './client'
 import App from './components/App'
 import './styles/fonts.scss'

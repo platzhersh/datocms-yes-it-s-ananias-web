@@ -1,18 +1,11 @@
 import React from 'react'
-import { Query } from 'react-apollo'
+import { useQuery } from '@apollo/client'
 import { ErrorMessage } from '../../atoms/ErrorMessage/ErrorMessage'
 import { LoadingPlaceholder } from '../../atoms/LoadingPlaceholder/LoadingPlaceholder'
 
-export const QueryLoader = (props) => {
-  const { query, successCallback } = props
-
-  return (
-    <Query query={query}>
-      {({ data, loading, error }) => {
-        if (loading) return <LoadingPlaceholder />
-        if (error) return <ErrorMessage error={error} />
-        return successCallback(data)
-      }}
-    </Query>
-  )
+export const QueryLoader = ({ query, successCallback }) => {
+  const { data, loading, error } = useQuery(query)
+  if (loading) return <LoadingPlaceholder />
+  if (error) return <ErrorMessage error={error} />
+  return successCallback(data)
 }

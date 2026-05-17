@@ -1,11 +1,9 @@
 import React from 'react'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
-import { EventListItem } from './EventListItem'
-import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
-import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
+import { gql } from '@apollo/client'
 import groupBy from 'lodash/groupBy'
 import { DateTime } from 'luxon'
+import { EventListItem } from './EventListItem'
+import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 
 const eventsQuery = gql`
   query EventsQuery {
@@ -56,45 +54,39 @@ const filterUpcomingEvents = (data) => {
       }
     }
 
-    // parse date and add to accumulator
     acc.push({ ...event, date: DateTime.fromSQL(event.date, { zone: 'utc' }) })
     return acc
   }, [])
 }
 
-const UpcomingEvents = (props) => {
-  return (
-    <Query query={eventsQuery}>
-      {({ data, loading, error }) => {
-        if (loading) return <LoadingPlaceholder />
-        if (error) return <ErrorMessage error={error} />
+const UpcomingEvents = () => (
+  <QueryLoader
+    query={eventsQuery}
+    successCallback={(data) => {
+      const upcomingEvents = filterUpcomingEvents(data)
+      const groupedByYear = Object.entries(
+        groupBy(upcomingEvents, (event) => event.date.year)
+      )
 
-        const upcomingEvents = filterUpcomingEvents(data)
-        const groupedByYear = Object.entries(
-          groupBy(upcomingEvents, (event) => event.date.year)
-        )
+      if (groupedByYear.length === 0) return null
 
-        return (
-          groupedByYear &&
-          groupedByYear.length > 0 && (
-            <section>
-              <h1>Upcoming Shows</h1>
-              <div>
-                {groupedByYear.map(([year, events]) => (
-                  <React.Fragment key={year}>
-                    <h2>{year}</h2>
-                    {events.map((event) => (
-                      <EventListItem key={event.id} event={event} />
-                    ))}
-                  </React.Fragment>
+      return (
+        <section>
+          <h1>Upcoming Shows</h1>
+          <div>
+            {groupedByYear.map(([year, events]) => (
+              <React.Fragment key={year}>
+                <h2>{year}</h2>
+                {events.map((event) => (
+                  <EventListItem key={event.id} event={event} />
                 ))}
-              </div>
-            </section>
-          )
-        )
-      }}
-    </Query>
-  )
-}
+              </React.Fragment>
+            ))}
+          </div>
+        </section>
+      )
+    }}
+  />
+)
 
 export default UpcomingEvents

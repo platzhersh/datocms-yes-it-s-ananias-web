@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import React from "react";
 import { QueryLoader } from "../../organisms/QueryLoader/QueryLoader";
 import { ReleaseCard } from "../ReleaseCard/ReleaseCard";

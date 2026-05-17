@@ -1,5 +1,5 @@
 import React from 'react'
-import gql from 'graphql-tag'
+import { gql } from '@apollo/client'
 import { ReleaseCard } from '../molecules/ReleaseCard/ReleaseCard'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 import { ReleaseFragment } from '../../queries/fragments/ReleaseFragment'
