@@ -2,7 +2,7 @@ import React from 'react'
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import { CustomForm } from './CustomForm'
 
-export const MailchimpSignupForm = (props) => {
+export const MailchimpSignupForm = () => {
   const urlBase = import.meta.env.VITE_APP_MAILCHIMP_URL
   const mailchimpU = import.meta.env.VITE_APP_MAILCHIMP_U
   const mailchimpId = import.meta.env.VITE_APP_MAILCHIMP_ID

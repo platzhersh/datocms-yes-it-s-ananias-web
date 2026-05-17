@@ -64,9 +64,7 @@ const UpcomingEvents = () => (
     query={eventsQuery}
     successCallback={(data) => {
       const upcomingEvents = filterUpcomingEvents(data)
-      const groupedByYear = Object.entries(
-        groupBy(upcomingEvents, (event) => event.date.year)
-      )
+      const groupedByYear = Object.entries(groupBy(upcomingEvents, (event) => event.date.year))
 
       if (groupedByYear.length === 0) return null
 

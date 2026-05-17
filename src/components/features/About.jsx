@@ -45,16 +45,19 @@ const About = () => (
     successCallback={(data) => {
       const galleryConfig = data.about.content
         .filter((c) => c.image)
-        .map((c) => ({ src: c.image.url, width: 3, height: 4 }))
+        .map((c) => ({
+          src: c.image.url,
+          title: c.image.responsiveImage.title,
+          width: 3,
+          height: 4
+        }))
 
       return (
         <section>
           <div>
             {data.about.content.map((contentBlock) => (
               <div key={contentBlock.id}>
-                <TextBlockContainer
-                  dangerouslySetInnerHTML={{ __html: contentBlock.text }}
-                />
+                <TextBlockContainer dangerouslySetInnerHTML={{ __html: contentBlock.text }} />
               </div>
             ))}
           </div>

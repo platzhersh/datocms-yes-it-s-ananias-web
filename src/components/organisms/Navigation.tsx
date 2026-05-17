@@ -72,12 +72,24 @@ type NavigationProps = {
 export default ({ onNavLinkClick }: NavigationProps) => {
   return (
     <NavigationWrapper>
-      <NavItem onClick={onNavLinkClick} to='/'>Home</NavItem>
-      <NavItem onClick={onNavLinkClick} to='/about'>About</NavItem>
-      <NavItem onClick={onNavLinkClick} to='/shows'>Shows</NavItem>
-      <NavItem onClick={onNavLinkClick} to='/releases'>Releases</NavItem>
-      <NavItem onClick={onNavLinkClick} to='/discography'>Discography</NavItem>
-      <NavItem onClick={onNavLinkClick} to='/videos'>Videos</NavItem>
+      <NavItem onClick={onNavLinkClick} to='/'>
+        Home
+      </NavItem>
+      <NavItem onClick={onNavLinkClick} to='/about'>
+        About
+      </NavItem>
+      <NavItem onClick={onNavLinkClick} to='/shows'>
+        Shows
+      </NavItem>
+      <NavItem onClick={onNavLinkClick} to='/releases'>
+        Releases
+      </NavItem>
+      <NavItem onClick={onNavLinkClick} to='/discography'>
+        Discography
+      </NavItem>
+      <NavItem onClick={onNavLinkClick} to='/videos'>
+        Videos
+      </NavItem>
       <StyledExternalNavLink
         onClick={onNavLinkClick}
         href='https://yesitsananias.bandcamp.com/'

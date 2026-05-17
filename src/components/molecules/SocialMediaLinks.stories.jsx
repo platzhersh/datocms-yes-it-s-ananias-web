@@ -6,9 +6,7 @@ export default {
   title: 'molecules/SocialMediaLinks'
 }
 
-const Template = args => <SocialMediaLinks {...args} />
+const Template = (args) => <SocialMediaLinks {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
-
-}
+Default.args = {}

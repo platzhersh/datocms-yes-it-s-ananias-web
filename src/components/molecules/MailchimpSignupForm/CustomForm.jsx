@@ -33,16 +33,16 @@ const FormRow = styled.div`
 `
 
 const ErrorMessage = styled.div`
-  color: ${props => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.error};
   margin: 0.5em 0;
 `
 
 const FallbackLink = styled.a`
-  color: ${props => props.theme.colors.highlightPrimary};
+  color: ${(props) => props.theme.colors.highlightPrimary};
   text-decoration: underline;
 
   &:hover {
-    color: ${props => props.theme.colors.highlightSecondary};
+    color: ${(props) => props.theme.colors.highlightSecondary};
   }
 `
 
@@ -124,9 +124,7 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
             )}
           </ErrorMessage>
         )}
-        {status === 'success' && (
-          <div dangerouslySetInnerHTML={{ __html: message }} />
-        )}
+        {status === 'success' && <div dangerouslySetInnerHTML={{ __html: message }} />}
       </div>
 
       <FormRow>
@@ -138,11 +136,7 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
           placeholder='your@email.com'
           isRequired
         />
-        <StyledActionButton
-          type='submit'
-          formValues={[email]}
-          text='Subscribe'
-        />
+        <StyledActionButton type='submit' formValues={[email]} text='Subscribe' />
       </FormRow>
     </form>
   )

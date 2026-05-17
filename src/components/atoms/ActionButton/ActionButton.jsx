@@ -8,11 +8,9 @@ const StyledButton = styled.button`
   margin: auto;
   padding: 1em 2em;
   border: none;
-  color: ${({ theme, inverse }) =>
-    inverse ? theme.colors.highlightPrimary : 'black'};
+  color: ${({ theme, inverse }) => (inverse ? theme.colors.highlightPrimary : 'black')};
   font-size: ${({ size }) => (size && size === 'big' ? '1.2em' : '1em')};
-  background: ${({ theme, inverse }) =>
-    inverse ? 'black' : theme.colors.highlightPrimary};
+  background: ${({ theme, inverse }) => (inverse ? 'black' : theme.colors.highlightPrimary)};
   cursor: pointer;
   &:hover {
     opacity: 0.7;
@@ -20,30 +18,24 @@ const StyledButton = styled.button`
 `
 
 const SpotifyButton = styled(StyledButton)`
-  color: ${({ theme, inverse }) =>
-    inverse ? theme.colors.spotifyGreenRegular : 'black'};
-  background: ${({ theme, inverse }) =>
-    inverse ? 'black' : theme.colors.spotifyGreenRegular};
+  color: ${({ theme, inverse }) => (inverse ? theme.colors.spotifyGreenRegular : 'black')};
+  background: ${({ theme, inverse }) => (inverse ? 'black' : theme.colors.spotifyGreenRegular)};
 `
 
 const BandcampButton = styled(StyledButton)`
-  color: ${({ theme, inverse }) => (inverse ? 'orange' : 'black')};
-  background: ${({ theme, inverse }) => (inverse ? 'black' : 'orange')};
+  color: ${({ inverse }) => (inverse ? 'orange' : 'black')};
+  background: ${({ inverse }) => (inverse ? 'black' : 'orange')};
 `
 
 const YoutubeButton = styled(StyledButton)`
-  color: ${({ theme, inverse }) =>
-    inverse ? theme.colors.red.regular : 'black'};
-  background: ${({ theme, inverse }) =>
-    inverse ? 'black' : theme.colors.red.regular};
+  color: ${({ theme, inverse }) => (inverse ? theme.colors.red.regular : 'black')};
+  background: ${({ theme, inverse }) => (inverse ? 'black' : theme.colors.red.regular)};
 `
 
 const PurchaseButton = styled(StyledButton)`
   font-weight: bold;
-  color: ${({ theme, inverse }) =>
-    inverse ? theme.colors.purchaseAction : 'whitesmoke'};
-  background: ${({ theme, inverse }) =>
-    inverse ? 'black' : theme.colors.purchaseAction};
+  color: ${({ theme, inverse }) => (inverse ? theme.colors.purchaseAction : 'whitesmoke')};
+  background: ${({ theme, inverse }) => (inverse ? 'black' : theme.colors.purchaseAction)};
 `
 
 export const ActionButton = (props) => {

@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 type ItemContainerProps = {
-  inverse?: boolean,
+  inverse?: boolean
   children: React.ReactNode
 }
 

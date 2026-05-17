@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "none",
+  "printWidth": 100,
+  "arrowParens": "always",
+  "ignorePatterns": ["build/**", "storybook-static/**", "src/**/*.scss"]
+}

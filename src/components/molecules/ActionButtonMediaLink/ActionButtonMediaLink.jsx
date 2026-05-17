@@ -13,14 +13,7 @@ const SocialMediaLinkText = styled.span`
 `
 
 export const ActionButtonMediaLink = (props) => {
-  const {
-    url,
-    icon,
-    variant,
-    linkText,
-    inverse,
-    showTextOnMobile
-  } = props
+  const { url, icon, variant, linkText, inverse, showTextOnMobile } = props
   return (
     <ExternalLink url={url}>
       <ActionButton
