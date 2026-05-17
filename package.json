@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
+    "lint:fix": "oxlint --fix && oxfmt",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "storybook": "storybook dev -p 6006",
