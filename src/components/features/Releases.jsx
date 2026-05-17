@@ -2,6 +2,7 @@ import React from 'react'
 import { gql } from '@apollo/client'
 import { ReleaseCard } from '../molecules/ReleaseCard/ReleaseCard'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
+import { FadeInStagger } from '../atoms/FadeIn/FadeIn'
 import { ReleaseFragment } from '../../queries/fragments/ReleaseFragment'
 
 const releasesQuery = gql`
@@ -18,11 +19,11 @@ const Releases = (_props) => {
       query={releasesQuery}
       successCallback={(data) => (
         <section>
-          <div>
+          <FadeInStagger>
             {data.allReleases.map((release) => (
               <ReleaseCard key={release.id} release={release} />
             ))}
-          </div>
+          </FadeInStagger>
         </section>
       )}
     />

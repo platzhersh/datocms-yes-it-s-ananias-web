@@ -2,6 +2,7 @@ import React from 'react'
 import { gql } from '@apollo/client'
 import { VideoFragment } from '../../queries/fragments/VideoFragment'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
+import { FadeInStagger } from '../atoms/FadeIn/FadeIn'
 import { VideoCard } from '../molecules/VideoCard/VideoCard'
 
 const videosQuery = gql`
@@ -17,11 +18,11 @@ const Videos = () => (
     query={videosQuery}
     successCallback={(data) => (
       <section>
-        <div>
+        <FadeInStagger>
           {data.allVideos.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}
-        </div>
+        </FadeInStagger>
       </section>
     )}
   />

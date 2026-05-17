@@ -4,6 +4,7 @@ import groupBy from 'lodash/groupBy'
 import { DateTime } from 'luxon'
 import { EventListItem } from './EventListItem'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
+import { FadeInStagger } from '../atoms/FadeIn/FadeIn'
 
 const eventsQuery = gql`
   query EventsQuery {
@@ -71,7 +72,7 @@ const UpcomingEvents = () => (
       return (
         <section>
           <h1>Upcoming Shows</h1>
-          <div>
+          <FadeInStagger>
             {groupedByYear.map(([year, events]) => (
               <React.Fragment key={year}>
                 <h2>{year}</h2>
@@ -80,7 +81,7 @@ const UpcomingEvents = () => (
                 ))}
               </React.Fragment>
             ))}
-          </div>
+          </FadeInStagger>
         </section>
       )
     }}

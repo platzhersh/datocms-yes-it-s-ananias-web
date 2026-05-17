@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client'
 import React from 'react'
 import { QueryLoader } from '../../organisms/QueryLoader/QueryLoader'
+import { FadeInStagger } from '../../atoms/FadeIn/FadeIn'
 import { ReleaseCard } from '../ReleaseCard/ReleaseCard'
 import { ReleaseFragment } from '../../../queries/fragments/ReleaseFragment'
 import { VideoFragment } from '../../../queries/fragments/VideoFragment'
@@ -50,8 +51,8 @@ export const FeaturedContent = () => {
               </section>
             ) : null}
             {home && showFeaturedVideos && featuredvideos ? (
-              <>
-                <h1>Featured Videos</h1>{' '}
+              <FadeInStagger>
+                <h1>Featured Videos</h1>
                 {featuredvideos.map((video) => (
                   <section key={video.id}>
                     <div>
@@ -59,7 +60,7 @@ export const FeaturedContent = () => {
                     </div>
                   </section>
                 ))}
-              </>
+              </FadeInStagger>
             ) : null}
           </>
         )
