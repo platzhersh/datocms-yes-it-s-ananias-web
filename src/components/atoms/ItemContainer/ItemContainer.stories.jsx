@@ -6,7 +6,7 @@ import { Theme } from '../../organisms/Theme'
 
 export default {
   component: ItemContainer,
-  title: 'atoms/ItemContainer',
+  title: 'atoms/ItemContainer'
 }
 
 const Background = styled.div`
@@ -28,5 +28,5 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  inverse: false,
+  inverse: false
 }

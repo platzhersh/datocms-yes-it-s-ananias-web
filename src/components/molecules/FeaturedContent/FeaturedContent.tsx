@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import React from "react";
 import { QueryLoader } from "../../organisms/QueryLoader/QueryLoader";
 import { ReleaseCard } from "../ReleaseCard/ReleaseCard";
@@ -61,9 +61,9 @@ export const FeaturedContent = () => {
               <>
                 <h1>Featured Videos</h1>{" "}
                 {featuredvideos.map((video) => (
-                  <section>
+                  <section key={video.id}>
                     <div>
-                      <VideoCard video={video} key={video.id} />
+                      <VideoCard video={video} />
                     </div>
                   </section>
                 ))}

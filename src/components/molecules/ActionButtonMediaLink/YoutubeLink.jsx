@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { ActionButtonMediaLink } from './ActionButtonMediaLink'
 
 export const YoutubeLink = (props) => {
@@ -7,9 +9,9 @@ export const YoutubeLink = (props) => {
     <ActionButtonMediaLink
       url={url}
       inverse={inverse}
-      iconClassName="fab fa-youtube"
-      variant="youtube"
-      linkText="Watch Musicvideo"
+      icon={<FontAwesomeIcon icon={faYoutube} />}
+      variant='youtube'
+      linkText='Watch Musicvideo'
     />
   )
 }

@@ -1,12 +1,10 @@
 import React from 'react'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { gql } from '@apollo/client'
 import { StructuredText } from 'react-datocms'
 import TextBlockContainer from '../atoms/TextBlockContainer'
-import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
-import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
+import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 
-const discography = gql`
+const discographyQuery = gql`
   query fullDiscography {
     fulldiscography {
       content {
@@ -16,23 +14,17 @@ const discography = gql`
   }
 `
 
-const Discography = (props) => {
-  return (
-    <Query query={discography}>
-      {({ data, loading, error }) => {
-        if (loading) return <LoadingPlaceholder />
-        if (error) return <ErrorMessage error={error} />
-
-        return (
-          <section>
-            <TextBlockContainer>
-              <StructuredText data={data.fulldiscography.content.value} />
-            </TextBlockContainer>
-          </section>
-        )
-      }}
-    </Query>
-  )
-}
+const Discography = () => (
+  <QueryLoader
+    query={discographyQuery}
+    successCallback={(data) => (
+      <section>
+        <TextBlockContainer>
+          <StructuredText data={data.fulldiscography.content.value} />
+        </TextBlockContainer>
+      </section>
+    )}
+  />
+)
 
 export default Discography

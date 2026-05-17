@@ -1,5 +1,5 @@
 import React from 'react'
-import gql from 'graphql-tag'
+import { gql } from '@apollo/client'
 import { ReleaseCard } from '../molecules/ReleaseCard/ReleaseCard'
 import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 import { ReleaseFragment } from '../../queries/fragments/ReleaseFragment'
@@ -20,7 +20,7 @@ const Releases = (_props) => {
         <section>
           <div>
             {data.allReleases.map((release) => (
-              <ReleaseCard release={release} />
+              <ReleaseCard key={release.id} release={release} />
             ))}
           </div>
         </section>

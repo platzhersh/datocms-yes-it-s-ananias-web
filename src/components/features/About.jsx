@@ -1,10 +1,8 @@
 import React from 'react'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { gql } from '@apollo/client'
 import TextBlockContainer from '../atoms/TextBlockContainer'
 import PhotoGallery from '../organisms/PhotoGallery/PhotoGallery'
-import { LoadingPlaceholder } from '../atoms/LoadingPlaceholder/LoadingPlaceholder'
-import { ErrorMessage } from '../atoms/ErrorMessage/ErrorMessage'
+import { QueryLoader } from '../organisms/QueryLoader/QueryLoader'
 
 const aboutQuery = gql`
   query about {
@@ -41,40 +39,30 @@ const aboutQuery = gql`
   }
 `
 
-const About = (props) => {
-  return (
-    <Query query={aboutQuery}>
-      {({ data, loading, error }) => {
-        if (loading) return <LoadingPlaceholder />
-        if (error) return <ErrorMessage error={error} />
+const About = () => (
+  <QueryLoader
+    query={aboutQuery}
+    successCallback={(data) => {
+      const galleryConfig = data.about.content
+        .filter((c) => c.image)
+        .map((c) => ({ src: c.image.url, width: 3, height: 4 }))
 
-        const images = data.about.content
-          .filter((c) => c.image)
-          .map((i) => i.image)
-
-        const galleryConfig = images.map((i) => ({
-          src: i.url,
-          width: 3,
-          height: 4,
-        }))
-
-        return (
-          <section>
-            <div>
-              {data.about.content.map((contentBlock) => (
-                <div key={contentBlock.id}>
-                  <TextBlockContainer
-                    dangerouslySetInnerHTML={{ __html: contentBlock.text }}
-                  />
-                </div>
-              ))}
-            </div>
-            <PhotoGallery photos={galleryConfig} />
-          </section>
-        )
-      }}
-    </Query>
-  )
-}
+      return (
+        <section>
+          <div>
+            {data.about.content.map((contentBlock) => (
+              <div key={contentBlock.id}>
+                <TextBlockContainer
+                  dangerouslySetInnerHTML={{ __html: contentBlock.text }}
+                />
+              </div>
+            ))}
+          </div>
+          <PhotoGallery photos={galleryConfig} />
+        </section>
+      )
+    }}
+  />
+)
 
 export default About
