@@ -106,7 +106,7 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
         {status === 'sending' && isTimeout && (
           <ErrorMessage>
             Error: Timeout - Your browser might be blocking Mailchimp.{' '}
-            <FallbackLink href={getDirectSignupUrl()} target="_blank" rel="noopener noreferrer">
+            <FallbackLink href={getDirectSignupUrl()} target='_blank' rel='noopener noreferrer'>
               Click here to subscribe directly
             </FallbackLink>
           </ErrorMessage>
@@ -117,7 +117,7 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
             {mailchimpUrl && (
               <div style={{ marginTop: '0.5em' }}>
                 Or{' '}
-                <FallbackLink href={getDirectSignupUrl()} target="_blank" rel="noopener noreferrer">
+                <FallbackLink href={getDirectSignupUrl()} target='_blank' rel='noopener noreferrer'>
                   subscribe directly on Mailchimp
                 </FallbackLink>
               </div>
@@ -131,17 +131,17 @@ export const CustomForm = ({ status, message, onValidated, mailchimpUrl }) => {
 
       <FormRow>
         <StyledInput
-          label="Email"
+          label='Email'
           onChange={onEmailChange}
-          type="email"
+          type='email'
           value={email}
-          placeholder="your@email.com"
+          placeholder='your@email.com'
           isRequired
         />
         <StyledActionButton
-          type="submit"
+          type='submit'
           formValues={[email]}
-          text="Subscribe"
+          text='Subscribe'
         />
       </FormRow>
     </form>

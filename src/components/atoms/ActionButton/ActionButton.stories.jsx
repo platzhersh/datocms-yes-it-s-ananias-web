@@ -6,7 +6,7 @@ import { Theme } from '../../organisms/Theme'
 
 export default {
   component: ActionButton,
-  title: 'atoms/ActionButton',
+  title: 'atoms/ActionButton'
 }
 
 const Background = styled.div`
@@ -30,26 +30,26 @@ const Template = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   text: 'Button Text',
-  inverse: false,
+  inverse: false
 }
 
 export const Spotify = Template.bind({})
 Spotify.args = {
   variant: 'spotify',
   text: 'Button Text',
-  inverse: false,
+  inverse: false
 }
 
 export const Bandcamp = Template.bind({})
 Bandcamp.args = {
   variant: 'bandcamp',
   text: 'Button Text',
-  inverse: false,
+  inverse: false
 }
 
 export const Youtube = Template.bind({})
 Youtube.args = {
   variant: 'youtube',
   text: 'Button Text',
-  inverse: false,
+  inverse: false
 }

@@ -3,12 +3,12 @@ import SocialMediaLinks from './SocialMediaLinks'
 
 export default {
   component: SocialMediaLinks,
-  title: 'molecules/SocialMediaLinks',
-};
+  title: 'molecules/SocialMediaLinks'
+}
 
-const Template = args => <SocialMediaLinks {...args} />;
+const Template = args => <SocialMediaLinks {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  
-};
+
+}

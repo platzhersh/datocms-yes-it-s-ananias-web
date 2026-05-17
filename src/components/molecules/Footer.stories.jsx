@@ -4,7 +4,7 @@ import Footer from './Footer'
 
 export default {
   component: Footer,
-  title: 'molecules/Footer',
+  title: 'molecules/Footer'
 }
 
 const Template = (args) => (

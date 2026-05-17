@@ -4,7 +4,7 @@ import { LoadingPlaceholder } from './LoadingPlaceholder'
 
 export default {
   component: LoadingPlaceholder,
-  title: 'atoms/LoadingPlaceholder',
+  title: 'atoms/LoadingPlaceholder'
 }
 
 const Template = (args) => (
