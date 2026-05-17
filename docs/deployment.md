@@ -8,7 +8,7 @@ have to reverse-engineer the Netlify dashboard.
 
 ## Topology
 
-```
+```text
 ┌─────────────────────┐      ┌────────────────────────┐
 │  DatoCMS            │      │  GitHub                │
 │  graphql.datocms.com│      │  platzhersh/datocms-   │
