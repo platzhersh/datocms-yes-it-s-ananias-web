@@ -137,6 +137,10 @@ Because `pnpm build` runs `tsc` first, broken types anywhere under `src/` block 
 
 **Add a Storybook story**: drop `Component.stories.jsx` next to the component; it'll be picked up by the glob in `.storybook/main.js` (`src/**/*.stories.@(js|jsx|ts|tsx)`).
 
+## Git Conventions
+
+- Pull request titles must follow [Conventional Commits](https://www.conventionalcommits.org/) (e.g. `feat: add discography filter`, `fix: render lightbox at natural size`, `chore: bump vite to 8`). The same applies to commit messages on `main`.
+
 ## Project-Specific Notes
 
 - Music artist site: releases, videos, shows, about, photo gallery.
