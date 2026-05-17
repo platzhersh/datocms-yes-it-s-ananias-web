@@ -1,4 +1,4 @@
-# 5. Bump Vite to 7.x and Trial rolldown-vite
+# 5. Bump Vite and Adopt Built-in rolldown
 
 Date: 2026-05-17
 
@@ -16,10 +16,10 @@ project's bundler:
    - `esbuild@0.27.7`, pulled in directly by Storybook 10's
      `@storybook/csf-plugin` and `storybook` packages (they call
      esbuild for their own code transforms, independent of Vite).
-   pnpm keeps the two installs isolated in the store, but they're
-   still two downloads, two binaries, two attack surfaces. The cost
-   isn't catastrophic — esbuild is a few MB per platform binary —
-   but it's an avoidable duplicate.
+     pnpm keeps the two installs isolated in the store, but they're
+     still two downloads, two binaries, two attack surfaces. The cost
+     isn't catastrophic — esbuild is a few MB per platform binary —
+     but it's an avoidable duplicate.
 2. We're two majors behind on Vite. The 5.1.1 we have was released
    in February 2024; the current line is Vite 7 (latest 7.3.3) with
    Vite 8 already published. Vite 5 has dropped off the
@@ -47,13 +47,13 @@ Constraints from existing tools:
 Esbuild alignment is the deciding factor. Vite-version-to-esbuild
 relationships in the relevant range:
 
-| Vite | esbuild |
-|------|---------|
-| 5.1.x  | `^0.19.0` |
-| 6.0.x  | `^0.24.0` |
-| 6.2.x  | `^0.25.0` |
-| 7.x    | `^0.25.0` then `^0.27.0` (latest 7.3.x) |
-| 8.x    | `^0.27.0` |
+| Vite  | esbuild                                 |
+| ----- | --------------------------------------- |
+| 5.1.x | `^0.19.0`                               |
+| 6.0.x | `^0.24.0`                               |
+| 6.2.x | `^0.25.0`                               |
+| 7.x   | `^0.25.0` then `^0.27.0` (latest 7.3.x) |
+| 8.x   | `^0.27.0`                               |
 
 **Vite 7.3.x** is what aligns with Storybook 10's `esbuild@0.27.7`
 direct dep. Vite 8 would also align, but requires
@@ -101,19 +101,27 @@ small:
      equivalent output; bundle sizes within 10% of the Vite 5
      baseline; dev server starts.
 
-2. **Trial `rolldown-vite@7.3.1`** by swapping the `vite` entry to
-   `npm:rolldown-vite@7.3.1`.
-   - Run the same acceptance checks. If anything fails or surfaces
-     warnings that aren't easily resolved, revert to vanilla Vite 7
-     in the same commit and document what tripped.
-   - If it works cleanly, leave it in. The ADR captures the trial
-     so future contributors know why the `vite` entry has the
-     `npm:` alias.
+2. **Adopt rolldown via a Vite 8 bump** (changed from the original
+   "trial `rolldown-vite@7.3.1` via npm: alias" plan).
+   - The `rolldown-vite@7.3.1` package was discovered to be
+     **deprecated on publish** during the trial: npm's install log
+     reads "Use this package to migrate from Vite 7 to Vite 8."
+     The Vite team's intended migration path is now to use Vite 8
+     itself, which has `rolldown: 1.0.1` as a **direct dependency**.
+     rolldown is no longer an "alias trick" — it's the bundler that
+     Vite 8 ships with.
+   - Concretely: bump `vite` to `8.0.13` and
+     `@vitejs/plugin-react` to `6.0.2`. Plugin-react 6 declares
+     `@rolldown/plugin-babel` and `babel-plugin-react-compiler` as
+     **optional** peers — neither is needed unless the codebase
+     opts into them, so the install is clean without them.
+   - Storybook 10 supports Vite 8 (`vite: ^5 || ^6 || ^7 || ^8`),
+     so this bump propagates cleanly through the Storybook side.
 
-We do **not** bump to Vite 8 in this round. Vite 8 forces
-`@vitejs/plugin-react@6`, both of which are recent. Re-evaluating
-when rolldown-vite ships a Vite-8-mirrored release is fine; this
-ADR can be superseded then.
+The intermediate Vite 7 bump from step 1 stays as a separate commit
+so the diff between Vite 5 and Vite 7 (the conventional ecosystem-wide
+move) and the diff between Vite 7 and Vite 8 (the rolldown adoption)
+can be bisected independently.
 
 ## Consequences
 
@@ -135,11 +143,21 @@ flags a few breaking changes in that range:
 None of these touch our codebase. If the build surfaces a warning,
 it'll be tracked in a follow-up commit on the same branch.
 
-If the rolldown-vite trial succeeds, we get the bundler's Rust speed
-on the dev server's pre-bundle step and on production builds. If it
-fails or regresses something subtle, we revert the alias in one
-line. Either way, the experiment lives in version control so future
-attempts have a baseline to compare against.
+**Measured result of the Vite 8 + rolldown adoption:**
+
+- Production `vite build` time: **~3.5 s → 452 ms** (~8× speed-up).
+- Main entry bundle: 458.29 KB → 450.93 KB (raw); 147.66 KB → 143.86 KB
+  (gzipped). rolldown's chunking differs slightly from rollup's —
+  a few small chunks (e.g. `ExternalLink`, `StructuredText`) are
+  now split out into their own files instead of being inlined,
+  which mostly pays off the main chunk's small size reduction.
+- `pnpm lint`, `pnpm tsc --noEmit`, and `pnpm build-storybook`
+  all pass unchanged.
+
+If rolldown later regresses something subtle in production, the
+revert is `vite@7.3.3 + @vitejs/plugin-react@5.2.0` (the
+step-1 state preserved in commit history). The codebase itself
+has no rolldown-specific code; the swap is contained in package.json.
 
 The ADR convention from prior records (one ADR per architectural
 decision) is stretched slightly here by bundling two changes. The
