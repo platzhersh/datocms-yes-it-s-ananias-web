@@ -42,20 +42,12 @@ const eventsQuery = gql`
 const filterUpcomingEvents = (data) => {
   return data.allEvents.reduce((acc, event) => {
     if (!event.date) return acc
-    const date = new Date(event.date)
-    const today = new Date()
+    const date = DateTime.fromISO(event.date, { zone: 'utc' })
+    const today = DateTime.utc().startOf('day')
 
-    if (date.getFullYear() < today.getFullYear()) {
-      return acc
-    }
-    if (date.getFullYear() === today.getFullYear()) {
-      if (date.getMonth() < today.getMonth()) return acc
-      if (date.getMonth() === today.getMonth()) {
-        if (date.getDate() < today.getDate()) return acc
-      }
-    }
+    if (date < today) return acc
 
-    acc.push({ ...event, date: DateTime.fromSQL(event.date, { zone: 'utc' }) })
+    acc.push({ ...event, date })
     return acc
   }, [])
 }
