@@ -1,0 +1,36 @@
+# Yes it's Ananias
+
+> Yes it's Ananias is a Swiss solo piano project by N. Streichenberg, performing
+> "Contemporary Psycho-Automatic Piano" — instrumental, contemporary and
+> experimental piano music. The official website lists releases, music videos,
+> the full discography and upcoming live shows.
+
+The site is a single-page React application; the canonical, human-facing content
+is rendered client-side and managed in DatoCMS. This file summarizes the artist
+for AI tools and answer engines.
+
+## Pages
+
+- [Home](https://www.yesitsananias.com/): Featured release, featured video and upcoming shows.
+- [About](https://www.yesitsananias.com/about): Biography and photo gallery.
+- [Releases](https://www.yesitsananias.com/releases): Latest and highlighted releases with Spotify, YouTube and shop links.
+- [Videos](https://www.yesitsananias.com/videos): Music videos (YouTube).
+- [Shows](https://www.yesitsananias.com/shows): Upcoming live concerts and events.
+- [Discography](https://www.yesitsananias.com/discography): Complete discography.
+
+## Listen
+
+- [Spotify](https://open.spotify.com/artist/1OakuD8h6abwYdcEVCs4Hv)
+- [Apple Music](https://music.apple.com/ch/artist/yes-its-ananias/557224206)
+- [Bandcamp](https://yesitsananias.bandcamp.com/releases)
+- [YouTube](https://www.youtube.com/user/YesItsAnanias)
+- [Soundcloud](https://soundcloud.com/yes-its-ananias)
+
+## Social
+
+- [Instagram](https://www.instagram.com/nstreichenberg/)
+- [Facebook](https://www.facebook.com/YesItsAnanias/)
+
+## Contact
+
+- Booking & general enquiries: booking@yesitsananias.com
